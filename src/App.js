@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
+import Card from './Components/Card';
 import Dashboard from './Components/Dashboard';
 import EmpManagement from './Components/EmpManagement';
 import Events from './Components/Events';
@@ -19,6 +20,8 @@ function App() {
           <NavLink className="nav-item nav-link" to="/events">Events</NavLink>
           <NavLink className="nav-item nav-link" to="/forgot-password">Forgot Password</NavLink>
           <NavLink className="nav-item nav-link" to="/reset-password"> Reset Password</NavLink>
+          <NavLink className="nav-item nav-link" to="/card"> Card</NavLink>
+          
         </nav>
         <div className="App">
           <Routes>
@@ -28,6 +31,8 @@ function App() {
             <Route exact path='/events' element={< Events />}></Route>
             <Route exact path='/forgot-password' element={< ForgotPassword />}></Route>
             <Route exact path='/reset-password' element={<ResetPassword/>}></Route>
+            <Route exact path='/card' element={<Card/>}></Route>
+      
 
           </Routes>
         </div>

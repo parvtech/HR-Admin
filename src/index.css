@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,4 +10,239 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+} */
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+body{
+  font-family: 'Poppins', sans-serif;
+} */
+@font-face {
+  font-family: "Black";
+  src: local("CircularStd-Black"),
+  url("./fonts/CircularStd-Black.otf")
+  format("woff")
+}
+@font-face {
+  font-family: "Medium";
+  src: local("CircularStd-Medium"),
+  url("./fonts/CircularStd-Medium.otf")
+  format("woff")
+}
+@font-face {
+  font-family: "Bold";
+  src: local("CircularStd-Bold"),
+  url("./fonts/CircularStd-Bold.otf")
+  format("woff")
+}
+@font-face {
+  font-family: "Book";
+  src: local("CircularStd-Book"),
+  url("./fonts/CircularStd-Book.otf")
+  format("woff")
+}
+.h1black{
+  font-family: "Black";
+  font-size: 26px;
+  color: black;
+}
+.h1bold{
+  font-family: "Bold";
+  font-size: 26px;
+  color: black;
+
+}
+.h1book{
+  font-family: "Book";
+  font-size: 26px;
+  color: black;
+
+}
+.h1medium{
+  font-family: "Medium";
+  font-size: 26px;
+  color: black;
+
+}
+.h2black{
+  font-family: "Black";
+  font-size: 24px;
+  color: black;
+}
+.h2bold{
+  font-family: "Bold";
+  font-size: 24px;
+  color: black;
+
+}
+.h2book{
+  font-family: "Book";
+  font-size: 24px;
+  color: black;
+
+}
+.h2medium{
+  font-family: "Medium";
+  font-size: 24px;
+  color: black;
+
+}
+.h3black{
+  font-family: "Black";
+  font-size: 22px;
+  color: black;
+}
+.h3bold{
+  font-family: "Bold";
+  font-size: 22px;
+  color: black;
+
+}
+.h3book{
+  font-family: "Book";
+  font-size: 22px;
+  color: black;
+
+}
+.h3medium{
+  font-family: "Medium";
+  font-size: 22px;
+  color: black;
+
+}
+.b1black{
+  font-family: "Black";
+  font-size: 20px;
+  color: black;
+}
+.b1bold{
+  font-family: "Bold";
+  font-size: 20px;
+  color: black;
+
+}
+.b1book{
+  font-family: "Book";
+  font-size: 20px;
+  color: black;
+
+}
+.b1medium{
+  font-family: "Medium";
+  font-size: 20px;
+  color: black;
+
+}
+.b2black{
+  font-family: "Black";
+  font-size: 18px;
+  color: black;
+}
+.b2bold{
+  font-family: "Bold";
+  font-size: 18px;
+  color: black;
+
+}
+.b2book{
+  font-family: "Book";
+  font-size:18px;
+  color: black;
+
+}
+.b2medium{
+  font-family: "Medium";
+  font-size: 18px;
+  color: black;
+
+}
+.b3black{
+  font-family: "Black";
+  font-size: 16px;
+  color: black;
+}
+.b3bold{
+  font-family: "Bold";
+  font-size: 16px;
+  color: black;
+
+}
+.b3book{
+  font-family: "Book";
+  font-size:16px;
+  color: black;
+
+}
+.b3medium{
+  font-family: "Medium";
+  font-size: 16px;
+  color: black;
+
+}
+.c1black{
+  font-family: "Black";
+  font-size: 15px;
+  color: black;
+}
+.c1bold{
+  font-family: "Bold";
+  font-size: 15px;
+  color: black;
+
+}
+.c1book{
+  font-family: "Book";
+  font-size:15px;
+  color: black;
+
+}
+.c1medium{
+  font-family: "Medium";
+  font-size: 15px;
+  color: black;
+
+}
+.c2black{
+  font-family: "Black";
+  font-size: 14px;
+  color: black;
+}
+.c2bold{
+  font-family: "Bold";
+  font-size: 14px;
+  color: black;
+
+}
+.c2book{
+  font-family: "Book";
+  font-size:14px;
+  color: black;
+
+}
+.c2medium{
+  font-family: "Medium";
+  font-size: 14px;
+  color: black;
+
+}
+.c3black{
+  font-family: "Black";
+  font-size: 12px;
+  color: black;
+}
+.c3bold{
+  font-family: "Bold";
+  font-size: 12px;
+  color: black;
+
+}
+.c3book{
+  font-family: "Book";
+  font-size:12px;
+  color: black;
+
+}
+.c3medium{
+  font-family: "Medium";
+  font-size: 12px;
+  color: black;
+
 }
