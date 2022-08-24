@@ -3,6 +3,7 @@ import  Logo  from "../../src/asstes/Logo.png"
 import "./Reset.css"
 import { AiFillEye } from "react-icons/ai"
 
+
 export default function ResetPassword () {
   return (
     <div style={{backgroundColor:"#F7F7F7",height:"90vh"}}>
@@ -11,13 +12,13 @@ export default function ResetPassword () {
             <div className='col-4'></div>
             <div className='col-4 mt-4'>
                 <img src={Logo} className="text-center rounded mx-auto mb-1 d-block img-fluid"/>
-                <p className='small text-center'><b>Welcome To Human Resources Pay</b></p>
+                <p className='text-center b3medium'>Welcome To Human Resources Pay</p>
                 <div className='card m-3 p-3 '>
-                    <h4 className='text-center'>Reset Password</h4>
-                    <p className='text-secondary small text-center'>Enter your new password</p>
+                    <h4 className='text-center b1medium'>Reset Password</h4>
+                    <p className='text-center c2book'>Enter your new password</p>
                     <form>
                         <div className=" input-container mb-3">
-                            <label for="exampleInputEmail1" className="form-label text-start small fw-semibold ">Create New Password</label>
+                            <label for="exampleInputEmail1" className="form-label text-start c2medium ">Create New Password</label>
                            
                             <input type="email" className="form-control" placeholder='123456' id="exampleInputEmail1" aria-describedby="emailHelp"/>
                              <span className='faicon'><AiFillEye></AiFillEye></span> 
@@ -25,7 +26,7 @@ export default function ResetPassword () {
                             
                         </div> 
                         <div className="input-container mb-3">
-                            <label for="exampleInputEmail1" className="form-label text-start small fw-semibold">Confirm New Password</label>
+                            <label for="exampleInputEmail1" className="form-label text-start c2medium">Confirm New Password</label>
                             <input type="email" className="form-control" placeholder='123456' id="exampleInputEmail1" aria-describedby="emailHelp"/>
                             <span className='faicon1'><AiFillEye></AiFillEye></span>
                              

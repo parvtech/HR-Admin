@@ -44,7 +44,7 @@ export default function Login() {
              <AiOutlineEyeInvisible></AiOutlineEyeInvisible>}</span> 
         </div>
                   </div>
-                  <button type="button" className="btn w-100 col-10 mt-3" style={{background: "linear-gradient(50deg,#FC6075,#FF9B44)"}}>Login</button>
+                  <button type="button" className="btn w-100 col-10 mt-3" style={{background: "linear-gradient(50deg,#FF9B44,#FC6075)"}}>Login</button>
 
      </form>
 

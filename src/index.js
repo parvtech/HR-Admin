@@ -4,7 +4,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "../node_modules/@fortawesome/fontawesome-free/css/all.css"
-
+//fonts
+import "./fonts/CircularStd-Medium.otf"
+import "./fonts/CircularStd-Black.otf"
+import "./fonts/CircularStd-Book.otf"
+import "./fonts/CircularStd-Bold.otf"
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
