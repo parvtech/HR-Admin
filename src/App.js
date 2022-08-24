@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div >
-      <Router>
+      <Router basename={'/hradmin'}>
         <nav className="nav justify-content-center navbar-light">
           <NavLink className="nav-item nav-link" to="/">Dashboard</NavLink>
           <NavLink className="nav-item nav-link" to="/login">Login</NavLink>
