@@ -18,6 +18,7 @@ function App() {
           <NavLink className="nav-item nav-link" to="/employees ">Employee Management</NavLink>
           <NavLink className="nav-item nav-link" to="/events">Events</NavLink>
           <NavLink className="nav-item nav-link" to="/forgot-password">Forgot Password</NavLink>
+          <NavLink className="nav-item nav-link" to="/reset-password"> Reset Password</NavLink>
         </nav>
         <div className="App">
           <Routes>
