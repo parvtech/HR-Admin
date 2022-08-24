@@ -29,9 +29,9 @@ export default function Login() {
                     <form className='mt-3'>
                    <div className="input-container">
                      <label className="w-100 mb-2 mt-3 text-start"><b>Email Address </b> </label>
-                     <div class="input-group mb-3">
+                     <div className="input-group mb-3">
                     <span  id="inputGroup-sizing-default"></span>
-                 <input type="email" class="form-control" placeholder='Email ID' aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" style={{backgroundColor:"#F7F7F7",borderRadius:"5px"}}/>
+                 <input type="email" className="form-control" placeholder='Email ID' aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" style={{backgroundColor:"#F7F7F7",borderRadius:"5px"}}/>
                </div>  
                 </div>
                  <div className="input-container ">
