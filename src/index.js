@@ -9,6 +9,8 @@ import "./fonts/CircularStd-Medium.otf"
 import "./fonts/CircularStd-Black.otf"
 import "./fonts/CircularStd-Book.otf"
 import "./fonts/CircularStd-Bold.otf"
+import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
