@@ -1,6 +1,6 @@
 import React from 'react'
-import '../../components/profile/Profile.css'
-import Logo from "../../../src/assest/awacado.jpg"
+import './Profile.css'
+import Logo from "../../assests/Logo.png"
 import { Link } from 'react-router-dom'
 import { FaPen } from 'react-icons/fa'
 

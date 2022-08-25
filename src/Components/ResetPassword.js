@@ -30,11 +30,8 @@ export default function ResetPassword() {
               <form className='mt-3'>
                 <div className="input-container"><label className="w-100 mb-2 mt-1 text-start c2medium">Create New Password </label>
                   <div className="input-group mb-3">
-
                     <input style={{ background: "#FBFBFB", borderRight: "none" }} className=' form-control mt-1' type={password} name="password" placeholder="Password" />
-
-                    <input style={{ borderRight: "none" }} className='form-input form-control mt-1' type={password} name="password" placeholder="Password" />
-                    <span className='input-group-text form-input' style={{ color: "black", borderLeft: "none", marginTop: "4px", borderTopRightRadius: "5px", borderBottomRightRadius: "5px", borderRightt: "none" }} onClick={() => { onSetPassword() }} id="basic-addon1">{password === 'password' &&
+                    <span className='input-group-text ' style={{ background: "#FBFBFB", color: "black", borderLeft: "none", marginTop: "4px", borderTopRightRadius: "5px", borderBottomRightRadius: "5px", borderRightt: "none" }} onClick={() => { onSetPassword() }} id="basic-addon1">{password === 'password' &&
                       <AiOutlineEye></AiOutlineEye>}{password !== 'password' &&
                         <AiOutlineEyeInvisible></AiOutlineEyeInvisible>}</span>
                   </div >
@@ -42,11 +39,10 @@ export default function ResetPassword() {
                 <div className="input-container"><label className="w-100 mb-2 mt-1 text-start c2medium">Confirm New Password </label>
                   <div className="input-group">
                     <input style={{ background: "#FBFBFB", borderRight: "none" }} className=' form-control mt-1' type={password} name="password" placeholder="Password" />
-                    <input style={{ borderRight: "none" }} className='form-input form-control mt-1' type={password} name="password" placeholder="Password" />
-                    <span className='input-group-text form-input' style={{ color: "black", borderLeft: "none", marginTop: "4px", borderTopRightRadius: "5px", borderBottomRightRadius: "5px", borderRightt: "none" }} onClick={() => { onSetPassword() }} id="basic-addon1">{password === 'password' &&
+                    <span className='input-group-text ' style={{ background: "#FBFBFB", color: "black", borderLeft: "none", marginTop: "4px", borderTopRightRadius: "5px", borderBottomRightRadius: "5px", borderRightt: "none" }} onClick={() => { onSetPassword() }} id="basic-addon1">{password === 'password' &&
                       <AiOutlineEye></AiOutlineEye>}{password !== 'password' &&
                         <AiOutlineEyeInvisible></AiOutlineEyeInvisible>}</span>
-                  </div>             
+                  </div>
                 </div>
                 <button type="button" className="btn w-100 col-10 mt-3 form-btn" >Change Password</button>
               </form >
