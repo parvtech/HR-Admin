@@ -1,6 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
-import Card from './Components/Card';
 import Dashboard from './Components/Dashboard';
 import Employee from './Components/employee/Employee';
 import EmpManagement from './Components/EmpManagement';
@@ -8,13 +7,14 @@ import Events from './Components/Events';
 import ForgotPassword from './Components/ForgotPassword ';
 import Login from './Components/Login';
 import ResetPassword from './Components/ResetPassword';
+import SubAdmin from './Components/subadmin/SubAdmin';
 
 const App = () => {
 
   return (
     <div >
       <Router basename={'/hradmin'}>
-        {/* <nav className="nav justify-content-center navbar-light">
+        <nav className="nav justify-content-center navbar-light">
           <NavLink className="nav-item nav-link" to="/">Dashboard</NavLink>
           <NavLink className="nav-item nav-link" to="/login">Login</NavLink>
           <NavLink className="nav-item nav-link" to="/employees ">Employee Management</NavLink>
@@ -22,7 +22,7 @@ const App = () => {
           <NavLink className="nav-item nav-link" to="/forgot-password">Forgot Password</NavLink>
           <NavLink className="nav-item nav-link" to="/reset-password"> Reset Password</NavLink>
           <NavLink className="nav-item nav-link" to="/employee"> Employee</NavLink>
-        </nav> */}
+        </nav>
         <div className="App">
           <Routes>
             <Route exact path='/' element={< Dashboard />}></Route>
@@ -32,6 +32,7 @@ const App = () => {
             <Route exact path='/forgot-password' element={< ForgotPassword />}></Route>
             <Route exact path='/reset-password' element={<ResetPassword />}></Route>
             <Route exact path='/employee' element={<Employee />}></Route>
+
           </Routes>
         </div>
       </Router>
