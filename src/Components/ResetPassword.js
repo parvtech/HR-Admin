@@ -1,47 +1,59 @@
-import React from 'react'
-import  Logo  from "../../src/asstes/Logo.png"
-import "./Reset.css"
-import { AiFillEye } from "react-icons/ai"
+import React, { useState } from 'react'
+import "./style.css"
+import Logo from "../../src/assests/Logo.png"
+import { AiOutlineEye } from "react-icons/ai"
+import { AiOutlineEyeInvisible } from "react-icons/ai"
+import { Link } from 'react-router-dom'
 
+export default function ResetPassword() {
+  const [password, setPassword] = useState('password')
+  const onSetPassword = () => {
+    if (password == 'password') {
+      setPassword('text')
+    } else {
+      setPassword('password')
 
-export default function ResetPassword () {
+    }
+  }
   return (
-    <div style={{backgroundColor:"#F7F7F7",height:"90vh"}}>
-    <div className='container-fluid'>                
-        <div className='row'>
-            <div className='col-4'></div>
-            <div className='col-4 mt-4'>
-                <img src={Logo} className="text-center rounded mx-auto mb-1 d-block img-fluid"/>
-                <p className='text-center b3medium'>Welcome To Human Resources Pay</p>
-                <div className='card m-3 p-3 '>
-                    <h4 className='text-center b1medium'>Reset Password</h4>
-                    <p className='text-center c2book'>Enter your new password</p>
-                    <form>
-                        <div className=" input-container mb-3">
-                            <label for="exampleInputEmail1" className="form-label text-start c2medium ">Create New Password</label>
-                           
-                            <input type="email" className="form-control" placeholder='123456' id="exampleInputEmail1" aria-describedby="emailHelp"/>
-                             <span className='faicon'><AiFillEye></AiFillEye></span> 
-                            
-                            
-                        </div> 
-                        <div className="input-container mb-3">
-                            <label for="exampleInputEmail1" className="form-label text-start c2medium">Confirm New Password</label>
-                            <input type="email" className="form-control" placeholder='123456' id="exampleInputEmail1" aria-describedby="emailHelp"/>
-                            <span className='faicon1'><AiFillEye></AiFillEye></span>
-                             
-                        </div> 
-                        <button type="submit" className="btn btn-primary w-100 " style={{background:"linear-gradient(50deg, #FC6075,#FF9B44)"}}>Save Password</button>
-                        
-                    </form>
+
+    <div className='container-fluid form' >
+      <div className="row ">
+        <div className="col-md-4 col-lg-4"></div>
+        <div className="col-md-4 mt-1 pt-5 pb-5 mb-5 ">
+          <img src={Logo} className="text-center rounded mx-auto mb-1 d-block img-fluid" />
+          <h4 className='text-center b3black'>Welcome to Human Resources key</h4>
+          <div className="card text-center d-flex form-body ">
+            <div className="card-body text-center">
+              <h4 className="mt-0 mb-0 b1book">Forgot New Password</h4>
+              <p className='text-muted '>Enter your new password</p>
+              <form className='mt-3'>
+                <div className="input-container"><label className="w-100 mb-2 mt-1 text-start c2medium">Create New Password </label>
+                  <div className="input-group mb-3">
+                    <input style={{ borderRight: "none" }} className='form-input form-control mt-1' type={password} name="password" placeholder="Password" />
+                    <span className='input-group-text form-input' style={{ color: "black", borderLeft: "none", marginTop: "4px", borderTopRightRadius: "5px", borderBottomRightRadius: "5px", borderRightt: "none" }} onClick={() => { onSetPassword() }} id="basic-addon1">{password == 'password' &&
+                      <AiOutlineEye></AiOutlineEye>}{password != 'password' &&
+                        <AiOutlineEyeInvisible></AiOutlineEyeInvisible>}</span>
+                  </div >
+                </div >
+                <div className="input-container"><label className="w-100 mb-2 mt-1 text-start c2medium">Confirm New Password </label>
+                  <div className="input-group">
+                    <input style={{ borderRight: "none" }} className='form-input form-control mt-1' type={password} name="password" placeholder="Password" />
+                    <span className='input-group-text form-input' style={{ color: "black", borderLeft: "none", marginTop: "4px", borderTopRightRadius: "5px", borderBottomRightRadius: "5px", borderRightt: "none" }} onClick={() => { onSetPassword() }} id="basic-addon1">{password == 'password' &&
+                      <AiOutlineEye></AiOutlineEye>}{password != 'password' &&
+                        <AiOutlineEyeInvisible></AiOutlineEyeInvisible>}</span>
+                  </div>
                 </div>
-            </div>
-            <div className='col-4'></div>
-        </div>
-    </div>   
-</div>
-   
-    
+                <button type="button" className="btn w-100 col-10 mt-3 form-btn" >Save Password</button>
+              </form >
+            </div >
+          </div >
+        </div >
+        <div className="col-md-4"></div>
+      </div >
+    </div >
+
+
   )
 }
 

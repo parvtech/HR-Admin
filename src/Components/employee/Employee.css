@@ -1,0 +1,41 @@
+
+
+.emp{
+    font-family: "CircularStd";
+    font-size: 26px;
+    font-weight: 450;
+    line-height: 31px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+.empdashboard{
+font-family: "CircularStd";
+font-size: 16px;
+font-weight: 450;
+line-height: 24px;
+letter-spacing: 0em;
+text-align: left;
+background: linear-gradient(0deg, #333333, #333333),
+
+
+}
+.addemp{
+    border-radius: 50px;
+    background-color: #FF9B44;
+    border: 1px solid #FF9B44;
+    color: white;
+    font-family: "CircularStd";
+    font-size: 14px;
+    font-weight: 450;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+.emprow{
+    border-radius: 4px;
+}
+.empbtn{
+ background: #36A643;
+ border-radius: 5px;
+}
