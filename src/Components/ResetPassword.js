@@ -3,12 +3,12 @@ import "./style.css"
 import Logo from "../../src/assests/Logo.png"
 import { AiOutlineEye } from "react-icons/ai"
 import { AiOutlineEyeInvisible } from "react-icons/ai"
-import { Link } from 'react-router-dom'
+
 
 export default function ResetPassword() {
   const [password, setPassword] = useState('password')
   const onSetPassword = () => {
-    if (password == 'password') {
+    if (password === 'password') {
       setPassword('text')
     } else {
       setPassword('password')
@@ -25,26 +25,26 @@ export default function ResetPassword() {
           <h4 className='text-center b3black'>Welcome to Human Resources key</h4>
           <div className="card text-center d-flex form-body ">
             <div className="card-body text-center">
-              <h4 className="mt-0 mb-0 b1book">Forgot New Password</h4>
+              <h4 className="mt-0 mb-0 b1book">Reset Password</h4>
               <p className='text-muted '>Enter your new password</p>
               <form className='mt-3'>
                 <div className="input-container"><label className="w-100 mb-2 mt-1 text-start c2medium">Create New Password </label>
                   <div className="input-group mb-3">
-                    <input style={{ borderRight: "none" }} className='form-input form-control mt-1' type={password} name="password" placeholder="Password" />
-                    <span className='input-group-text form-input' style={{ color: "black", borderLeft: "none", marginTop: "4px", borderTopRightRadius: "5px", borderBottomRightRadius: "5px", borderRightt: "none" }} onClick={() => { onSetPassword() }} id="basic-addon1">{password == 'password' &&
-                      <AiOutlineEye></AiOutlineEye>}{password != 'password' &&
+                    <input style={{ background: "#FBFBFB", borderRight: "none" }} className=' form-control mt-1' type={password} name="password" placeholder="Password" />
+                    <span className='input-group-text ' style={{ background: "#FBFBFB", color: "black", borderLeft: "none", marginTop: "4px", borderTopRightRadius: "5px", borderBottomRightRadius: "5px", borderRightt: "none" }} onClick={() => { onSetPassword() }} id="basic-addon1">{password === 'password' &&
+                      <AiOutlineEye></AiOutlineEye>}{password !== 'password' &&
                         <AiOutlineEyeInvisible></AiOutlineEyeInvisible>}</span>
                   </div >
                 </div >
                 <div className="input-container"><label className="w-100 mb-2 mt-1 text-start c2medium">Confirm New Password </label>
                   <div className="input-group">
-                    <input style={{ borderRight: "none" }} className='form-input form-control mt-1' type={password} name="password" placeholder="Password" />
-                    <span className='input-group-text form-input' style={{ color: "black", borderLeft: "none", marginTop: "4px", borderTopRightRadius: "5px", borderBottomRightRadius: "5px", borderRightt: "none" }} onClick={() => { onSetPassword() }} id="basic-addon1">{password == 'password' &&
-                      <AiOutlineEye></AiOutlineEye>}{password != 'password' &&
+                    <input style={{ background: "#FBFBFB", borderRight: "none" }} className=' form-control mt-1' type={password} name="password" placeholder="Password" />
+                    <span className='input-group-text ' style={{ background: "#FBFBFB", color: "black", borderLeft: "none", marginTop: "4px", borderTopRightRadius: "5px", borderBottomRightRadius: "5px", borderRightt: "none" }} onClick={() => { onSetPassword() }} id="basic-addon1">{password === 'password' &&
+                      <AiOutlineEye></AiOutlineEye>}{password !== 'password' &&
                         <AiOutlineEyeInvisible></AiOutlineEyeInvisible>}</span>
                   </div>
                 </div>
-                <button type="button" className="btn w-100 col-10 mt-3 form-btn" >Save Password</button>
+                <button type="button" className="btn w-100 col-10 mt-3 form-btn" >Change Password</button>
               </form >
             </div >
           </div >

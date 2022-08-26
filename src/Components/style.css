@@ -1,14 +1,20 @@
 .form{
-background:#A1A1A1 ;
+background:#F7F7F7;
 height:100vh;
 }
 .form-body{
 border-radius: 6px;
+width: auto;
 }
 .form-input{
+<<<<<<< HEAD
 background: linear-gradient(0deg, #E1E1E1, #E1E1E1),
 linear-gradient(0deg, #FBFBFB, #FBFBFB);
 border-radius: 5px;
+=======
+background: #FBFBFB;
+border-radius:5px !important;
+>>>>>>> 6acdf53 (Created sub admin page and some updation in pages.)
 }
 .form-btn{
 background:linear-gradient(50deg,#FF9B44,#FC6075);
