@@ -1,10 +1,13 @@
-import React from 'react'
-import '../../components/profile/Profile.css'
-import Logo from "../../../src/assest/awacado.jpg"
+import React, { useState } from 'react'
+import './Profile.css'
+import Logo from "../../assests/Logo.png"
 import { Link } from 'react-router-dom'
 import { FaPen } from 'react-icons/fa'
+import Personalinfopopup from '../modals/Personalinfopopup'
 
 export default function Profile() {
+
+    const [openModal, setOpenModal] = useState(false);
     return (
         <div>
             <div className='container-fluid'>
@@ -42,7 +45,10 @@ export default function Profile() {
                         <div className='col'>
                             <div className="card mb-3" style={{ maxWidth: "100%" }}>
                                 <div className="row no-gutters">
-                                    <span className='text-end ps-5 pe-4'><button><FaPen></FaPen></button></span>
+                                    <span className='text-end ps-5 pe-4'><button onClick={() =>setOpenModal(true)}><FaPen></FaPen></button></span>
+                                    {
+                                        openModal && <Personalinfopopup closeModal={setOpenModal}/>
+                                    }
                                     <div className="col-md-8">
                                         <div className="card-body row">
                                             <h5 className="card-title pb-4">Personal Informations</h5>
