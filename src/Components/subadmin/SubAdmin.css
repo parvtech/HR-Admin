@@ -1,14 +1,14 @@
 
-.addemp{
+.addsub{
     border-radius: 50px;
     background-color: #FF9B44;
     border: 1px solid #FF9B44;
     color: white;
 }
-.emprow{
+.subrow{
     border-radius: 4px;
 }
-.empbtn{
+.subbtn{
  background: #36A643;
  border-radius: 5px;
 }

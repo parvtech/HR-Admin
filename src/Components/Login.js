@@ -12,71 +12,71 @@ export default function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [loading, setLoading] = useState(false)
-  const [errors, setErrors] = useState({email:"", password:""})
+  const [errors, setErrors] = useState({ email: "", password: "" })
 
   const navigate = useNavigate()
 
-  const handleEmail = (e) =>{
-      setEmail(e.target.value)
+  const handleEmail = (e) => {
+    setEmail(e.target.value)
   }
 
   const handlePassword = (e) => {
-      setPassword(e.target.value)
+    setPassword(e.target.value)
   }
 
-  const handleSubmit = () =>{
-   /* Form Validations */
+  const handleSubmit = () => {
+    /* Form Validations */
     let errorCount = 0
-    if(email==""){
+    if (email == "") {
       errorCount++
-      setErrors((prevState)=>{
-        return{...prevState,email:"Email is required"}
+      setErrors((prevState) => {
+        return { ...prevState, email: "Email is required" }
       })
-    }else{
-      setErrors((prevState)=>{
-        return{...prevState,email:""}
+    } else {
+      setErrors((prevState) => {
+        return { ...prevState, email: "" }
       })
     }
-    if(password==""){
+    if (password == "") {
       errorCount++
-      setErrors((prevState)=>{
-        return{...prevState,password:"Password is required"}
+      setErrors((prevState) => {
+        return { ...prevState, password: "Password is required" }
       })
-    }else{
-      setErrors((prevState)=>{
-        return{...prevState,password:""}
+    } else {
+      setErrors((prevState) => {
+        return { ...prevState, password: "" }
       })
     }
-    if(errorCount==0){
+    if (errorCount == 0) {
       console.log(email, password);
-        /* Login API call */
-        setLoading(true)
-        let user = {
-          email : email,
-          password : password
+      /* Login API call */
+      setLoading(true)
+      let user = {
+        email: email,
+        password: password
+      }
+      let url = process.env.REACT_APP_BASEURL + "login/"
+      const config = {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-type": "application/json"
         }
-        let url = process.env.REACT_APP_BASEURL + "login/"
-        const config = {
-          headers: {
-              "Access-Control-Allow-Origin": "*",
-              "Content-type": "application/json"
-              }
-          };
-          axios.post(url, user, config).then(result=>{
-          console.log("resulttt",result);
-          localStorage.setItem('token', result.data.access_token);
-          localStorage.setItem('username', result.data.username);
-          navigate("/")
-          toast.success("Login successful!", {
-            position: toast.POSITION.TOP_RIGHT,
-            autoClose: 3000,
-            theme: "colored",
-          });
-          if(result !== 200){
-            setLoading(false)
-          }
-        })
-        .catch(error=>{
+      };
+      axios.post(url, user, config).then(result => {
+        console.log("resulttt", result);
+        localStorage.setItem('token', result.data.access_token);
+        localStorage.setItem('username', result.data.username);
+        navigate("/")
+        toast.success("Login successful!", {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: 3000,
+          theme: "colored",
+        });
+        if (result !== 200) {
+          setLoading(false)
+        }
+      })
+        .catch(error => {
           console.log(error);
           setLoading(false)
           toast.error("Incorrect Id Password!", {
@@ -85,12 +85,12 @@ export default function Login() {
             theme: "colored",
           });
         })
-          }
+    }
 
   }
 
   const onSetPassword = () => {
-    if (password == 'password') {
+    if (password === 'password') {
       setPassword('text')
     } else {
       setPassword('password')
@@ -105,7 +105,7 @@ export default function Login() {
         <div className="row ">
           <div className="col-md-4 col-lg-4"></div>
           <div className="col-md-4 mt-1 pt-5 pb-5 mb-5 ">
-            <img src={Logo} className="text-center rounded mx-auto mb-1 d-block img-fluid" />
+            <img src={Logo} className="text-center rounded mx-auto mb-1 d-block img-fluid" alt='logo' />
             <h4 className='text-center b3black'>Welcome to Human Resources key</h4>
             <div className="card text-center d-flex form-body ">
               <div className="card-body text-center">
@@ -116,34 +116,36 @@ export default function Login() {
                     <label className="w-100 mb-2 mt-1 text-start c2medium">Email Address </label>
                     <div className="input-group mb-3">
                       <span id="inputGroup-sizing-default"></span>
-                      <input value={email} type="email" className="form-control form-input" placeholder='Email ID' aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" onChange={handleEmail}/>
-                      {errors.email && <p className="w-100 mb-2 mt-1 text-start c2medium" style={{color:"red"}}>{errors.email}</p>}
+                      <input value={email} type="email" className="form-control form-input" placeholder='Email ID' aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" onChange={handleEmail} />
+                      {errors.email && <p className="w-100 mb-2 mt-1 text-start c2medium" style={{ color: "red" }}>{errors.email}</p>}
                     </div>
                   </div>
-      
+
                   <div className="input-container"><label className="w-100 mb-2 mt-1 text-start c2medium">Password </label>
                     <div className="input-group">
-                      <input style={{ borderRight: "none" }} className='form-input form-control mt-1' type={password} name="password" placeholder="Password" onChange={handlePassword}/>
-                      
+                      <input style={{ borderRight: "none" }} className='form-input form-control mt-1' type={password} name="password" placeholder="Password" />
                       <span className='input-group-text form-input' style={{ color: "black", borderLeft: "none", marginTop: "4px", borderTopRightRadius: "5px", borderBottomRightRadius: "5px", borderRightt: "none" }} onClick={() => { onSetPassword() }} id="basic-addon1">{password == 'password' &&
-                        <AiOutlineEye/>}{password != 'password' &&
-                          <AiOutlineEyeInvisible/>}</span>
+                        <AiOutlineEye></AiOutlineEye>}{password != 'password' &&
+                          <AiOutlineEyeInvisible></AiOutlineEyeInvisible>}</span>
                     </div>
-                      {errors.password && <p className="w-100 mb-2 mt-1 text-start c2medium" style={{color:"red"}}>{errors.password}</p>}
+                    {errors.password && <p className="w-100 mb-2 mt-1 text-start c2medium" style={{ color: "red" }}>{errors.password}</p>}
                   </div>
                   <div className="row mt-3" style={{ fontSize: '14px', fontWeight: '450', lineHeight: '18px', letterSpacing: '0em' }}>
                     <div className="d-flex col d-grid gap-2">
-                      <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" style={{ width: " 18.5px" }} />
-                      <p className='fs-6 text-muted c2book'>Remember me</p>
+                      <input className="form-check-input " type="checkbox" value="" id="flexCheckDefault" style={{
+                        border: "1.5px solid #8E8E8E",
+                        width: " 13px", height: "13px"
+                      }} />
+                      <p className=' text-muted c2book ' style={{ marginTop: '1.5px' }}>Remind me</p>
                     </div>
                     <div className="col  text-end">
-                      <Link className="text-black fs-6 text-muted text-decoration-none c2book" to={"/forgot-password"}>Forgot password?</Link>
+                      <Link className=" text-muted text-decoration-none c2book" to={"/forgot-password"}>Forgot password?</Link>
                     </div>
                   </div>
-                 {loading ? <button className="btn w-100 col-10 mt-1 form-btn " type="button" disabled>
-                  <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                  Loading...
-                 </button> : <button type="button" className="btn w-100 col-10 mt-1 form-btn" onClick={handleSubmit}>Login</button>}
+                  {loading ? <button className="btn w-100 col-10 mt-1 form-btn " type="button" disabled>
+                    <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Loading...
+                  </button> : <button type="button" className="btn w-100 col-10 mt-1 form-btn" onClick={handleSubmit}>Login</button>}
                 </form>
               </div>
             </div>

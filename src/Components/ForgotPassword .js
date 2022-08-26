@@ -1,6 +1,5 @@
 import React from 'react'
 import Logo from "../../src/assests/Logo.png"
-import "./style.css"
 import { Link } from 'react-router-dom'
 export default function ForgotPassword() {
   return (
