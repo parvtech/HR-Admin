@@ -3,6 +3,7 @@ import "../employee/Employee.css"
 import { VscAdd } from 'react-icons/vsc'
 
 export default function Employee() {
+
   return (
     <div className='container-fluid'>
     <div className='row'>
