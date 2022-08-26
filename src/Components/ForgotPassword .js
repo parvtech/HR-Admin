@@ -25,7 +25,7 @@ export default function ForgotPassword() {
                   </div>
 
 
-                  <button type="button" className="btn w-100 col-10 mt-3 form-btn" > Login</button>
+                  <button type="button" className="btn w-100 col-10 mt-3 form-btn" > Reset</button>
                   <div className="row mt-3" style={{ fontSize: '14px', fontWeight: '450', lineHeight: '18px', letterSpacing: '0em' }}>
                     <p className=' small m-1 text-center c2book'>Remember your Password? <Link to="/login" style={{ color: "#FC6075" }} className='text-decoration-none'>Login</Link></p>
                   </div>

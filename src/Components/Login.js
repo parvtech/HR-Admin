@@ -1,22 +1,106 @@
 import React, { useState } from 'react'
 import "./style.css"
 import Logo from "../../src/assests/Logo.png"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { AiOutlineEye } from "react-icons/ai"
 import { AiOutlineEyeInvisible } from "react-icons/ai"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios'
+
 export default function Login() {
-  const [password, setPassword] = useState('password')
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [loading, setLoading] = useState(false)
+  const [errors, setErrors] = useState({email:"", password:""})
+
+  const navigate = useNavigate()
+
+  const handleEmail = (e) =>{
+      setEmail(e.target.value)
+  }
+
+  const handlePassword = (e) => {
+      setPassword(e.target.value)
+  }
+
+  const handleSubmit = () =>{
+   /* Form Validations */
+    let errorCount = 0
+    if(email==""){
+      errorCount++
+      setErrors((prevState)=>{
+        return{...prevState,email:"Email is required"}
+      })
+    }else{
+      setErrors((prevState)=>{
+        return{...prevState,email:""}
+      })
+    }
+    if(password==""){
+      errorCount++
+      setErrors((prevState)=>{
+        return{...prevState,password:"Password is required"}
+      })
+    }else{
+      setErrors((prevState)=>{
+        return{...prevState,password:""}
+      })
+    }
+    if(errorCount==0){
+      console.log(email, password);
+        /* Login API call */
+        setLoading(true)
+        let user = {
+          email : email,
+          password : password
+        }
+        let url = process.env.REACT_APP_BASEURL + "login/"
+        const config = {
+          headers: {
+              "Access-Control-Allow-Origin": "*",
+              "Content-type": "application/json"
+              }
+          };
+          axios.post(url, user, config).then(result=>{
+          console.log("resulttt",result);
+          localStorage.setItem('token', result.data.access_token);
+          localStorage.setItem('username', result.data.username);
+          navigate("/")
+          toast.success("Login successful!", {
+            position: toast.POSITION.TOP_RIGHT,
+            autoClose: 3000,
+            theme: "colored",
+          });
+          if(result !== 200){
+            setLoading(false)
+          }
+        })
+        .catch(error=>{
+          console.log(error);
+          setLoading(false)
+          toast.error("Incorrect Id Password!", {
+            position: toast.POSITION.TOP_RIGHT,
+            autoClose: 3000,
+            theme: "colored",
+          });
+        })
+          }
+
+  }
+
   const onSetPassword = () => {
     if (password == 'password') {
       setPassword('text')
     } else {
       setPassword('password')
-
     }
   }
+
   return (
 
-    <div>
+    <>
+      <ToastContainer />
       <div className='container-fluid form' >
         <div className="row ">
           <div className="col-md-4 col-lg-4"></div>
@@ -29,19 +113,23 @@ export default function Login() {
                 <p className='text-muted '>Access to our dashboard</p>
                 <form className='mt-3'>
                   <div className="input-container">
-                    <label className="w-100 mb-2 mt-1 text-start c2medium">Email Address  </label>
+                    <label className="w-100 mb-2 mt-1 text-start c2medium">Email Address </label>
                     <div className="input-group mb-3">
                       <span id="inputGroup-sizing-default"></span>
-                      <input type="email" className="form-control form-input" placeholder='Email ID' aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" />
+                      <input value={email} type="email" className="form-control form-input" placeholder='Email ID' aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" onChange={handleEmail}/>
+                      {errors.email && <p className="w-100 mb-2 mt-1 text-start c2medium" style={{color:"red"}}>{errors.email}</p>}
                     </div>
                   </div>
+      
                   <div className="input-container"><label className="w-100 mb-2 mt-1 text-start c2medium">Password </label>
                     <div className="input-group">
-                      <input style={{ borderRight: "none" }} className='form-input form-control mt-1' type={password} name="password" placeholder="Password" />
+                      <input style={{ borderRight: "none" }} className='form-input form-control mt-1' type={password} name="password" placeholder="Password" onChange={handlePassword}/>
+                      
                       <span className='input-group-text form-input' style={{ color: "black", borderLeft: "none", marginTop: "4px", borderTopRightRadius: "5px", borderBottomRightRadius: "5px", borderRightt: "none" }} onClick={() => { onSetPassword() }} id="basic-addon1">{password == 'password' &&
-                        <AiOutlineEye></AiOutlineEye>}{password != 'password' &&
-                          <AiOutlineEyeInvisible></AiOutlineEyeInvisible>}</span>
+                        <AiOutlineEye/>}{password != 'password' &&
+                          <AiOutlineEyeInvisible/>}</span>
                     </div>
+                      {errors.password && <p className="w-100 mb-2 mt-1 text-start c2medium" style={{color:"red"}}>{errors.password}</p>}
                   </div>
                   <div className="row mt-3" style={{ fontSize: '14px', fontWeight: '450', lineHeight: '18px', letterSpacing: '0em' }}>
                     <div className="d-flex col d-grid gap-2">
@@ -52,19 +140,18 @@ export default function Login() {
                       <Link className="text-black fs-6 text-muted text-decoration-none c2book" to={"/forgot-password"}>Forgot password?</Link>
                     </div>
                   </div>
-                  <button type="button" className="btn w-100 col-10 mt-1 form-btn" >Login</button>
-
+                 {loading ? <button className="btn w-100 col-10 mt-1 form-btn " type="button" disabled>
+                  <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  Loading...
+                 </button> : <button type="button" className="btn w-100 col-10 mt-1 form-btn" onClick={handleSubmit}>Login</button>}
                 </form>
-
               </div>
-
             </div>
-
           </div>
           <div className="col-md-4"></div>
         </div>
       </div>
-    </div>
+    </>
 
   )
 }

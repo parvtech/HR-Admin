@@ -8,8 +8,7 @@ border-radius: 6px;
 .form-input{
 background: linear-gradient(0deg, #E1E1E1, #E1E1E1),
 linear-gradient(0deg, #FBFBFB, #FBFBFB);
-
-border-radius:5px;
+border-radius: 5px;
 }
 .form-btn{
 background:linear-gradient(50deg,#FF9B44,#FC6075);
