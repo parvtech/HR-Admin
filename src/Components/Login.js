@@ -124,8 +124,8 @@ export default function Login() {
                   <div className="input-container"><label className="w-100 mb-2 mt-1 text-start c2medium">Password </label>
                     <div className="input-group">
                       <input style={{ background: "#FBFBFB", borderRight: "none" }} className=' form-control mt-1' type={password} name="password" placeholder="Password" />
-                      <span className='input-group-text ' style={{ background: "#FBFBFB", color: "black", borderLeft: "none", marginTop: "4px", borderTopRightRadius: "5px", borderBottomRightRadius: "5px", borderRightt: "none" }} onClick={() => { onSetPassword() }} id="basic-addon1">{password === 'password' &&
-                        <AiOutlineEye></AiOutlineEye>}{password !== 'password' &&
+                      <span className='input-group-text ' style={{ background: "#FBFBFB", color: "black", borderLeft: "none", marginTop: "4px", borderTopRightRadius: "5px", borderBottomRightRadius: "5px", borderRightt: "none" }} onClick={() => { onSetPassword() }} id="basic-addon1">{password == 'password' &&
+                        <AiOutlineEye></AiOutlineEye>}{password != 'password' &&
                           <AiOutlineEyeInvisible></AiOutlineEyeInvisible>}</span>
                     </div>
                     {errors.password && <p className="w-100 mb-2 mt-1 text-start c2medium" style={{ color: "red" }}>{errors.password}</p>}
