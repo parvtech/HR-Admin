@@ -1,8 +1,9 @@
 import React from 'react'
 import Profileimg from '../Components/img/Rectangle.png'
-import Svg1 from '../Components/img/Stroke 2.svg'
 
-export default function () {
+import { MdCancel} from "react-icons/md"
+
+ const ProfileInfo = ()=> {
     return (
         <>
             <div className='container'>
@@ -12,7 +13,7 @@ export default function () {
                         <div className="card " style={{ width: "800px", height: "500px" }}>
                             <div className="text-center mb-0 ">
                                 <div className="text-end me-2">
-                                    <img alt='' src={Svg1} className="text-secondary" />
+                                <span style={{ color: "gray", borderLeft: "none", marginTop: "4px", borderTopRightRadius: "5px", borderBottomRightRadius: "5px", borderRightt: "none" }} id="basic-addon1"><MdCancel/></span>
                                 </div>
                                 <p className='h3medium'>Profile Information</p>
                                 <img alt='' src={Profileimg} style={{ width: "100px", height: "100px" }} className="mt-1" />
@@ -21,19 +22,19 @@ export default function () {
                                 <div className="row mt-4">
                                     <div className='col-6'>
                                         <div class="input-group mb-1">
-                                            <input type="text" class="form-control" placeholder="Full Name*" aria-label="Username" aria-describedby="basic-addon1" />
+                                            <input type="text" class="form-control" placeholder="Full Name*" aria-label="Username" aria-describedby="basic-addon1" required />
                                         </div>
                                     </div>
                                     <div className='col-6'>
                                         <div class="input-group mb-1">
-                                            <input type="text" class="form-control" placeholder="Employee ID*" aria-label="Username" aria-describedby="basic-addon1" />
+                                            <input type="text" class="form-control" placeholder="Employee ID*" aria-label="Username" aria-describedby="basic-addon1" required />
                                         </div>
                                     </div>
                                 </div>
                                 <div className="row mt-1">
                                     <div className='col-6'>
                                         <div class="input-group mb-1">
-                                            <input type="text" class="form-control" placeholder="Birthday*" aria-label="Username" aria-describedby="basic-addon1" />
+                                            <input type="date" class="form-control" placeholder="Birthday*" aria-label="Username" aria-describedby="basic-addon1" required />
                                         </div>
                                     </div>
                                     <div className='col-6'>
@@ -56,7 +57,7 @@ export default function () {
                                     </div>
                                     <div className='col-6'>
                                         <div class="input-group mb-1">
-                                            <input type="text" class="form-control" placeholder="Email Address*" aria-label="Username" aria-describedby="basic-addon1" />
+                                            <input type="text" class="form-control" placeholder="Email Address*" aria-label="Username" aria-describedby="basic-addon1" required />
                                         </div>
                                     </div>
                                 </div>
@@ -68,7 +69,7 @@ export default function () {
                                     </div>
                                     <div className='col-6'>
                                         <div class="input-group mb-1">
-                                            <input type="text" class="form-control" placeholder="Phone Number*" aria-label="Username" aria-describedby="basic-addon1" />
+                                            <input type="text" class="form-control" placeholder="Phone Number*" aria-label="Username" aria-describedby="basic-addon1" required />
                                         </div>
                                     </div>
                                 </div>
@@ -89,7 +90,7 @@ export default function () {
                             <div className='container'>
                                 <div className='row'>
                                     <div className='col text-center mt-4'>
-                                    <button type="button" class="rounded-pill w-25">Secondary</button>
+                                    <button type="button" class="btn rounded-pill w-25 text-white" style={{background:"#FF9B44",border:'#FF9B44'}}>Secondary</button>
                                     </div>
                                 </div>
                             </div>
@@ -104,3 +105,4 @@ export default function () {
 
     )
 }
+export default  ProfileInfo
