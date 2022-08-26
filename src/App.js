@@ -8,6 +8,7 @@ import ForgotPassword from './Components/ForgotPassword ';
 import Login from './Components/Login';
 import ResetPassword from './Components/ResetPassword';
 import SubAdmin from './Components/subadmin/SubAdmin';
+import Profile from './Components/profile/Profile';
 
 const App = () => {
 
@@ -32,6 +33,10 @@ const App = () => {
             <Route exact path='/forgot-password' element={< ForgotPassword />}></Route>
             <Route exact path='/reset-password' element={<ResetPassword />}></Route>
             <Route exact path='/employee' element={<Employee />}></Route>
+
+
+            <Route exact path='/sub-admin' element={<SubAdmin />}></Route>
+            <Route exact path='/profile' element={<Profile />}></Route>
 
           </Routes>
         </div>
