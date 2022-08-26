@@ -8,7 +8,7 @@ export default function ForgotPassword() {
         <div className="row ">
           <div className="col-md-4 col-lg-4 "></div>
           <div className="col-md-4 mt-1 pt-5 pb-5 mb-5 ">
-            <img src={Logo} className="text-center rounded mx-auto mb-1 d-block img-fluid" />
+            <img src={Logo} className="text-center rounded mx-auto mb-1 d-block img-fluid" alt=''/>
             <h4 className='text-center b3black'>Welcome to Human Resources key</h4>
             <div className="card text-center d-flex form-body ">
               <div className="card-body text-center">
