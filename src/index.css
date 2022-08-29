@@ -102,7 +102,7 @@
   font-family: "Bold";
   font-size: 20px;
   color: black;
-
+  line-height: 24px;
 }
 .b1book{
   font-family: "Book";
@@ -131,7 +131,7 @@
   font-family: "Book";
   font-size:18px;
   color: black;
-
+ line-height: 16.8px; 
 }
 .b2medium{
   font-family: "Medium";
@@ -176,6 +176,7 @@
 .c1book{
   font-family: "Book";
   font-size:15px;
+  line-height: 22px;
   color: black;
 
 }
@@ -198,12 +199,14 @@
 }
 .c2book{
   font-family: "Book";
+  line-height: 22px;
   font-size:14px;
   color: black;
 
 }
 .c2medium{
   font-family: "Medium";
+  line-height: 16.8px;
   font-size: 14px;
   color: black;
 
@@ -231,5 +234,25 @@
   color: black;
 
 }
+.text-gry{
+  color: #8E8E8E;
+}
+.text-content{
+  color: #333333;
 
+}
+.mute-gry{
+  color: #DDDDDD;
 
+}
+.card-img-head-width{
+font-weight: 450;
+line-height: 22px;
+letter-spacing: 0em;
+}
+.card-img-subhead{
+font-size: 13px;
+font-weight: 450;
+line-height: 20px;
+letter-spacing: 0em;
+}

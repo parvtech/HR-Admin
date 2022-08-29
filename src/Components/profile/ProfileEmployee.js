@@ -1,6 +1,7 @@
 import React from 'react'
 import './Profile.css'
 import Proimg from "../../assests/proimg.png"
+import Reportimg from "../../assests/reportimg.png"
 import { Link } from 'react-router-dom'
 import { FaPen } from 'react-icons/fa'
 
@@ -30,12 +31,14 @@ export default function Profile() {
                                             <dt className="col-sm-4 c1book text-content pb-0 mb-0">Date of Join :</dt><dd className="col-sm-8 c2book text-gry"> 1st Jan 2021</dd>
                                         </dl>
                                     </div>
-                                    <div className='card-text col'>
+                                    <div className='card-text  col'>
                                         <dl className='row'>
                                             <dt className="col-sm-4 c1book text-content pb-0 mb-0">Phone     : </dt><dd className="col-sm-8 c2book"><Link to="" className='text-decoration-none'>9876543210</Link></dd>
                                             <dt className="col-sm-4 c1book text-content pb-0 mb-0">Email     : </dt><dd className="col-sm-8 c2book"><Link to="" className='text-decoration-none'>johndoe@example.com</Link></dd>
                                             <dt className="col-sm-4 c1book text-content pb-0 mb-0">Birthday  : </dt><dd className="col-sm-8 c2book text-gry">24th July</dd>
+                                            <dt className="col-sm-4 c1book text-content pb-0 mb-0">Address : </dt><dd className="col-sm-8 c2book text-gry">1861 Bayonne Ave, Manchester Township, NJ, 08759</dd>
                                             <dt className="col-sm-4 c1book text-content pb-0 mb-0">Gender    :</dt><dd className="col-sm-8 c2book text-gry"> Male</dd>
+                                            <dt className="col-sm-4 c1book text-content pb-0 mb-0">Report  : </dt><dd className="col-sm-8 c2book "><img src={Reportimg} alt="..." /><Link to="" className='text-decoration-none'>Jeffery Lalor</Link></dd>
                                         </dl>
                                     </div>
                                 </div>
@@ -52,21 +55,21 @@ export default function Profile() {
                                             <h5 className="card-title pb-2 pt-0 b1bold text-content" >Personal Informations</h5>
                                             <div className='card-text col '>
                                                 <dl className='row'>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">UAN number     </dt><dd className="col-sm-8 c2book text-gry">  9876543210</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">UAN number     </dt><dd className="col-sm-8 c2book text-gry">  9876543210</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Tel             </dt><dd className="col-sm-8 c2book"> <Link to="" className='col-sm-4   text-decoration-none'>9876543210</Link></dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Nationality    </dt><dd className="col-sm-8 c2book text-gry">  Indian</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Religion       </dt><dd className="col-sm-8 c2book text-gry">  Christian</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Marital status  </dt><dd className="col-sm-8 c2book text-gry"> Married</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Aadhar card     </dt><dd className="col-sm-8 c2book text-gry"> 4588 5858 9696</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Pan card        </dt><dd className="col-sm-8 c2book text-gry"> DVJPP8778L</dd>
+                                                    <dt className=" c1book text-content pb-0 mb-0">UAN number     </dt>
+                                                    <dt className=" c1book text-content pb-0 mb-0">UAN number     </dt>
+                                                    <dt className=" c1book text-content pb-0 mb-0">Tel             </dt>
+                                                    <dt className=" c1book text-content pb-0 mb-0">Nationality    </dt>
+                                                    <dt className=" c1book text-content pb-0 mb-0">Religion       </dt>
+                                                    <dt className=" c1book text-content pb-0 mb-0">Marital status  </dt>
+                                                    <dt className=" c1book text-content pb-0 mb-0">Aadhar card     </dt>
+                                                    <dt className=" c1book text-content pb-0 mb-0">Pan card        </dt>
                                                 </dl>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div className="card mb-3 py-2 card-box" >
+                            <div className="card mb-3 py-0 card-box" >
                                 <div className="row ">
                                     <span className='text-end ps-5 pe-4'><button className='penbtn  mx-2 px-2 ps-2'><FaPen className='pen'></FaPen></button></span>
                                     <div className="col-md-8">
@@ -74,11 +77,11 @@ export default function Profile() {
                                             <h5 className="card-title pb-2 pt-0 b1bold text-content" >Bank information</h5>
                                             <div className='card-text col '>
                                                 <dl className='row'>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Name as in Bank  </dt><dd className="col-sm-8 c2book text-gry"> ICICI Bank</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Bank Name        </dt><dd className="col-sm-8 c2book text-gry"> 159843014641</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">IFSC Code        </dt><dd className="col-sm-8 c2book text-gry"> ICI24504</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Bank account no   </dt><dd className="col-sm-8 c2book text-gry">159843014641</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Bank Address     </dt><dd className="col-sm-8 c2book text-gry"> ICI24504</dd>
+                                                    <dt className=" c1book text-content pb-0 mb-0">Name as in Bank  </dt>
+                                                    <dt className=" c1book text-content pb-0 mb-0">Bank Name        </dt>
+                                                    <dt className=" c1book text-content pb-0 mb-0">IFSC Code        </dt>
+                                                    <dt className=" c1book text-content pb-0 mb-0">Bank account no   </dt>
+                                                    <dt className=" c1book text-content pb-0 mb-0">Bank Address     </dt>
                                                 </dl>
                                             </div>
                                         </div>
@@ -87,33 +90,33 @@ export default function Profile() {
                             </div>
                         </div>
                         <div className='col'>
-                            <div className="card py-5 mb-1  card-box" >
+                            <div className="card pb-5 py-4 mb-1  card-box" >
                                 <div className="row ">
                                     <span className='text-end ps-5 pe-4'><button className='penbtn mx-2 px-2 ps-2'><FaPen className='pen'></FaPen></button></span>
                                     <div className="col-md-8">
                                         <div className="card-body row">
-                                            <h5 className="card-title py-2 pb-2 pt-0 b1bold text-content" > Address</h5>
+                                            <h5 className="card-title  pb-2 pt-0 b1bold text-content" > Address</h5>
                                             <div className='card-text col '>
                                                 <h6 className='b2book text-content'>Present Address</h6>
                                                 <dl className='row'>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Flat/Door No    </dt><dd className="col-sm-8 c2book text-gry"> 105</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Floor            </dt><dd className="col-sm-8 c2book text-gry">1ST</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Premises Name    </dt><dd className="col-sm-8 c2book text-gry">Rituraaj Business center/</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Landmark (near)  </dt><dd className="col-sm-8 c2book text-gry">UNO Business park building/</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Dist, Pin Code   </dt><dd className="col-sm-8 c2book text-gry">452003/</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">State           </dt><dd className="col-sm-8 c2book text-gry"> Madhya Pradesh/</dd>
+                                                    <dt className=" c1book text-content pb-0 mb-0">Flat/Door No    </dt>
+                                                    <dt className=" c1book text-content pb-0 mb-0">Floor            </dt>
+                                                    <dt className=" c1book text-content pb-0 mb-0">Premises Name    </dt>
+                                                    <dt className=" c1book text-content pb-0 mb-0">Landmark (near)  </dt>
+                                                    <dt className=" c1book text-content pb-0 mb-0">Dist, Pin Code   </dt>
+                                                    <dt className=" c1book text-content pb-0 mb-0">State           </dt>
                                                 </dl>
                                             </div>
                                             <hr />
                                             <div className='card-text col '>
                                                 <h6 className='b2book text-content'>Present Address</h6>
                                                 <dl className='row'>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Flat/Door No    </dt><dd className="col-sm-8 c2book text-gry"> 105</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Floor            </dt><dd className="col-sm-8 c2book text-gry">1ST</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Premises Name    </dt><dd className="col-sm-8 c2book text-gry">Rituraaj Business center/</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Landmark (near)  </dt><dd className="col-sm-8 c2book text-gry">UNO Business park building/</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Dist, Pin Code   </dt><dd className="col-sm-8 c2book text-gry">452003/</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">State           </dt><dd className="col-sm-8 c2book text-gry"> Madhya Pradesh/</dd>
+                                                    <dt className=" c1book text-content pb-0 mb-0">Flat/Door No    </dt>
+                                                    <dt className=" c1book text-content pb-0 mb-0">Floor            </dt>
+                                                    <dt className=" c1book text-content pb-0 mb-0">Premises Name    </dt>
+                                                    <dt className=" c1book text-content pb-0 mb-0">Landmark (near)  </dt>
+                                                    <dt className=" c1book text-content pb-0 mb-0">Dist, Pin Code   </dt>
+                                                    <dt className=" c1book text-content pb-0 mb-0">State           </dt>
                                                 </dl>
                                             </div>
                                         </div>
@@ -124,19 +127,14 @@ export default function Profile() {
                     </div>
                     <div className='row '>
                         <div className='col'>
-                            <div className="card mb-3 pb-1 py-0 card-box" >
+                            <div className="card mb-3 pb-5 card-box" style={{ height: "178px" }}>
                                 <div className="row ">
                                     <span className='text-end ps-5 pe-4'><button className='penbtn  mx-2 px-2 ps-2'><FaPen className='pen'></FaPen></button></span>
                                     <div className="col-md-8">
                                         <div className="card-body row">
                                             <h5 className="card-title pb-2 pt-0 b1bold text-content" >Education Informations</h5>
                                             <div className='card-text col '>
-                                                <p className='c1black text-gry pb-0 mb-0'>International College of Arts and Science (UG)</p>
-                                                <p className='c1black text-gry pb-0 mb-0'>Bsc Computer Science</p>
-                                                <p><small className=' c3black mute-gry pb-0 mb-0'>2000 - 2003</small></p>
-                                                <p className="c1black pb-0 mb-0 text-content">International College of Arts and Science (PG)</p>
-                                                <p className='c1black text-gry pb-0 mb-0'>Msc Computer Science</p>
-                                                <p><small className=' c3black mute-gry pb-0 mb-0'>2000 - 2003</small></p>
+
                                             </div>
                                         </div>
                                     </div>
@@ -144,9 +142,9 @@ export default function Profile() {
                             </div>
                         </div>
                         <div className='col'>
-                            <div className="card mb-3 pb-5 py-3 card-box" >
+                            <div className="card mb-3 card-box" style={{ height: "178px" }}>
                                 <div className="row ">
-                                    <span className='text-end ps-5 pe-4'><button className='penbtn  mx-2 px-2 ps-2'><FaPen className='pen'></FaPen></button></span>
+                                    <span className='text-end pb-2 ps-5 pe-4'><button className='penbtn  mx-2 px-2 ps-2'><FaPen className='pen'></FaPen></button></span>
                                     <div className="col-md-8">
                                         <div className="card-body row">
                                             <h5 className="card-title pb-2 pt-0 b1bold text-content" >Family Informations</h5>
@@ -159,27 +157,6 @@ export default function Profile() {
                                                         <th className='c1book text-content pb-0 mb-0 '>Occupation</th>
                                                         <th className='c1book text-content pb-0 mb-0 '>Phone</th>
                                                     </tr>
-                                                    <tr>
-                                                        <td className='c1book text-gry pb-0 mb-0'>Leo</td>
-                                                        <td className='c1book text-gry pb-0 mb-0'>Brother</td>
-                                                        <td className='c2book text-gry pb-0 mb-0'>Feb 16th, 2019</td>
-                                                        <td className='c2book text-gry pb-0 mb-0'>Clerk</td>
-                                                        <td className='c2book text-gry pb-0 mb-0'>9876543210</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td className='c1book text-gry pb-0 mb-0'>Leo</td>
-                                                        <td className='c1book text-gry pb-0 mb-0'>Brother</td>
-                                                        <td className='c2book text-gry pb-0 mb-0'>Feb 16th, 2019</td>
-                                                        <td className='c2book text-gry pb-0 mb-0'>Clerk</td>
-                                                        <td className='c2book text-gry pb-0 mb-0'>9876543210</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td className='c1book text-gry pb-0 mb-0'>Leo</td>
-                                                        <td className='c1book text-gry pb-0 mb-0'>Brother</td>
-                                                        <td className='c2book text-gry pb-0 mb-0'>Feb 16th, 2019</td>
-                                                        <td className='c2book text-gry pb-0 mb-0'>Clerk</td>
-                                                        <td className='c2book text-gry pb-0 mb-0'>9876543210</td>
-                                                    </tr>
                                                 </table>
                                             </div>
                                         </div>
@@ -190,19 +167,14 @@ export default function Profile() {
                     </div>
                     <div className='row'>
                         <div className='col'>
-                            <div className="card mb-3 py-0 card-box" >
+                            <div className="card mb-3 pb-5 card-box" style={{ height: "178px" }} >
                                 <div className="row ">
                                     <span className='text-end ps-5 pe-4'><button className='penbtn  mx-2 px-2 ps-2'><FaPen className='pen'></FaPen></button></span>
                                     <div className="col-md-8">
                                         <div className="card-body row">
                                             <h5 className="card-title pb-2 pt-0 b1bold text-content" >Experience</h5>
                                             <div className='card-text col '>
-                                                <p className='pb-0 mb-0 text-gry c1book'>Web Designer at Zen Corporation</p>
-                                                <p className='pb-0 mb-0 text-gry  '><small style={{ fontSize: "11px", lineHeight: "16px" }}>Jan 2013 - Present (5 years 2 months)</small></p>
-                                                <p className='pb-0 mb-0 text-gry c1book'>Web Designer at Ron-tech</p>
-                                                <p className='pb-0 mb-0 text-gry  '><small style={{ fontSize: "11px", lineHeight: "16px" }}>Jan 2013 - Present (5 years 2 months)</small></p>
-                                                <p className='pb-0 mb-0 text-gry c1book'>Jan 2013 - Present (5 years 2 months)</p>
-                                                <p className='pb-0 mb-0 text-gry  '><small style={{ fontSize: "11px", lineHeight: "16px" }}>Jan 2013 - Present (5 years 2 months)</small></p>
+
                                             </div>
                                         </div>
                                     </div>
@@ -210,7 +182,7 @@ export default function Profile() {
                             </div>
                         </div>
                         <div className='col'>
-                            <div className="card mb-3 pb-5 py-1 card-box" >
+                            <div className="card mb-3 pb-2 card-box" style={{ height: "178px" }}>
                                 <div className="row ">
                                     <span className='text-end ps-5 pe-4'><button className='penbtn  mx-2 px-2 ps-2'><FaPen className='pen'></FaPen></button></span>
                                     <div className="col-md-8">
@@ -223,18 +195,6 @@ export default function Profile() {
                                                         <th className='c1book text-content px-4'>Read</th>
                                                         <th className='c1book text-content px-4'>Speak</th>
                                                         <th className='c1book text-content px-4'>Write</th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td className='c1book text-gry pb-0 mb-0 px-4' >English</td>
-                                                        <td className='c1book text-gry pb-0 mb-0 px-4'>Yes</td>
-                                                        <td className='c2book text-gry pb-0 mb-0 px-4'>Yes</td>
-                                                        <td className='c2book text-gry pb-0 mb-0 px-4'>Yes</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td className='c1book text-gry pb-0 mb-0 px-4' >Hindi</td>
-                                                        <td className='c1book text-gry pb-0 mb-0 px-4'>Yes</td>
-                                                        <td className='c2book text-gry pb-0 mb-0 px-4'>Yes</td>
-                                                        <td className='c2book text-gry pb-0 mb-0 px-4'>Yes</td>
                                                     </tr>
                                                 </table>
                                             </div>
@@ -255,18 +215,18 @@ export default function Profile() {
                                             <div className='card-text col '>
                                                 <h6 className='c2medium text-content'>Contact 1</h6>
                                                 <dl className='row'>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Name    </dt><dd className="col-sm-8 c2book text-gry"> John Doe</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Relationship           </dt><dd className="col-sm-8 c2book text-gry">Father</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Phone    </dt><dd className="col-sm-8 c2book text-gry">9876543210, 9876543210</dd>
+                                                    <dt className=" c1book text-content pb-0 mb-0">Name    </dt>
+                                                    <dt className=" c1book text-content pb-0 mb-0">Relationship </dt>
+                                                    <dt className=" c1book text-content pb-0 mb-0">Phone    </dt>
                                                 </dl>
                                             </div>
                                             <hr />
                                             <div className='card-text col '>
                                                 <h6 className='c2medium text-content'>Contact 2</h6>
                                                 <dl className='row'>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Name    </dt><dd className="col-sm-8 c2book text-gry"> John Doe</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Relationship           </dt><dd className="col-sm-8 c2book text-gry">Father</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Phone    </dt><dd className="col-sm-8 c2book text-gry">9876543210, 9876543210</dd>
+                                                    <dt className=" c1book text-content pb-0 mb-0">Name    </dt>
+                                                    <dt className=" c1book text-content pb-0 mb-0">Relationship </dt>
+                                                    <dt className=" c1book text-content pb-0 mb-0">Phone    </dt>
                                                 </dl>
                                             </div>
                                         </div>
@@ -275,7 +235,7 @@ export default function Profile() {
                             </div>
                         </div>
                         <div className='col'>
-                            <div className="card mb-3 card-box" >
+                            <div className="card mb-3 card-box" style={{ height: "178px" }}>
                                 <div className="row ">
                                     <span className='text-end ps-5 pe-4'><button className='penbtn  mx-2 px-2 ps-2'><FaPen className='pen'></FaPen></button></span>
                                     <div className="col-md-8">
@@ -289,27 +249,6 @@ export default function Profile() {
                                                         <th className='c1book text-content pb-0 mb-0 '>Date of Birth</th>
                                                         <th className='c1book text-content pb-0 mb-0 '>Occupation</th>
                                                         <th className='c1book text-content pb-0 mb-0 '>Phone</th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td className='c1book text-gry pb-0 mb-0'>Leo</td>
-                                                        <td className='c1book text-gry pb-0 mb-0'>Brother</td>
-                                                        <td className='c2book text-gry pb-0 mb-0'>Feb 16th, 2019</td>
-                                                        <td className='c2book text-gry pb-0 mb-0'>Clerk</td>
-                                                        <td className='c2book text-gry pb-0 mb-0'>9876543210</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td className='c1book text-gry pb-0 mb-0'>Leo</td>
-                                                        <td className='c1book text-gry pb-0 mb-0'>Brother</td>
-                                                        <td className='c2book text-gry pb-0 mb-0'>Feb 16th, 2019</td>
-                                                        <td className='c2book text-gry pb-0 mb-0'>Clerk</td>
-                                                        <td className='c2book text-gry pb-0 mb-0'>9876543210</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td className='c1book text-gry pb-0 mb-0'>Leo</td>
-                                                        <td className='c1book text-gry pb-0 mb-0'>Brother</td>
-                                                        <td className='c2book text-gry pb-0 mb-0'>Feb 16th, 2019</td>
-                                                        <td className='c2book text-gry pb-0 mb-0'>Clerk</td>
-                                                        <td className='c2book text-gry pb-0 mb-0'>9876543210</td>
                                                     </tr>
                                                 </table>
                                             </div>

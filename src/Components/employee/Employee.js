@@ -28,7 +28,7 @@ export default function Employee() {
               <option value="3">...</option>
             </select>
           </div>
-          <div className='col-3 '><button className="form-control empbtn text-white ">SEARCH</button></div>
+          <div className='col-3 '><button className="form-control empbtn text-white c1medium">SEARCH</button></div>
         </div>
       </div>
       <Card />

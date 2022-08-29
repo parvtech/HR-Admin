@@ -9,162 +9,147 @@ import Svg from "../Components/img/Group 40.svg"
 export default function Card() {
   return (
     <div className='container-fluid'>
-        <div className='row'>
-        <div className='col-sm-1 col-md-3 mt-4 d-flex justify-content-center'>          
-        <div className="card " style={{width: "18rem"}}>   
-        <div className="text-center mb-0 ">          
-        <div className="text-end me-2">
-        <img alt='' src={Svg} className="" />
+      <div className='row'>
+        <div className='col-sm-6 col-md-3 mt-4 d-flex justify-content-center'>
+          <div className="card " style={{ width: "19.4rem" }}>
+            <div className="text-center  ">
+              <div className="text-end me-2">
+                <img alt='' src={Svg} />
+              </div>
+              <img alt='' src={Rectangle} style={{ width: "56px" }} />
+            </div>
+            <div className="card-body">
+              <p className="card-text text-center card-img-head-width text-content b2medium">Catherine Manseau</p>
+              <p className="card-text text-center card-img-subhead text-gry ">Web Developer</p>
+            </div>
+          </div>
         </div>
-        <img alt='' src={Rectangle} style={{width:"56px",height:"56px"}} className="mt-3 " />        
-        </div>  
-        <div className="card-body">    
-        <p className="card-text text-center mb-0 b2medium">Catherine Manseau</p>
-        <p className="card-text small text-center">Web Developer</p>    
-  </div>
-</div>
-</div>
-<div className='col-sm-1 col-md-3 mt-4 d-flex justify-content-center'>
-    <div className="card" style={{width: "18rem"}}>
-        <div className="text-center mb-0">
-        <div className="text-end me-2">
-        <img alt='' src={Svg} className=""/>
+        <div className='col-sm-6 col-md-3 mt-4 d-flex justify-content-center'>
+          <div className="card " style={{ width: "19.4rem" }}>
+            <div className="text-center  ">
+              <div className="text-end me-2">
+                <img alt='' src={Svg} />
+              </div>
+              <img alt='' src={Rectangle2} style={{ width: "56px" }} />
+            </div>
+            <div className="card-body">
+              <p className="card-text text-center card-img-head-width text-content b2medium">Catherine Manseau</p>
+              <p className="card-text text-center card-img-subhead text-gry ">Web Developer</p>
+            </div>
+          </div>
+        </div><div className='col-sm-6 col-md-3 mt-4 d-flex justify-content-center'>
+          <div className="card " style={{ width: "19.4rem" }}>
+            <div className="text-center  ">
+              <div className="text-end me-2">
+                <img alt='' src={Svg} />
+              </div>
+              <img alt='' src={Rectangle3} style={{ width: "56px" }} />
+            </div>
+            <div className="card-body">
+              <p className="card-text text-center card-img-head-width text-content b2medium">Catherine Manseau</p>
+              <p className="card-text text-center card-img-subhead text-gry ">Web Developer</p>
+            </div>
+          </div>
+        </div><div className='col-sm-6 col-md-3 mt-4 d-flex justify-content-center'>
+          <div className="card " style={{ width: "19.4rem" }}>
+            <div className="text-center  ">
+              <div className="text-end me-2">
+                <img alt='' src={Svg} />
+              </div>
+              <img alt='' src={Rectangle4} style={{ width: "56px" }} />
+            </div>
+            <div className="card-body">
+              <p className="card-text text-center card-img-head-width text-content b2medium">Catherine Manseau</p>
+              <p className="card-text text-center card-img-subhead text-gry ">Web Developer</p>
+            </div>
+          </div>
         </div>
-        <img alt='' src={Rectangle2} style={{width:"56px",height:"56px"}} className="mt-3" />
-        </div>  
-  <div className="card-body">    
-    <p className="card-text text-center mb-0 b2medium">Catherine Manseau</p>
-    <p className="card-text small text-center">Web Developer</p>
-    
-  </div>
-</div>
-</div>
-<div className='col-sm-1 col-md-3 mt-4 d-flex justify-content-center'>
-    <div className="card" style={{width: "18rem"}}>
-        <div className="text-center">
-        <div className="text-end me-2">
-        <img alt='' src={Svg} className=""/>
+        <div className='col-sm-6 col-md-3 mt-4 d-flex justify-content-center'>
+          <div className="card " style={{ width: "19.4rem" }}>
+            <div className="text-center  ">
+              <div className="text-end me-2">
+                <img alt='' src={Svg} />
+              </div>
+              <img alt='' src={Rectangle} style={{ width: "56px" }} />
+            </div>
+            <div className="card-body">
+              <p className="card-text text-center card-img-head-width text-content b2medium">Catherine Manseau</p>
+              <p className="card-text text-center card-img-subhead text-gry ">Web Developer</p>
+            </div>
+          </div>
         </div>
-        <img alt='' src={Rectangle3} style={{width:"56px",height:"56px"}} className="mt-3" />
-        </div>  
-  <div className="card-body">    
-    <p className="card-text text-center mb-0 b2medium">Catherine Manseau</p>
-    <p className="card-text small text-center">Web Developer</p>
-    
-  </div>
-</div>
-</div>
-<div className='col-sm-1 col-md-3 mt-4 d-flex justify-content-center'>
-    <div className="card" style={{width: "18rem"}}>
-        <div className="text-center">
-        <div className="text-end me-2">
-        <img alt='' src={Svg} className=""/>
+        <div className='col-sm-6 col-md-3 mt-4 d-flex justify-content-center'>
+          <div className="card " style={{ width: "19.4rem" }}>
+            <div className="text-center  ">
+              <div className="text-end me-2">
+                <img alt='' src={Svg} />
+              </div>
+              <img alt='' src={Rectangle2} style={{ width: "56px" }} />
+            </div>
+            <div className="card-body">
+              <p className="card-text text-center card-img-head-width text-content b2medium">Catherine Manseau</p>
+              <p className="card-text text-center card-img-subhead text-gry ">Web Developer</p>
+            </div>
+          </div>
+        </div><div className='col-sm-6 col-md-3 mt-4 d-flex justify-content-center'>
+          <div className="card " style={{ width: "19.4rem" }}>
+            <div className="text-center  ">
+              <div className="text-end me-2">
+                <img alt='' src={Svg} />
+              </div>
+              <img alt='' src={Rectangle3} style={{ width: "56px" }} />
+            </div>
+            <div className="card-body">
+              <p className="card-text text-center card-img-head-width text-content b2medium">Catherine Manseau</p>
+              <p className="card-text text-center card-img-subhead text-gry ">Web Developer</p>
+            </div>
+          </div>
         </div>
-        <img alt='' src={Rectangle4} style={{width:"56px",height:"56px"}} className="mt-3" />
-        </div>  
-  <div className="card-body">    
-    <p className="card-text text-center mb-0 b2medium">Catherine Manseau</p>
-    <p className="card-text small text-center">Web Developer</p>
-    
-  </div>
-</div>
-</div>
-</div>
-<div className='row'>
-        <div className='col-sm-1 col-md-3 mt-4 d-flex justify-content-center'>
-    <div className="card" style={{width: "18rem"}}>
-        <div className="text-center">
-        <div className="text-end me-2">
-        <img alt='' src={Svg} className=""/>
+        <div className='col-sm-6 col-md-3 mt-4 d-flex justify-content-center'>
+          <div className="card " style={{ width: "19.4rem" }}>
+            <div className="text-center  ">
+              <div className="text-end me-2">
+                <img alt='' src={Svg} />
+              </div>
+              <img alt='' src={Rectangle4} style={{ width: "56px" }} />
+            </div>
+            <div className="card-body">
+              <p className="card-text text-center card-img-head-width text-content b2medium">Catherine Manseau</p>
+              <p className="card-text text-center card-img-subhead text-gry ">Web Developer</p>
+            </div>
+          </div>
         </div>
-        <img alt='' src={Rectangle} style={{width:"56px",height:"56px"}} className="mt-3" />
-        </div>  
-  <div className="card-body">    
-    <p className="card-text text-center mb-0 b2medium">Catherine Manseau</p>
-    <p className="card-text small text-center">Web Developer</p>
-    
-  </div>
-</div>
-</div>
-<div className='col-sm-1 col-md-3 mt-4 d-flex justify-content-center'>
-    <div className="card" style={{width: "18rem"}}>
-        <div className="text-center mb-0">
-        <div className="text-end me-2">
-        <img alt='' src={Svg} className=""/>
+      </div>
+      <div className='row'>
+        <div className='col-sm-6 col-md-3 mt-4 d-flex justify-content-center'>
+          <div className="card " style={{ width: "19.4rem" }}>
+            <div className="text-center  ">
+              <div className="text-end me-2">
+                <img alt='' src={Svg} />
+              </div>
+              <img alt='' src={Rectangle} style={{ width: "56px" }} />
+            </div>
+            <div className="card-body">
+              <p className="card-text text-center card-img-head-width text-content b2medium">Catherine Manseau</p>
+              <p className="card-text text-center card-img-subhead text-gry ">Web Developer</p>
+            </div>
+          </div>
         </div>
-        <img alt='' src={Rectangle2} style={{width:"56px",height:"56px"}} className="mt-3"  />
-        </div>  
-  <div className="card-body">    
-    <p className="card-text text-center mb-0 b2medium">Catherine Manseau</p>
-    <p className="card-text small text-center">Web Developer</p>
-    
-  </div>
-</div>
-</div>
-<div className='col-sm-1 col-md-3 mt-4 d-flex justify-content-center'>
-    <div className="card" style={{width: "18rem"}}>
-        <div className="text-center">
-        <div className="text-end me-2">
-        <img alt='' src={Svg} className=""/>
+        <div className='col-sm-6 col-md-3 mt-4 d-flex justify-content-center'>
+          <div className="card " style={{ width: "19.4rem" }}>
+            <div className="text-center  ">
+              <div className="text-end me-2">
+                <img alt='' src={Svg} />
+              </div>
+              <img alt='' src={Rectangle2} style={{ width: "56px" }} />
+            </div>
+            <div className="card-body">
+              <p className="card-text text-center card-img-head-width text-content b2medium">Catherine Manseau</p>
+              <p className="card-text text-center card-img-subhead text-gry ">Web Developer</p>
+            </div>
+          </div>
         </div>
-        <img alt='' src={Rectangle3} style={{width:"56px",height:"56px"}} className="mt-3" />
-        </div>  
-  <div className="card-body">    
-    <p className="card-text text-center mb-0 b2medium">Catherine Manseau</p>
-    <p className="card-text small text-center">Web Developer</p>
-    
-  </div>
-</div>
-</div>
-<div className='col-sm-1 col-md-3 mt-4 d-flex justify-content-center'>
-    <div className="card" style={{width: "18rem"}}>
-        <div className="text-center">
-        <div className="text-end me-2">
-        <img alt='' src={Svg} className="" />
-        </div>
-        <img alt='' src={Rectangle4} style={{width:"56px",height:"56px"}} className="mt-3" />
-        </div>  
-  <div className="card-body">    
-    <p className="card-text text-center mb-0 b2medium">Catherine Manseau</p>
-    <p className="card-text small text-center">Web Developer</p>
-    
-  </div>
-</div>
-</div>
-</div>
-<div className='row'>
-        <div className='col-sm-1 col-md-3 mt-4 d-flex justify-content-center'>
-    <div className="card" style={{width: "18rem"}}>
-        <div className="text-center">
-        <div className="text-end me-2">
-        <img alt='' src={Svg} className="" />
-        </div>
-        <img alt='' src={Rectangle} style={{width:"56px",height:"56px"}} className="mt-3" />
-        </div>  
-  <div className="card-body">    
-    <p className="card-text text-center mb-0 b2medium">Catherine Manseau</p>
-    <p className="card-text small text-center">Web Developer</p>
-    
-  </div>
-</div>
-</div>
-<div className='col-sm-1 col-md-3 mt-4 d-flex justify-content-center'>
-    <div className="card" style={{width: "18rem"}}>
-        <div className="text-center mb-0">
-        <div className="text-end me-2">
-        <img alt='' src={Svg} className=""/>
-        </div>
-        <img alt='' src={Rectangle2} style={{width:"56px",height:"56px"}} className="mt-3" />
-        </div>  
-  <div className="card-body">    
-    <p className="card-text text-center mb-0 b2medium">Catherine Manseau</p>
-    <p className="card-text small text-center">Web Developer</p>
-    
-  </div>
-</div>
-</div>
-
-</div>
-</div>
+      </div>
+    </div >
   )
 }

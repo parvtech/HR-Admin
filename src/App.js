@@ -11,6 +11,7 @@ import ResetPassword from './Components/ResetPassword';
 import SubAdmin from './Components/subadmin/SubAdmin';
 import Profile from './Components/profile/Profile';
 import Card from './Components/Card';
+import ProfileEmployee from './Components/profile/ProfileEmployee';
 
 const App = () => {
 
@@ -28,6 +29,8 @@ const App = () => {
           <NavLink className="nav-item nav-link" to="/card">Card</NavLink>
           <NavLink className="nav-item nav-link" to="/profileinfo">ProfileInfo</NavLink>
           <NavLink className="nav-item nav-link" to="/sub-admin"> Sub Admin</NavLink>
+          <NavLink className="nav-item nav-link" to="/profile">Proflie</NavLink>
+          <NavLink className="nav-item nav-link" to="/profileemployeee">Prolie / Employee</NavLink>
         </nav>
         <div className="App">
           <Routes>
@@ -42,6 +45,7 @@ const App = () => {
             <Route exact path='/profileinfo' element={<ProfileInfo />}></Route>
             <Route exact path='/sub-admin' element={<SubAdmin />}></Route>
             <Route exact path='/profile' element={<Profile />}></Route>
+            <Route exact path='/profileemployeee' element={<ProfileEmployee />}></Route>
           </Routes>
         </div>
       </Router>
