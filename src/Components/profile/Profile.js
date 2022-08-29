@@ -8,6 +8,13 @@ import Personalinfopopup from '../modals/Personalinfopopup'
 export default function Profile() {
 
     const [openModal, setOpenModal] = useState(false);
+    let [input, setInput] =useState({
+        personalInfo : {
+            uan: '9876543210',
+            tel: '9876543210',
+            natioanlity : 'Indian',
+        }
+    })
     return (
         <div>
             <div className='container-fluid'>
@@ -47,13 +54,12 @@ export default function Profile() {
                                 <div className="row no-gutters">
                                     <span className='text-end ps-5 pe-4'><button onClick={() =>setOpenModal(true)}><FaPen></FaPen></button></span>
                                     {
-                                        openModal && <Personalinfopopup closeModal={setOpenModal}/>
+                                        openModal && input && <Personalinfopopup closeModal={setOpenModal} data={input.personalInfo} />
                                     }
                                     <div className="col-md-8">
                                         <div className="card-body row">
                                             <h5 className="card-title pb-4">Personal Informations</h5>
                                             <div className='card-text col '>
-                                                <p>UAN number  <span className=' px-5'>9876543210</span></p>
                                                 <p>UAN number   <span className=' px-5'>9876543210</span></p>
                                                 <p>Tel <span> <Link to="" className='px-5  text-decoration-none'>9876543210</Link></span></p>
                                                 <p>Nationality <span className=' px-5'>Indian</span></p>

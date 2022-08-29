@@ -1,37 +1,64 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Modal } from 'react-bootstrap'
 import './Personalinfopopup.css'
 
-function Personalinfopopup({ closeModal }) {
+function Personalinfopopup({ closeModal, data}) {
+
+    let [update, setUpdate] =useState({
+        personalInfo : {
+            uan: '',
+            tel: '',
+            natioanlity : '',
+        }
+    })
+
+    useEffect(() => {
+        async function myData(){
+            let response = await data;
+            console.log(response)
+        }
+        myData();
+    })
+
+    let updateInput = (event) => {
+        setUpdate({
+            [event.target.name] : event.target.value
+        })
+    }
+    let submitForm = (event) => {
+        event.preventDefault();
+        console.log(event.target.value)
+    }
+
     return (
         <>
         <div className='mt-5 pt-5'>
-            <Modal className='pt-5 mt-5' style={{paddingTop: '30px'}} show={true} >
-               <Modal.Header>Header</Modal.Header>
-               <Modal.Body>Hello there 🙋‍♂️
+        <Modal className='pt-5 mt-5' style={{paddingTop: '30px'}} show={true} >
+        <Modal.Header>Header</Modal.Header>
+        <Modal.Body>Hello there 🙋‍♂️
+        <pre>{JSON.stringify(data)}</pre>
                     <div>
-                    <form>
+                    <form onSubmit={submitForm}>
                     <div className='mb-2'>
-                    <input required={true} name="name" type="text" className="form-control" placeholder='Name'/>
+                    <input required={true} name="uan" onChange={updateInput} value={data.uan} type="text" className="form-control" placeholder='UAN'/>
                 </div>
                 <div className='mb-2'>
-                    <input required={true} name="photo" type="text" className="form-control" placeholder='Photo URL'/>
+                    <input required={true} name="tel" onChange={updateInput} value={data.tel} type="text" className="form-control" placeholder='Telephone'/>
+                </div>
+                 <div className='mb-2'>
+                    <input required={true} name="natioanlity" onChange={updateInput} value={data.natioanlity} type="text" className="form-control" placeholder='Nationality'/>
                 </div>
                 <div className='mb-2'>
-                    <input required={true} name="mobile"  type="number" className="form-control" placeholder='Mobile Number'/>
+                   <button type='submit' className='btn btn-success'>Submit</button>  
                 </div>
                 <div className='mb-2'>
-                    <input required={true} name="email" type="email" className="form-control" placeholder='Email'/>
-                </div>
-                <div className='mb-2'>
-                    <input required={true} name="company" type="text" className="form-control" placeholder='Company'/>
+                   <button onClick={() => closeModal(false)} className='btn btn-primary'>Cancel</button>  
                 </div>
 
                 </form>
                     </div>
                </Modal.Body>
                <Modal.Footer>
-                   <button onClick={() => closeModal(false)} className='btn btn-primary'>Cancel</button>
                </Modal.Footer>
             </Modal>
           </div>
