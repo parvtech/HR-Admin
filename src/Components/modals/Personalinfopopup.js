@@ -36,7 +36,6 @@ function Personalinfopopup({ closeModal, data}) {
         <Modal className='pt-5 mt-5' style={{paddingTop: '30px'}} show={true} >
         <Modal.Header>Header</Modal.Header>
         <Modal.Body>Hello there 🙋‍♂️
-        <pre>{JSON.stringify(data)}</pre>
                     <div>
                     <form onSubmit={submitForm}>
                     <div className='mb-2'>
