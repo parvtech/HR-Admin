@@ -48,7 +48,7 @@ export default function Login() {
       })
     }
     if (errorCount == 0) {
-      console.log(email, password);
+
       /* Login API call */
       setLoading(true)
       let user = {
@@ -63,7 +63,6 @@ export default function Login() {
         }
       };
       axios.post(url, user, config).then(result => {
-        console.log("resulttt", result);
         localStorage.setItem('token', result.data.access_token);
         localStorage.setItem('username', result.data.username);
         navigate("/")
@@ -77,7 +76,6 @@ export default function Login() {
         }
       })
         .catch(error => {
-          console.log(error);
           setLoading(false)
           toast.error("Incorrect Id Password!", {
             position: toast.POSITION.TOP_RIGHT,
@@ -90,7 +88,7 @@ export default function Login() {
   }
 
   const onSetPassword = () => {
-    if (password === 'password') {
+    if (password == 'password') {
       setPassword('text')
     } else {
       setPassword('password')
@@ -109,7 +107,7 @@ export default function Login() {
             <h4 className='text-center b3black'>Welcome to Human Resources key</h4>
             <div className="card text-center d-flex form-body ">
               <div className="card-body text-center">
-                <h4 className="mt-0 mb-0  b1book">Login</h4>
+                <h4 className="mt-0 mb-0 b1book">Login</h4>
                 <p className='text-muted '>Access to our dashboard</p>
                 <form className='mt-3'>
                   <div className="input-container">
@@ -120,26 +118,22 @@ export default function Login() {
                       {errors.email && <p className="w-100 mb-2 mt-1 text-start c2medium" style={{ color: "red" }}>{errors.email}</p>}
                     </div>
                   </div>
-
                   <div className="input-container"><label className="w-100 mb-2 mt-1 text-start c2medium">Password </label>
                     <div className="input-group">
-                      <input style={{ background: "#FBFBFB", borderRight: "none" }} className=' form-control mt-1' type={password} name="password" placeholder="Password" />
-                      <span className='input-group-text ' style={{ background: "#FBFBFB", color: "black", borderLeft: "none", marginTop: "4px", borderTopRightRadius: "5px", borderBottomRightRadius: "5px", borderRightt: "none" }} onClick={() => { onSetPassword() }} id="basic-addon1">{password === 'password' &&
-                        <AiOutlineEye></AiOutlineEye>}{password !== 'password' &&
-                          <AiOutlineEyeInvisible></AiOutlineEyeInvisible>}</span>
+                      <input style={{ borderRight: "none" }} className='form-input form-control mt-1' type={password} name="password" placeholder="Password" onChange={handlePassword} />
+                      <span className='input-group-text form-input' style={{ color: "black", borderLeft: "none", marginTop: "4px", borderTopRightRadius: "5px", borderBottomRightRadius: "5px", borderRightt: "none" }} onClick={() => { onSetPassword() }} id="basic-addon1">{password == 'password' &&
+                        <AiOutlineEye />}{password != 'password' &&
+                          <AiOutlineEyeInvisible />}</span>
                     </div>
                     {errors.password && <p className="w-100 mb-2 mt-1 text-start c2medium" style={{ color: "red" }}>{errors.password}</p>}
                   </div>
                   <div className="row mt-3" style={{ fontSize: '14px', fontWeight: '450', lineHeight: '18px', letterSpacing: '0em' }}>
                     <div className="d-flex col d-grid gap-2">
-                      <input className="form-check-input " type="checkbox" value="" id="flexCheckDefault" style={{
-                        border: "1.5px solid #8E8E8E",
-                        width: " 13px", height: "13px"
-                      }} />
-                      <p className=' text-muted c2book ' style={{ marginTop: '1.5px' }}>Remind me</p>
+                      <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" style={{ width: " 18.5px" }} />
+                      <p className='fs-6 text-muted c2book'>Remember me</p>
                     </div>
-                    <div className="col  text-end">
-                      <Link className=" text-muted text-decoration-none c2book" to={"/forgot-password"}>Forgot password?</Link>
+                    <div className="col text-end">
+                      <Link className="text-black fs-6 text-muted text-decoration-none c2book" to={"/forgot-password"}>Forgot password?</Link>
                     </div>
                   </div>
                   {loading ? <button className="btn w-100 col-10 mt-1 form-btn " type="button" disabled>

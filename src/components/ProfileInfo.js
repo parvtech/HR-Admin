@@ -1,5 +1,5 @@
 import React from 'react'
-import Profileimg from '../Components/img/Rectangle.png'
+import Profileimg from '../assests/img/Rectangle.png'
 
 import { MdCancel} from "react-icons/md"
 

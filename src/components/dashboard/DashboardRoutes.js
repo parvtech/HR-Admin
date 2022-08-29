@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 //import react pro sidebar components
 import {
@@ -20,25 +20,27 @@ import { BiCog } from "react-icons/bi";
 
 // import images, wich  is used in this page
 
-import logo from "./img/imgpsh_fullsize_anim.png";
-import user from "./img/Rectangle (1).png";
-import hamburg from "./img/hamburg.svg";
-import DashChart from "../assests/dash-chart.svg";
-import Employees from "../assests/User3.svg";
-import SubAdmin from "../assests/subAdmin.svg";
-import Inbox from "../assests/inbox.svg";
-import Events from "../assests/event.svg";
-import WebContents from "../assests/WebComtent.svg";
-import CustomMail from "../assests/CustomMail.svg";
-import HRPolicy from "../assests/HrPolicy.svg";
-import HrConfiguration from "../assests/HrConfiguration.svg";
+import logo from "../../assests/img/imgpsh_fullsize_anim.png";
+import user from "../../assests/img/Rectangle.png"
+import hamburg from "../../assests/img/hamburg.svg";
+import DashChart from "../../assests/dash-chart.svg";
+import Employees from "../../assests/User3.svg";
+import SubAdminsvg from "../../assests/subAdmin.svg";
+import Inbox from "../../assests/inbox.svg";
+import Events from "../../assests/event.svg";
+import WebContents from "../../assests/WebComtent.svg";
+import CustomMail from "../../assests/CustomMail.svg";
+import HRPolicy from "../../assests/HrPolicy.svg";
+import HrConfiguration from "../../assests/HrConfiguration.svg";
+import SubAdmin from "../subadmin/SubAdmin";
 // import hamburger from "./svg/hamburger.svg"
 
 //import sidebar css from react-pro-sidebar module and our custom css
 import "react-pro-sidebar/dist/css/styles.css";
 import "./Dashboard.css";
+import EventsComponent from "../events/EventsComponent";
 
-export default function Dashboard() {
+export default function DashboardRoutes() {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -56,13 +58,17 @@ export default function Dashboard() {
     menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
   };
 
+  let location = useLocation().pathname
+
+
+
   return (
     <div>
       {/* // ------------------------------nav-bar----------------------- */}
 
       <div id="navbar-wrapper">
-        <nav class="navbar navbar-expand-lg row p-0 m-0">
-          <div class="navbar-header col">
+        <nav className="navbar navbar-expand-lg row p-0 m-0">
+          <div className="navbar-header col">
             <SidebarHeader className=" row">
               <div className="logotext">
                 {/* small and big change using menucollapse state */}
@@ -110,7 +116,6 @@ export default function Dashboard() {
                       left: "82px",
                       top: "19px",
                     }}
-                    alt=""
                   />
                 ) : (
                   <img
@@ -204,23 +209,22 @@ export default function Dashboard() {
       <div id="header">
         {/* collapsed props to change menu size using menucollapse state */}
         <ProSidebar collapsed={menuCollapse}>
-          <SidebarHeader>
-            <div className="logotext">
-              {/* <p>{menuCollapse ? "Logo" : "Big Logo"}</p> */}
-            </div>
-          </SidebarHeader>
+     
           <SidebarContent>
+
             <Menu className="b3medium" iconShape="square">
-              <MenuItem active={true} style={{ background: "#FFEBDA" }}>
-                <img
-                  src={DashChart}
-                  className="img-fluid me-2 "
-                  style={{ width: "20px", height: "20px" }}
-                  alt=""
-                />
-                Dashboard
-              </MenuItem>
-              <MenuItem>
+                    
+                 <MenuItem  style={ location == "/" ? { background: "#FFEBDA" } : {background: "#fff" } }   onClick={()=>navigate("/")} >
+                    <img
+                      src={DashChart}
+                      className="img-fluid me-2 "
+                      style={{ width: "20px", height: "20px" }}
+                      alt=""
+                    />
+                    Dashboard
+                  </MenuItem>
+  
+               <MenuItem style={ location == "/employees" ? { background: "#FFEBDA" } : {background: "#fff" } }   onClick={()=>navigate("/employees")}>
                 <img
                   src={Employees}
                   className="img-fluid me-2 "
@@ -229,16 +233,20 @@ export default function Dashboard() {
                 />
                 Employees
               </MenuItem>
-              <MenuItem>
+        
+              <MenuItem style={ location == "/sub-admin" ? { background: "#FFEBDA" } : {background: "#fff" } }  onClick={()=>navigate("/sub-admin")}>
                 <img
-                  src={SubAdmin}
+                  src={SubAdminsvg}
                   className="img-fluid me-2 "
                   style={{ width: "20px", height: "20px" }}
                   alt=""
                 />
                 Sub Admin
               </MenuItem>
-              <MenuItem>
+              
+
+         
+              <MenuItem style={ location == "/inbox" ? { background: "#FFEBDA" } : {background: "#fff" } }  onClick={()=>navigate("/inbox")}> 
                 <img
                   src={Inbox}
                   className="img-fluid me-2 "
@@ -247,7 +255,8 @@ export default function Dashboard() {
                 />
                 Inbox
               </MenuItem>
-              <MenuItem>
+          
+              <MenuItem style={ location == "/events" ? { background: "#FFEBDA" } : {background: "#fff" } }  onClick={()=>navigate("/events")}> 
                 <img
                   src={Events}
                   className="img-fluid me-2 "
@@ -256,7 +265,7 @@ export default function Dashboard() {
                 />
                 Events
               </MenuItem>
-              <MenuItem>
+              <MenuItem style={ location == "/web-contents" ? { background: "#FFEBDA" } : {background: "#fff" } }  onClick={()=>navigate("/web-contents")}>
                 <img
                   src={WebContents}
                   className="img-fluid me-2 "
@@ -265,7 +274,8 @@ export default function Dashboard() {
                 />
                 Web Contents
               </MenuItem>
-              <MenuItem>
+
+              <MenuItem style={ location == "/custom-mail" ? { background: "#FFEBDA" } : {background: "#fff" } }  onClick={()=>navigate("/custom-mail")}>
                 <img
                   src={CustomMail}
                   className="img-fluid me-2 "
@@ -274,7 +284,8 @@ export default function Dashboard() {
                 />
                 Custom Mail
               </MenuItem>
-              <MenuItem>
+
+              <MenuItem style={ location == "/hr-policy" ? { background: "#FFEBDA" } : {background: "#fff" } }  onClick={()=>navigate("/hr-policy")}>
                 <img
                   src={HRPolicy}
                   className="img-fluid me-2 "
@@ -283,7 +294,8 @@ export default function Dashboard() {
                 />
                 HR Policy
               </MenuItem>
-              <MenuItem>
+
+              <MenuItem style={ location == "/hr-configuration" ? { background: "#FFEBDA" } : {background: "#fff" } }  onClick={()=>navigate("/hr-configuration")}>
                 <img
                   src={HrConfiguration}
                   className="img-fluid me-2 "
@@ -294,17 +306,9 @@ export default function Dashboard() {
               </MenuItem>
             </Menu>
           </SidebarContent>
-          {/* 
-                logout section which is located in sidebar 
-        */}
-
-          {/* <SidebarFooter>
-            <Menu iconShape="square">
-              <MenuItem icon={<FiLogOut />}>Logout</MenuItem>
-            </Menu>
-          </SidebarFooter> */}
         </ProSidebar>
       </div>
+
     </div>
   );
 }
