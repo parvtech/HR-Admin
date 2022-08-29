@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, NavLink } from "react-router-dom";
 
 //import react pro sidebar components
 import {
@@ -12,11 +12,15 @@ import {
 } from "react-pro-sidebar";
 
 //import icons from react icons
-import { FaList, FaRegHeart } from "react-icons/fa";
-import { FiHome, FiLogOut } from "react-icons/fi";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { RiPencilLine } from "react-icons/ri";
-import { BiCog } from "react-icons/bi";
+import {
+    FaTh,
+    FaBars,
+    FaUserAlt,
+    FaRegChartBar,
+    FaCommentAlt,
+    FaShoppingBag,
+    FaThList
+}from "react-icons/fa";
 
 // import images, wich  is used in this page
 
@@ -40,7 +44,7 @@ import "react-pro-sidebar/dist/css/styles.css";
 import "./Dashboard.css";
 import EventsComponent from "../events/EventsComponent";
 
-  const  SidebarRoutes = () => {
+  const  Sidebar = ({children}) => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -61,7 +65,55 @@ import EventsComponent from "../events/EventsComponent";
   let location = useLocation().pathname
 
 
+    const menuItem=[
+        {
+            path:"/",
+            name:"Dashboard",
+            // image: require('../../assests/img/Rectangle.png')
+            icon: <FaUserAlt/>
 
+        },
+        {
+            path:"/employees",
+            name:"Employees",
+            icon:<FaUserAlt/>
+        },
+        {
+            path:"/sub-admin",
+            name:"Sub Admin",
+            icon:<FaRegChartBar/>
+        },
+        {
+            path:"/inbox",
+            name:"Inbox",
+            icon:<FaCommentAlt/>
+        },
+        {
+            path:"/events",
+            name:"Events",
+            icon:<FaShoppingBag/>
+        },
+        {
+            path:"/web-contents",
+            name:"Web Contents",
+            icon:<FaThList/>
+        },
+        {
+          path:"/custom-mail",
+          name:"Custom Mail",
+          icon:<FaThList/>
+      },
+      {
+        path:"/hr-policy",
+        name:"HR Policy",
+        icon:<FaThList/>
+    },
+    {
+      path:"/hr-configuration",
+      name:"HR Configuration",
+      icon:<FaThList/>
+  }
+    ]
   return (
     <div>
       {/* // ------------------------------nav-bar----------------------- */}
@@ -206,110 +258,123 @@ import EventsComponent from "../events/EventsComponent";
       </div>
         
       {/* // --------------------------side-bar-----------------------------------  */}
-      <div id="header">
-        {/* collapsed props to change menu size using menucollapse state */}
-        <ProSidebar collapsed={menuCollapse}>
-     
-          <SidebarContent>
-
-            <Menu className="b3medium" iconShape="square">
-                    
-                 <MenuItem  style={ location == "/" ? { background: "#FFEBDA" } : {background: "#fff" } }   onClick={()=>navigate("/")} >
-                    <img
-                      src={DashChart}
-                      className="img-fluid me-2 "
-                      style={{ width: "20px", height: "20px" }}
-                      alt=""
-                    />
-                    Dashboard
-                  </MenuItem>
-  
-               <MenuItem style={ location == "/employees" ? { background: "#FFEBDA" } : {background: "#fff" } }   onClick={()=>navigate("/employees")}>
-                <img
-                  src={Employees}
-                  className="img-fluid me-2 "
-                  style={{ width: "20px", height: "20px" }}
-                  alt=""
-                />
-                Employees
-              </MenuItem>
-        
-              <MenuItem style={ location == "/sub-admin" ? { background: "#FFEBDA" } : {background: "#fff" } }  onClick={()=>navigate("/sub-admin")}>
-                <img
-                  src={SubAdminsvg}
-                  className="img-fluid me-2 "
-                  style={{ width: "20px", height: "20px" }}
-                  alt=""
-                />
-                Sub Admin
-              </MenuItem>
-              
-
-         
-              <MenuItem style={ location == "/inbox" ? { background: "#FFEBDA" } : {background: "#fff" } }  onClick={()=>navigate("/inbox")}> 
-                <img
-                  src={Inbox}
-                  className="img-fluid me-2 "
-                  style={{ width: "20px", height: "20px" }}
-                  alt=""
-                />
-                Inbox
-              </MenuItem>
-          
-              <MenuItem style={ location == "/events" ? { background: "#FFEBDA" } : {background: "#fff" } }  onClick={()=>navigate("/events")}> 
-                <img
-                  src={Events}
-                  className="img-fluid me-2 "
-                  style={{ width: "20px", height: "20px" }}
-                  alt=""
-                />
-                Events
-              </MenuItem>
-              <MenuItem style={ location == "/web-contents" ? { background: "#FFEBDA" } : {background: "#fff" } }  onClick={()=>navigate("/web-contents")}>
-                <img
-                  src={WebContents}
-                  className="img-fluid me-2 "
-                  style={{ width: "20px", height: "20px" }}
-                  alt=""
-                />
-                Web Contents
-              </MenuItem>
-
-              <MenuItem style={ location == "/custom-mail" ? { background: "#FFEBDA" } : {background: "#fff" } }  onClick={()=>navigate("/custom-mail")}>
-                <img
-                  src={CustomMail}
-                  className="img-fluid me-2 "
-                  style={{ width: "20px", height: "20px" }}
-                  alt=""
-                />
-                Custom Mail
-              </MenuItem>
-
-              <MenuItem style={ location == "/hr-policy" ? { background: "#FFEBDA" } : {background: "#fff" } }  onClick={()=>navigate("/hr-policy")}>
-                <img
-                  src={HRPolicy}
-                  className="img-fluid me-2 "
-                  style={{ width: "20px", height: "20px" }}
-                  alt=""
-                />
-                HR Policy
-              </MenuItem>
-
-              <MenuItem style={ location == "/hr-configuration" ? { background: "#FFEBDA" } : {background: "#fff" } }  onClick={()=>navigate("/hr-configuration")}>
-                <img
-                  src={HrConfiguration}
-                  className="img-fluid me-2 "
-                  style={{ width: "20px", height: "20px" }}
-                  alt=""
-                />
-                HR Configuration
-              </MenuItem>
-            </Menu>
-          </SidebarContent>
-        </ProSidebar>
-      </div>
-
+             <div className="container">
+                    <div style={{width: menuCollapse ? "200px" : "50px"}} className="sidebar">
+                        <div className="top_section">
+                            <h1 style={{display: menuCollapse ? "block" : "none"}} className="logo">Logo</h1>
+                            <div style={{marginLeft: menuCollapse ? "50px" : "0px"}} className="bars">
+                                <FaBars onClick={menuCollapse}/>
+                            </div>
+                        </div>
+                        {
+                            menuItem.map((item, index)=>(
+                                <NavLink to={item.path} key={index} className="link" activeclassName="active">
+                                    <div className="icon" >
+                                {item.icon}
+                                     
+                                     
+                                    </div>
+                                    <div style={{display: menuCollapse ? "block" : "none"}} className="link_text">{item.name}</div>
+                                </NavLink>
+                            ))
+                        }
+                    </div>
+                    <main>{children}</main>
+                 </div>
     </div>
   );
 }
-export default  SidebarRoutes
+export default  Sidebar
+
+
+
+
+// import React, { useState } from 'react';
+// import {
+//     FaTh,
+//     FaBars,
+//     FaUserAlt,
+//     FaRegChartBar,
+//     FaCommentAlt,
+//     FaShoppingBag,
+//     FaThList
+// }from "react-icons/fa";
+// import { NavLink } from 'react-router-dom';
+// import "./Dashboard.css"
+// import logo from "../../assests/img/imgpsh_fullsize_anim.png";
+// import user from "../../assests/img/Rectangle.png"
+// import hamburg from "../../assests/img/hamburg.svg";
+// import DashChart from "../../assests/dash-chart.svg";
+// import Employees from "../../assests/User3.svg";
+// import SubAdminsvg from "../../assests/subAdmin.svg";
+// import Inbox from "../../assests/inbox.svg";
+// import Events from "../../assests/event.svg";
+// import WebContents from "../../assests/WebComtent.svg";
+// import CustomMail from "../../assests/CustomMail.svg";
+// import HRPolicy from "../../assests/HrPolicy.svg";
+// import HrConfiguration from "../../assests/HrConfiguration.svg";
+
+// const Sidebar = ({children}) => {
+//     const[isOpen ,setIsOpen] = useState(false);
+//     const toggle = () => setIsOpen (!isOpen);
+//     const menuItem=[
+//         {
+//             path:"/",
+//             name:"Dashboard",
+//             image: require('../../assests/img/Rectangle.png')
+//         },
+//         {
+//             path:"/about",
+//             name:"About",
+//             icon:<FaUserAlt/>
+//         },
+//         {
+//             path:"/analytics",
+//             name:"Analytics",
+//             icon:<FaRegChartBar/>
+//         },
+//         {
+//             path:"/comment",
+//             name:"Comment",
+//             icon:<FaCommentAlt/>
+//         },
+//         {
+//             path:"/product",
+//             name:"Product",
+//             icon:<FaShoppingBag/>
+//         },
+//         {
+//             path:"/productList",
+//             name:"Product List",
+//             icon:<FaThList/>
+//         }
+//     ]
+//     return (
+//         <div className="container">
+          
+//            <div style={{width: isOpen ? "200px" : "50px"}} className="sidebar">
+//                <div className="top_section">
+//                    <h1 style={{display: isOpen ? "block" : "none"}} className="logo">Logo</h1>
+//                    <div style={{marginLeft: isOpen ? "50px" : "0px"}} className="bars">
+//                        <FaBars onClick={toggle}/>
+//                    </div>
+//                </div>
+//                {
+//                    menuItem.map((item, index)=>(
+//                        <NavLink to={item.path} key={index} className="link" activeclassName="active">
+//                            <div className="icon">
+//                             <img  src={item.image}/>
+                           
+                           
+//                            </div>
+//                            <div style={{display: isOpen ? "block" : "none"}} className="link_text">{item.name}</div>
+//                        </NavLink>
+//                    ))
+//                }
+//            </div>
+//            <main>{children}</main>
+//         </div>
+//     );
+// };
+
+// export default Sidebar;

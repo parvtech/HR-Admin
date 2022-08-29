@@ -17,7 +17,7 @@ import EventsComponent from './components/events/EventsComponent';
 import WebContents from './components/web-contents/WebContents';
 import Hr_Configuartion from './components/hr-configuration/Hr_Configuartion';
 import Hr_Policy from './components/hr-policy/Hr_policy';
-import SidebarRoutes from './components/dashboard/SidebarRoutes';
+import Sidebar from './components/dashboard/Sidebar';
 
 
 const App = () => {
@@ -43,7 +43,7 @@ const App = () => {
         <Route exact path='/login' element={<Login />}/>
           </Routes>
 
-         <SidebarRoutes/>
+         <Sidebar>
           <Routes>
             <Route exact path='/' element={<Dashboard/>}/>
             <Route exact path='/employees' element={< EmpManagement />}/>
@@ -62,6 +62,7 @@ const App = () => {
             <Route exact path='/profile' element={<Profile />}/>
             <Route exact path='/profileemployeee' element={<ProfileEmployee />}/>  
           </Routes>
+          </Sidebar>
         </div>
       </Router>
     </div>
