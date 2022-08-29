@@ -1,4 +1,30 @@
 
 .wrapper_1 {
- border-right: 2px black dashed;
+ border-right: 2px #8E8E8E dashed;
+
+}
+.card-box{
+width: 100%;
+border-radius: 4px;
+}
+.profile_img{
+height: 85px;
+width: 85px;
+border-radius: 42.5px;
+}
+.penbtn{
+position: relative;
+width: 19px;
+height: 19px;
+background: #DDDDDD;
+border: 1px solid #DDDDDD;
+border-radius: 24px;
+}
+.pen{
+position: absolute;
+color: #8E8E8E;
+font-size: 11px;
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);
 }
