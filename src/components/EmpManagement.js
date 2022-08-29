@@ -1,5 +1,5 @@
 import React from 'react'
-import DashboardRoutes from './dashboard/DashboardRoutes'
+
 
 export default function EmpManagement() {
     return (

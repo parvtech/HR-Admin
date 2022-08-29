@@ -40,7 +40,7 @@ import "react-pro-sidebar/dist/css/styles.css";
 import "./Dashboard.css";
 import EventsComponent from "../events/EventsComponent";
 
-export default function DashboardRoutes() {
+  const  SidebarRoutes = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -312,3 +312,4 @@ export default function DashboardRoutes() {
     </div>
   );
 }
+export default  SidebarRoutes

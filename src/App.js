@@ -11,13 +11,13 @@ import SubAdmin from "./components/subadmin/SubAdmin";
 import Profile from './components/profile/Profile';
 import Card from './components/Card';
 import ProfileEmployee from './components/profile/ProfileEmployee';
-import DashboardRoutes from './components/dashboard/DashboardRoutes';
 import Inbox from './components/Inbox/Inbox';
 import CustomMail from './components/custom-mail/CustomMail';
 import EventsComponent from './components/events/EventsComponent';
 import WebContents from './components/web-contents/WebContents';
 import Hr_Configuartion from './components/hr-configuration/Hr_Configuartion';
 import Hr_Policy from './components/hr-policy/Hr_policy';
+import SidebarRoutes from './components/dashboard/SidebarRoutes';
 
 
 const App = () => {
@@ -43,7 +43,7 @@ const App = () => {
         <Route exact path='/login' element={<Login />}/>
           </Routes>
 
-          <DashboardRoutes />
+         <SidebarRoutes/>
           <Routes>
             <Route exact path='/' element={<Dashboard/>}/>
             <Route exact path='/employees' element={< EmpManagement />}/>
