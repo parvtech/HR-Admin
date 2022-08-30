@@ -1,10 +1,46 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './Profile.css'
 import Proimg from "../../assests/proimg.png"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { FaPen } from 'react-icons/fa'
+import axios from 'axios'
 
 export default function Profile() {
+
+    let {id} =  useParams()
+    const [employeedetail, setEmployeedetail] = useState([]);
+    const [image, setImage] = useState(null)
+  let navigate = useNavigate()
+    useEffect(() => {
+        getEmployeList()
+    }, []);
+
+    // onclick function
+    const profileDetail = (public_id) => {
+        console.log(public_id)
+        navigate(`/profile/${public_id}`)
+
+    }
+    // fetch api
+    const getEmployeList = () => {
+        let url = process.env.REACT_APP_BASEURL + `employee/${id}/`
+        const config = {
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Content-type": "application/json",
+                "Authorization": "Bearer " + '6160b016c6c20ad11a915fc97a6f21d4a252a408acfbfb30f245be0e560da6764942c23da7a6b64c1cb37907def338621af493cee41ceaa2b619dad37324b5a0ebed8fd75f0a2ed44204b56ebbd8833f18010044f2f8683'
+            }
+        };
+        axios.get(url, config)
+            .then(res => {
+                setEmployeedetail(res.data.data)
+                setImage(res.data.data.avatar)
+                console.log(res.data.data)
+            }
+            ).catch(err => {
+
+            })
+    }
     return (
         <div>
             <div className='container-fluid'>
@@ -17,25 +53,28 @@ export default function Profile() {
                         <div className="row ">
                             <span className='text-end ps-5 pe-4'><button className='penbtn  mx-2 px-2 ps-2'><FaPen className='pen'></FaPen></button></span>
                             <div className="col-md-5 mt-5 mx-5 profile_img">
-                                <img src={Proimg} alt="..." />
+                                {(image == '' || image == null) ?
+                                    <img src={require("../../assests/avatar.png")} alt="logo" width="70px" height="70px" className='mt-2 mr-2' style={{ borderRadius: "50%" }}></img> :
+                                    <img src={image} alt="logo" width="70px" height="70px" className='mt-3 mr-1' style={{ borderRadius: "50%" }}></img>
+                                }
                             </div>
                             <div className="col-md-8 ">
                                 <div className="card-body row">
-                                    <h5 className="card-title pb-0 pt-0 h2bold">John Doe</h5>
+                                    <h5 className="card-title pb-0 pt-0 h2bold text-capitalize">{employeedetail.name ? <span>{employeedetail.name}</span>:"N/A"}</h5>
                                     <div className='card-text col wrapper_1'>
                                         <dl className='row'>
-                                            <dt className="col-sm-4 c1book text-content pb-0 mb-0">Designation  :</dt><dd className="col-sm-8 c2book text-gry">Web Designer</    dd>
+                                            <dt className="col-sm-4 c1book text-content pb-0 mb-0">Designation  :</dt><dd className="col-sm-8 c2book text-gry">{employeedetail.designation ? <span>{employeedetail.designation}</span> : "N/A"}</dd>
                                             <dt className="col-sm-4 c1book text-content pb-0 mb-0">Department   :</dt><dd className="col-sm-8 c2book text-gry"> UI/UX Design Team</dd>
-                                            <dt className="col-sm-4 c1book text-content pb-0 mb-0">Employee ID  :</dt><dd className="col-sm-8 c2book text-gry"> TR0007</dd>
-                                            <dt className="col-sm-4 c1book text-content pb-0 mb-0">Date of Join :</dt><dd className="col-sm-8 c2book text-gry"> 1st Jan 2021</dd>
+                                            <dt className="col-sm-4 c1book text-content pb-0 mb-0">Employee ID  :</dt><dd className="col-sm-8 c2book text-gry"> {employeedetail.emp_id ? <span>{employeedetail.emp_id}</span> : "N/A"}</dd>
+                                            <dt className="col-sm-4 c1book text-content pb-0 mb-0">Date of Join :</dt><dd className="col-sm-8 c2book text-gry"> {employeedetail.date_of_joining ? <span>{employeedetail.date_of_joining}</span> : "N/A"}</dd>
                                         </dl>
                                     </div>
                                     <div className='card-text col'>
                                         <dl className='row'>
-                                            <dt className="col-sm-4 c1book text-content pb-0 mb-0">Phone     : </dt><dd className="col-sm-8 c2book"><Link to="" className='text-decoration-none'>9876543210</Link></dd>
-                                            <dt className="col-sm-4 c1book text-content pb-0 mb-0">Email     : </dt><dd className="col-sm-8 c2book"><Link to="" className='text-decoration-none'>johndoe@example.com</Link></dd>
-                                            <dt className="col-sm-4 c1book text-content pb-0 mb-0">Birthday  : </dt><dd className="col-sm-8 c2book text-gry">24th July</dd>
-                                            <dt className="col-sm-4 c1book text-content pb-0 mb-0">Gender    :</dt><dd className="col-sm-8 c2book text-gry"> Male</dd>
+                                            <dt className="col-sm-4 c1book  text-content pb-0 mb-0">Phone     : </dt><dd className="col-sm-8 c2book"><Link to="" className='text-decoration-none'>{employeedetail.mobile_no ? <span>{employeedetail.mobile_no}</span> : "N/A"}</Link></dd>
+                                            <dt className="col-sm-4 c1book text-content pb-0 mb-0">Email     : </dt><dd className="col-sm-8 c2book"><Link to="" className='text-decoration-none'>{employeedetail.email ? <span>{employeedetail.email}</span> : "N/A"}</Link></dd>
+                                            <dt className="col-sm-4 c1book text-content pb-0 mb-0">Birthday  : </dt><dd className="col-sm-8 c2book text-gry">{employeedetail.date_of_birth ? <span>{employeedetail.date_of_birth}</span> : "N/A"}</dd>
+                                            <dt className="col-sm-4 c1book text-content pb-0 mb-0">Gender    :</dt><dd className="col-sm-8 c2book text-gry"> {employeedetail.gender ? <span>{employeedetail.gender}</span> : "N/A"}</dd>
                                         </dl>
                                     </div>
                                 </div>
@@ -52,14 +91,14 @@ export default function Profile() {
                                             <h5 className="card-title pb-2 pt-0 b1bold text-content" >Personal Informations</h5>
                                             <div className='card-text col '>
                                                 <dl className='row'>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">UAN number     </dt><dd className="col-sm-8 c2book text-gry">  9876543210</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">UAN number     </dt><dd className="col-sm-8 c2book text-gry">  9876543210</dd>
+
+                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">UAN number     </dt><dd className="col-sm-8 c2book text-gry"> {employeedetail.uan_no ? <span>{employeedetail.uan_no}</span> : "N/A"}</dd>
                                                     <dt className="col-sm-4 c1book text-content pb-0 mb-0">Tel             </dt><dd className="col-sm-8 c2book"> <Link to="" className='col-sm-4   text-decoration-none'>9876543210</Link></dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Nationality    </dt><dd className="col-sm-8 c2book text-gry">  Indian</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Religion       </dt><dd className="col-sm-8 c2book text-gry">  Christian</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Marital status  </dt><dd className="col-sm-8 c2book text-gry"> Married</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Aadhar card     </dt><dd className="col-sm-8 c2book text-gry"> 4588 5858 9696</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Pan card        </dt><dd className="col-sm-8 c2book text-gry"> DVJPP8778L</dd>
+                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Nationality    </dt><dd className="col-sm-8 c2book text-gry"> {employeedetail.nationality ? <span>{employeedetail.nationality}</span> : "N/A"}</dd>
+                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Religion       </dt><dd className="col-sm-8 c2book text-gry">  {employeedetail.religion ? <span>{employeedetail.religion}</span> : "N/A"}</dd>
+                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Marital status  </dt><dd className="col-sm-8 c2book text-gry"> {employeedetail.martital_status ? <span>{employeedetail.status}</span> : "N/A"}</dd>
+                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Aadhar card     </dt><dd className="col-sm-8 c2book text-gry"> {employeedetail.aadhar_no ? <span>{employeedetail.aadhar_no}</span> : "N/A"}</dd>
+                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Pan card        </dt><dd className="col-sm-8 c2book text-gry">{employeedetail.pan_no ? <span>{employeedetail.pan_no}</span> : "N/A"}</dd>
                                                 </dl>
                                             </div>
                                         </div>

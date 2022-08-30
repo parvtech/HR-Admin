@@ -40,14 +40,26 @@ const App = () => {
         </nav> */}
         <div className="App">
           <Routes>
-        <Route exact path='/login' element={<Login />}/>
+            <Route exact path='/' element={<Dashboard />}></Route>
+            <Route exact path='/login' element={<Login />}></Route>
+            <Route exact path='/employees' element={<EmpManagement />}></Route>
+            <Route exact path='/events' element={<EventsComponent/>}></Route>
+            <Route exact path='/forgot-password' element={< ForgotPassword />}></Route>
+            <Route exact path='/reset-password' element={<ResetPassword />}></Route>
+            <Route exact path='/employee' element={<Employee />}></Route>
+            <Route exact path='/card' element={<Card />}></Route>
+            <Route exact path='/profileinfo' element={<ProfileInfo />}></Route>
+            <Route exact path='/sub-admin' element={<SubAdmin />}></Route>
+            <Route exact path='/profile' element={<Profile />}></Route>
+            <Route exact path='/profile/:id' element={<Profile />}></Route>
+            <Route exact path='/profileemployeee' element={<ProfileEmployee />}></Route>
           </Routes>
 
          <Sidebar>
           <Routes>
             <Route exact path='/' element={<Dashboard/>}/>
-            <Route exact path='/employees' element={< EmpManagement />}/>
-            <Route exact path='/events' element={< EventsComponent/>}/>
+            <Route exact path='/employees' element={<EmpManagement />}/>
+            <Route exact path='/events' element={<EventsComponent/>}/>
             <Route exact path='/forgot-password' element={< ForgotPassword />}/>
             <Route exact path='/reset-password' element={<ResetPassword />}/>
             <Route exact path='/employee' element={<Employee />}/>
