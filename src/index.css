@@ -194,6 +194,7 @@
 .c2bold{
   font-family: "Bold";
   font-size: 14px;
+  line-height: 24px;
   color: black;
 
 }
@@ -255,4 +256,8 @@ font-size: 13px;
 font-weight: 450;
 line-height: 20px;
 letter-spacing: 0em;
+}
+.text-blue{
+  color: #0D6EFD;
+;
 }

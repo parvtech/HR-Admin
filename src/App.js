@@ -2,7 +2,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom';
 import Dashboard from './components/dashboard/Dashboard';
 import Employee from './components/employee/Employee';
-import EmpManagement from './components/EmpManagement';
 import ForgotPassword from './components/ForgotPassword ';
 import Login from './components/Login';
 import ProfileInfo from './components/ProfileInfo';
@@ -38,33 +37,30 @@ const App = () => {
           <NavLink className="nav-item nav-link" to="/profile">Proflie</NavLink>
           <NavLink className="nav-item nav-link" to="/profileemployeee">Prolie / Employee</NavLink>
         </nav> */}
-        <div className="App">
-          <Routes>
-            <Route exact path='/login' element={<Login />}></Route>
-          </Routes>
 
-         <Sidebar>
+        <Routes>
+          <Route exact path='/login' element={<Login />}></Route>
+        </Routes>
+
+        <Sidebar>
           <Routes>
-            <Route exact path='/' element={<Dashboard/>}/>
-            <Route exact path='/employees' element={<EmpManagement />}/>
-            <Route exact path='/events' element={<EventsComponent/>}/>
-            <Route exact path='/forgot-password' element={< ForgotPassword />}/>
-            <Route exact path='/reset-password' element={<ResetPassword />}/>
-            <Route exact path='/employee' element={<Employee />}/>
-            <Route exact path='/card' element={<Card />}/>
-            <Route exact path='/profileinfo' element={<ProfileInfo />}/>
-            <Route exact path='/sub-admin' element={<SubAdmin />}/>
-            <Route exact path='/inbox' element={<Inbox/>}/>
-            <Route exact path='/web-contents' element={<WebContents/>}/>
-            <Route exact path='/custom-mail' element={<CustomMail/>}/>
-            <Route exact path='/hr-policy' element={<HrPolicy/>}/>
-            <Route exact path='/hr-configuration' element={<HrConfiguartion/>}/>
-            <Route exact path='/profile' element={<Profile />}/>
-            <Route exact path='/profile/:id' element={<Profile />}></Route>
-            <Route exact path='/profileemployeee' element={<ProfileEmployee />}/>  
+            <Route exact path='/' element={<Dashboard />} />
+            <Route exact path='/events' element={<EventsComponent />} />
+            <Route exact path='/forgot-password' element={< ForgotPassword />} />
+            <Route exact path='/reset-password' element={<ResetPassword />} />
+            <Route exact path='/employees' element={<Employee />} />
+            <Route exact path='/card' element={<Card />} />
+            <Route exact path='/profileinfo' element={<ProfileInfo />} />
+            <Route exact path='/sub-admin' element={<SubAdmin />} />
+            <Route exact path='/inbox' element={<Inbox />} />
+            <Route exact path='/web-contents' element={<WebContents />} />
+            <Route exact path='/custom-mail' element={<CustomMail />} />
+            <Route exact path='/hr-policy' element={<HrPolicy />} />
+            <Route exact path='/hr-configuration' element={<HrConfiguartion />} />
+            <Route exact path='/profile/:id' element={<Profile />} />
+            <Route exact path='/profileemployeee' element={<ProfileEmployee />} />
           </Routes>
-          </Sidebar>
-        </div>
+        </Sidebar>
       </Router>
     </div>
   );

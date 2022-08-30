@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import './Profile.css'
-import Proimg from "../../assests/proimg.png"
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { FaPen } from 'react-icons/fa'
 import axios from 'axios'
+import Proimg from '../../assests/proimg.png'
 
 export default function Profile() {
 
-    let {id} =  useParams()
+    let { id } = useParams()
     const [employeedetail, setEmployeedetail] = useState([]);
     const [image, setImage] = useState(null)
-  let navigate = useNavigate()
+    let navigate = useNavigate()
     useEffect(() => {
         getEmployeList()
     }, []);
@@ -42,119 +42,124 @@ export default function Profile() {
             })
     }
     return (
-        <div>
-            <div className='container-fluid'>
+        <div >
+            <div className='container-fluid ' style={{ backgroundColor: "#F7F7F7" }}>
                 <div className='row '>
-                    <div className='col h3book'><h2>Profile </h2></div>
+                    <div className='col h3book  pt-2'><h2>Profile </h2></div>
                 </div>
-                <div className='.b3medium'><h4 >Dashboard<span className='text-muted'><span> / </span>Profile </span></h4></div>
+                <div className='b3medium'><h4 >Dashboard<span className='text-muted'><span> / </span>Profile </span></h4></div>
                 <div className='col'>
-                    <div className="card  card-box mb-3" >
+                    <div className="card  card-box mb-3 " >
                         <div className="row ">
-                            <span className='text-end ps-5 pe-4'><button className='penbtn  mx-2 px-2 ps-2'><FaPen className='pen'></FaPen></button></span>
-                            <div className="col-md-5 mt-5 mx-5 profile_img">
+                            <div className=" col mt-5 profile_img">
                                 {(image == '' || image == null) ?
                                     <img src={require("../../assests/avatar.png")} alt="logo" width="70px" height="70px" className='mt-2 mr-2' style={{ borderRadius: "50%" }}></img> :
                                     <img src={image} alt="logo" width="70px" height="70px" className='mt-3 mr-1' style={{ borderRadius: "50%" }}></img>
                                 }
                             </div>
-                            <div className="col-md-8 ">
-                                <div className="card-body row">
-                                    <h5 className="card-title pb-0 pt-0 h2bold text-capitalize">{employeedetail.name ? <span>{employeedetail.name}</span>:"N/A"}</h5>
-                                    <div className='card-text col wrapper_1'>
-                                        <dl className='row'>
-                                            <dt className="col-sm-4 c1book text-content pb-0 mb-0">Designation  :</dt><dd className="col-sm-8 c2book text-gry">{employeedetail.designation ? <span>{employeedetail.designation}</span> : "N/A"}</dd>
-                                            <dt className="col-sm-4 c1book text-content pb-0 mb-0">Department   :</dt><dd className="col-sm-8 c2book text-gry"> UI/UX Design Team</dd>
-                                            <dt className="col-sm-4 c1book text-content pb-0 mb-0">Employee ID  :</dt><dd className="col-sm-8 c2book text-gry"> {employeedetail.emp_id ? <span>{employeedetail.emp_id}</span> : "N/A"}</dd>
-                                            <dt className="col-sm-4 c1book text-content pb-0 mb-0">Date of Join :</dt><dd className="col-sm-8 c2book text-gry"> {employeedetail.date_of_joining ? <span>{employeedetail.date_of_joining}</span> : "N/A"}</dd>
-                                        </dl>
+                            <div className="col-md-10">
+                                <div className="card-body  row">
+                                    <div className='row'>
+                                        <h5 className="card-title col-11 d-flex pb-0 pt-0 h2bold"><b>John Doe</b></h5>
+                                        <span className='col-1 ' ><button className='penbtn media-icon '><FaPen className='pen'></FaPen></button></span>
+                                    </div>
+                                    <div className='card-text  col wrapper_1'>
+                                        <ul className='row list-unstyled pt-2 '>
+                                            <li className="col-sm-4 c1book text-content pb-0 mt-1">Designation  :</li><li className="col-sm-8 c2book text-gry">{employeedetail.designation ? <span>{employeedetail.designation}</span> : "N/A"}</li>
+                                            <li className="col-sm-4 c1book text-content pb-0 mt-1">Department   :</li><li className="col-sm-8  c2book text-gry"> UI/UX Design Team</li>
+                                            <li className="col-sm-4 c1book text-content pb-0 mt-1">Employee ID  :</li><li className="col-sm-8 c2book text-gry"> {employeedetail.emp_id ? <span>{employeedetail.emp_id}</span> : "N/A"}</li>
+                                            <li className="col-sm-4 c1book text-content pb-0 mt-1">Date of Join :</li><li className="col-sm-8 c2book text-gry">{employeedetail.date_of_joining ? <span>{employeedetail.date_of_joining}</span> : "N/A"}</li>
+                                        </ul>
                                     </div>
                                     <div className='card-text col'>
-                                        <dl className='row'>
-                                            <dt className="col-sm-4 c1book  text-content pb-0 mb-0">Phone     : </dt><dd className="col-sm-8 c2book"><Link to="" className='text-decoration-none'>{employeedetail.mobile_no ? <span>{employeedetail.mobile_no}</span> : "N/A"}</Link></dd>
-                                            <dt className="col-sm-4 c1book text-content pb-0 mb-0">Email     : </dt><dd className="col-sm-8 c2book"><Link to="" className='text-decoration-none'>{employeedetail.email ? <span>{employeedetail.email}</span> : "N/A"}</Link></dd>
-                                            <dt className="col-sm-4 c1book text-content pb-0 mb-0">Birthday  : </dt><dd className="col-sm-8 c2book text-gry">{employeedetail.date_of_birth ? <span>{employeedetail.date_of_birth}</span> : "N/A"}</dd>
-                                            <dt className="col-sm-4 c1book text-content pb-0 mb-0">Gender    :</dt><dd className="col-sm-8 c2book text-gry"> {employeedetail.gender ? <span>{employeedetail.gender}</span> : "N/A"}</dd>
-                                        </dl>
+                                        <ul className='row list-unstyled pt-2'>
+                                            <li className="col-sm-4 c1book text-content pb-0 mt-1">Phone     : </li><li className="col-sm-8 c2book text-blue">{employeedetail.mobile_no ? <span>{employeedetail.mobile_no}</span> : "N/A"}</li>
+                                            <li className="col-sm-4 c1book text-content pb-0 mt-1">Email     : </li><li className="col-sm-8 c2book text-blue">{employeedetail.email ? <span>{employeedetail.email}</span> : "N/A"}</li>
+                                            <li className="col-sm-4 c1book text-content pb-0 mt-1">Birthday  : </li><li className="col-sm-8 c2book text-gry">{employeedetail.date_of_birth ? <span>{employeedetail.date_of_birth}</span> : "N/A"}</li>
+                                            <li className="col-sm-4 c1book text-content pb-0 mt-1">Gender    :</li><li className="col-sm-8 c2book text-gry">{employeedetail.gender ? <span>{employeedetail.gender}</span> : "N/A"}</li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className='row'>
-                        <div className='col '>
-                            <div className="card mb-3 card-box" >
-                                <div className="row ">
-                                    <span className='text-end ps-5 pe-4'><button className='penbtn  mx-2 px-2 ps-2'><FaPen className='pen'></FaPen></button></span>
-                                    <div className="col-md-8">
-                                        <div className="card-body row">
-                                            <h5 className="card-title pb-2 pt-0 b1bold text-content" >Personal Informations</h5>
+                        <div className='col-md-6 d-flex'>
+                            <div className='flex-fill'>
+                                <div className="card card-box  pt-0 " >
+                                    <div className="row pb-0">
+                                        <div className="card-body ps-4 row">
+                                            <div className='row'>
+                                                <h5 className="card-title col pb-2 pt-0 b1bold text-content" ><b>Personal Informations</b></h5>
+                                                <span className=' col-1 '><button className='penbtn  mx-5 ms-4'><FaPen className='pen'></FaPen></button></span>
+                                            </div>
                                             <div className='card-text col '>
-                                                <dl className='row'>
-
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">UAN number     </dt><dd className="col-sm-8 c2book text-gry"> {employeedetail.uan_no ? <span>{employeedetail.uan_no}</span> : "N/A"}</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Tel             </dt><dd className="col-sm-8 c2book"> <Link to="" className='col-sm-4   text-decoration-none'>9876543210</Link></dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Nationality    </dt><dd className="col-sm-8 c2book text-gry"> {employeedetail.nationality ? <span>{employeedetail.nationality}</span> : "N/A"}</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Religion       </dt><dd className="col-sm-8 c2book text-gry">  {employeedetail.religion ? <span>{employeedetail.religion}</span> : "N/A"}</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Marital status  </dt><dd className="col-sm-8 c2book text-gry"> {employeedetail.martital_status ? <span>{employeedetail.status}</span> : "N/A"}</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Aadhar card     </dt><dd className="col-sm-8 c2book text-gry"> {employeedetail.aadhar_no ? <span>{employeedetail.aadhar_no}</span> : "N/A"}</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Pan card        </dt><dd className="col-sm-8 c2book text-gry">{employeedetail.pan_no ? <span>{employeedetail.pan_no}</span> : "N/A"}</dd>
-                                                </dl>
+                                                <ul className='row list-unstyled'>
+                                                    <li className="col-12 col-sm-6 col-md-6 c1book text-content pb-0 mt-1">UAN number     </li><li className="col-6 col-md-4 c2book text-gry">  9876543210</li>
+                                                    <li className="col-12 col-sm-6 col-md-6 c1book text-content pb-0 mt-1">ESIC number     </li><li className="col-6 col-md-4 c2book text-gry">  9876543210</li>
+                                                    <li className="col-12 col-sm-6 col-md-6 c1book text-content pb-0 mt-1">Tel             </li><li className="col-6 col-md-4 c2book text-blue"> 9876543210</li>
+                                                    <li className="col-12 col-sm-6 col-md-6 c1book text-content pb-0 mt-1">Nationality    </li><li className="col-6 col-md-4 c2book text-gry">  Indian</li>
+                                                    <li className="col-12 col-sm-6 col-md-6 c1book text-content pb-0 mt-1">Religion       </li><li className="col-6 col-md-4 c2book text-gry">  Christian</li>
+                                                    <li className="col-12 col-sm-6 col-md-6 c1book text-content pb-0 mt-1">Marital status  </li><li className="col-6 col-md-4 c2book text-gry"> Married</li>
+                                                    <li className="col-12 col-sm-6 col-md-6 c1book text-content pb-0 mt-1">Aadhar card     </li><li className="col-6 col-md-4 c2book text-gry"> 4588 5858 9696</li>
+                                                    <li className="col-12 col-sm-6 col-md-6 c1book text-content pb-0 mt-1">Pan card        </li><li className="col-6 col-md-4 c2book text-gry"> DVJPP8778L</li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="card mb-3 py-2 card-box" >
-                                <div className="row ">
-                                    <span className='text-end ps-5 pe-4'><button className='penbtn  mx-2 px-2 ps-2'><FaPen className='pen'></FaPen></button></span>
-                                    <div className="col-md-8">
-                                        <div className="card-body row">
-                                            <h5 className="card-title pb-2 pt-0 b1bold text-content" >Bank information</h5>
+                                <br />
+                                <div className="card mb-3 card-box pt-0" >
+                                    <div className="row pb-0">
+                                        <div className="card-body ps-4 row">
+                                            <div className='row'>
+                                                <h5 className="card-title col pb-2 pt-0 b1bold text-content" ><b>Bank information</b></h5>
+                                                <span className='col-1'><button className='penbtn mx-5 ms-4'><FaPen className='pen'></FaPen></button></span>
+                                            </div>
                                             <div className='card-text col '>
-                                                <dl className='row'>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Name as in Bank  </dt><dd className="col-sm-8 c2book text-gry"> ICICI Bank</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Bank Name        </dt><dd className="col-sm-8 c2book text-gry"> 159843014641</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">IFSC Code        </dt><dd className="col-sm-8 c2book text-gry"> ICI24504</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Bank account no   </dt><dd className="col-sm-8 c2book text-gry">159843014641</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Bank Address     </dt><dd className="col-sm-8 c2book text-gry"> ICI24504</dd>
-                                                </dl>
+                                                <ul className='row list-unstyled'>
+                                                    <li className="col-12 col-sm-6 col-md-6 c1book text-content pb-0 mt-1">Name as in Bank  </li><li className="col-6 col-md-4 c2book text-gry"> ICICI Bank</li>
+                                                    <li className="col-12 col-sm-6 col-md-6 c1book text-content pb-0 mt-1">Bank Name        </li><li className="col-6 col-md-4 c2book text-gry"> 159843014641</li>
+                                                    <li className="col-12 col-sm-6 col-md-6 c1book text-content pb-0 mt-1">IFSC Code        </li><li className="col-6 col-md-4 c2book text-gry"> ICI24504</li>
+                                                    <li className="col-12 col-sm-6 col-md-6 c1book text-content pb-0 mt-1">Bank account no   </li><li className="col-6 col-md-4 c2book text-gry">159843014641</li>
+                                                    <li className="col-12 col-sm-6 col-md-6 c1book text-content pb-0 mt-1">Bank Address     </li><li className="col-6 col-md-4 c2book text-gry"> ICI24504</li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className='col'>
-                            <div className="card py-5 mb-1  card-box" >
-                                <div className="row ">
-                                    <span className='text-end ps-5 pe-4'><button className='penbtn mx-2 px-2 ps-2'><FaPen className='pen'></FaPen></button></span>
-                                    <div className="col-md-8">
-                                        <div className="card-body row">
-                                            <h5 className="card-title py-2 pb-2 pt-0 b1bold text-content" > Address</h5>
-                                            <div className='card-text col '>
-                                                <h6 className='b2book text-content'>Present Address</h6>
-                                                <dl className='row'>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Flat/Door No    </dt><dd className="col-sm-8 c2book text-gry"> 105</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Floor            </dt><dd className="col-sm-8 c2book text-gry">1ST</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Premises Name    </dt><dd className="col-sm-8 c2book text-gry">Rituraaj Business center/</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Landmark (near)  </dt><dd className="col-sm-8 c2book text-gry">UNO Business park building/</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Dist, Pin Code   </dt><dd className="col-sm-8 c2book text-gry">452003/</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">State           </dt><dd className="col-sm-8 c2book text-gry"> Madhya Pradesh/</dd>
-                                                </dl>
-                                            </div>
-                                            <hr />
-                                            <div className='card-text col '>
-                                                <h6 className='b2book text-content'>Present Address</h6>
-                                                <dl className='row'>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Flat/Door No    </dt><dd className="col-sm-8 c2book text-gry"> 105</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Floor            </dt><dd className="col-sm-8 c2book text-gry">1ST</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Premises Name    </dt><dd className="col-sm-8 c2book text-gry">Rituraaj Business center/</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Landmark (near)  </dt><dd className="col-sm-8 c2book text-gry">UNO Business park building/</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Dist, Pin Code   </dt><dd className="col-sm-8 c2book text-gry">452003/</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">State           </dt><dd className="col-sm-8 c2book text-gry"> Madhya Pradesh/</dd>
-                                                </dl>
-                                            </div>
+                        <div className='col-md-6 d-flex'>
+                            <div className="card  mb-3 flex-fill card-box pt-0" >
+                                <div className="row pb-0">
+                                    <div className="card-body ps-4 row">
+                                        <div className='row'>
+                                            <h5 className="card-title col py-2 pb-2 pt-0 b1bold text-content" > <b>Address</b></h5>
+                                            <span className='col-1'><button className='penbtn mx-5 ms-4'><FaPen className='pen'></FaPen></button></span>
+                                        </div>
+                                        <div className='card-text col '>
+                                            <h6 className='b2book text-content'><b>Present Address</b></h6>
+                                            <ul className='row list-unstyled'>
+                                                <li className="col-sm-4 c1book text-content pb-0 mt-1">Flat/Door No    </li><li className="col-sm-8 c2book text-gry"> 105</li>
+                                                <li className="col-sm-4 c1book text-content pb-0 mt-1">Floor            </li><li className="col-sm-8 c2book text-gry">1ST</li>
+                                                <li className="col-sm-4 c1book text-content pb-0 mt-1">Premises Name    </li><li className="col-sm-8 c2book text-gry">Rituraaj Business center</li>
+                                                <li className="col-sm-4 c1book text-content pb-0 mt-1">Landmark (near)  </li><li className="col-sm-8 c2book text-gry">UNO Business park building</li>
+                                                <li className="col-sm-4 c1book text-content pb-0 mt-1">Dist, Pin Code   </li><li className="col-sm-8 c2book text-gry">452003</li>
+                                                <li className="col-sm-4 c1book text-content pb-0 mt-1">State           </li><li className="col-sm-8 c2book text-gry"> Madhya Pradesh</li>
+                                            </ul>
+                                        </div>
+                                        <hr className='mt-4' />
+                                        <div className='card-text col mt-2 '>
+                                            <h6 className='b2book text-content mt-1'><b>Permanent Address</b></h6>
+                                            <ul className='row list-unstyled'>
+                                                <li className="col-sm-4 c1book text-content pb-0 mt-1">Flat/Door No    </li><li className="col-sm-8 c2book text-gry"> 105</li>
+                                                <li className="col-sm-4 c1book text-content pb-0 mt-1">Floor            </li><li className="col-sm-8 c2book text-gry">1ST</li>
+                                                <li className="col-sm-4 c1book text-content pb-0 mt-1">Premises Name    </li><li className="col-sm-8 c2book text-gry">Rituraaj Business center</li>
+                                                <li className="col-sm-4 c1book text-content pb-0 mt-1">Landmark (near)  </li><li className="col-sm-8 c2book text-gry">UNO Business park building</li>
+                                                <li className="col-sm-4 c1book text-content pb-0 mt-1">Dist, Pin Code   </li><li className="col-sm-8 c2book text-gry">452003</li>
+                                                <li className="col-sm-4 c1book text-content pb-0 mt-1">State           </li><li className="col-sm-8 c2book text-gry"> Madhya Pradesh</li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -162,35 +167,37 @@ export default function Profile() {
                         </div>
                     </div>
                     <div className='row '>
-                        <div className='col'>
-                            <div className="card mb-3 pb-1 py-0 card-box" >
+                        <div className='col-md-6 d-flex'>
+                            <div className="card mb-3  card-box flex-fill" >
                                 <div className="row ">
-                                    <span className='text-end ps-5 pe-4'><button className='penbtn  mx-2 px-2 ps-2'><FaPen className='pen'></FaPen></button></span>
-                                    <div className="col-md-8">
-                                        <div className="card-body row">
-                                            <h5 className="card-title pb-2 pt-0 b1bold text-content" >Education Informations</h5>
-                                            <div className='card-text col '>
-                                                <p className='c1black text-gry pb-0 mb-0'>International College of Arts and Science (UG)</p>
-                                                <p className='c1black text-gry pb-0 mb-0'>Bsc Computer Science</p>
-                                                <p><small className=' c3black mute-gry pb-0 mb-0'>2000 - 2003</small></p>
-                                                <p className="c1black pb-0 mb-0 text-content">International College of Arts and Science (PG)</p>
-                                                <p className='c1black text-gry pb-0 mb-0'>Msc Computer Science</p>
-                                                <p><small className=' c3black mute-gry pb-0 mb-0'>2000 - 2003</small></p>
-                                            </div>
+                                    <div className="card-body ps-4 row">
+                                        <div className='row'>
+                                            <h5 className="card-title col pb-2 pt-0 b1bold text-content" >Education Informations</h5>
+                                            <span className='col-1'><button className='penbtn  mx-5 ms-4'><FaPen className='pen'></FaPen></button></span>
+                                        </div>
+                                        <div className='card-text col '>
+                                            <p className='c1book text-gry pb-0 mb-0 '>International College of Arts and Science (UG)</p>
+                                            <p className='c1book text-gry pb-0 mb-0 '>Bsc Computer Science</p>
+                                            <p><small className=' c3book mute-gry pb-0 mb-0 '>2000 - 2003</small></p>
+                                            <p className="c1book pb-0 mb-0  text-content">International College of Arts and Science (PG)</p>
+                                            <p className='c1book text-gry pb-0 mb-0 '>Msc Computer Science</p>
+                                            <p><small className=' c3book mute-gry pb-0 mb-0 '>2000 - 2003</small></p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className='col'>
-                            <div className="card mb-3 pb-5 py-3 card-box" >
-                                <div className="row ">
-                                    <span className='text-end ps-5 pe-4'><button className='penbtn  mx-2 px-2 ps-2'><FaPen className='pen'></FaPen></button></span>
-                                    <div className="col-md-8">
-                                        <div className="card-body row">
-                                            <h5 className="card-title pb-2 pt-0 b1bold text-content" >Family Informations</h5>
-                                            <div className='card-text col '>
-                                                <table className="table ">
+                        <div className='col-md-6 d-flex'>
+                            <div className="card mb-3  card-box flex-fill" >
+                                <div className="row">
+                                    <div className="card-body ps-4 row">
+                                        <div className='row'>
+                                            <h5 className="card-title col pb-2 pt-0 b1bold text-content" ><b>Family Informations</b></h5>
+                                            <span className='col-1'><button className='penbtn  mx-5 ms-4'><FaPen className='pen'></FaPen></button></span>
+                                        </div>
+                                        <div className='card-text col '>
+                                            <div className='table-responsive '>                                                <table className="table  ">
+                                                <thead className='border-dark'>
                                                     <tr>
                                                         <th className='c1book text-content pb-0 mb-0 '>Name</th>
                                                         <th className='c1book text-content pb-0 mb-0 '>Relationship</th>
@@ -198,6 +205,8 @@ export default function Profile() {
                                                         <th className='c1book text-content pb-0 mb-0 '>Occupation</th>
                                                         <th className='c1book text-content pb-0 mb-0 '>Phone</th>
                                                     </tr>
+                                                </thead>
+                                                <tbody>
                                                     <tr>
                                                         <td className='c1book text-gry pb-0 mb-0'>Leo</td>
                                                         <td className='c1book text-gry pb-0 mb-0'>Brother</td>
@@ -219,6 +228,70 @@ export default function Profile() {
                                                         <td className='c2book text-gry pb-0 mb-0'>Clerk</td>
                                                         <td className='c2book text-gry pb-0 mb-0'>9876543210</td>
                                                     </tr>
+                                                </tbody>
+                                            </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='row'>
+                        <div className='col-md-6 d-flex'>
+                            <div className="card mb-3 card-box flex-fill" >
+                                <div className="row ">
+                                    <div className="card-body ps-4 row">
+                                        <div className='row'>
+                                            <h5 className="card-title col pb-2 pt-0 b1bold text-content" ><b>Experience</b></h5>
+                                            <span className='col-1'><button className='penbtn  mx-5 ms-4'><FaPen className='pen'></FaPen></button></span>
+                                        </div>
+                                        <div className='card-text col '>
+                                            <p className='pb-0 mb-0 text-gry c1book'>Web Designer at Zen Corporation</p>
+                                            <p className='pb-0 mb-0 text-gry  '><small style={{ fontSize: "11px", lineHeight: "16px" }}>Jan 2013 - Present (5 years 2 months)</small></p>
+                                            <p className='pb-0 mb-0 text-gry c1book'>Web Designer at Ron-tech</p>
+                                            <p className='pb-0 mb-0 text-gry  '><small style={{ fontSize: "11px", lineHeight: "16px" }}>Jan 2013 - Present (5 years 2 months)</small></p>
+                                            <p className='pb-0 mb-0 text-gry c1book'>Jan 2013 - Present (5 years 2 months)</p>
+                                            <p className='pb-0 mb-0 text-gry  '><small style={{ fontSize: "11px", lineHeight: "16px" }}>Jan 2013 - Present (5 years 2 months)</small></p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='col-md-6 d-flex'>
+                            <div className="card mb-3  card-box flex-fill" >
+                                <div className="row ">
+                                    <div className="card-body ps-4 row">
+                                        <div className='row'>
+                                            <h5 className="card-title col pb-2 pt-0 b1bold text-content" ><b>Languages Known</b></h5>
+                                            <span className='col-1'><button className='penbtn  mx-5 ms-4'><FaPen className='pen'></FaPen></button></span>
+                                        </div>
+                                        <div className='card-text col '>
+                                            <div className='table-responsive'>
+                                                <table className="table">
+                                                    <thead className='border-dark'>
+                                                        <tr>
+                                                            <th className='c1book text-content px-4'>Languages</th>
+                                                            <th className='c1book text-content px-4'>Read</th>
+                                                            <th className='c1book text-content px-4'>Speak</th>
+                                                            <th className='c1book text-content px-4'>Write</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td className='c1book text-gry pb-0 mb-0 px-4' >English</td>
+                                                            <td className='c1book text-gry pb-0 mb-0 px-4'>Yes</td>
+                                                            <td className='c2book text-gry pb-0 mb-0 px-4'>Yes</td>
+                                                            <td className='c2book text-gry pb-0 mb-0 px-4'>Yes</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td className='c1book text-gry pb-0 mb-0 px-4' >Hindi</td>
+                                                            <td className='c1book text-gry pb-0 mb-0 px-4'>Yes</td>
+                                                            <td className='c2book text-gry pb-0 mb-0 px-4'>Yes</td>
+                                                            <td className='c2book text-gry pb-0 mb-0 px-4'>Yes</td>
+                                                        </tr>
+                                                    </tbody>
                                                 </table>
                                             </div>
                                         </div>
@@ -228,138 +301,39 @@ export default function Profile() {
                         </div>
                     </div>
                     <div className='row'>
-                        <div className='col'>
-                            <div className="card mb-3 py-0 card-box" >
+                        <div className='col-md-6 d-flex'>
+                            <div className="card mb-3 card-box flex-fill" >
                                 <div className="row ">
-                                    <span className='text-end ps-5 pe-4'><button className='penbtn  mx-2 px-2 ps-2'><FaPen className='pen'></FaPen></button></span>
-                                    <div className="col-md-8">
-                                        <div className="card-body row">
-                                            <h5 className="card-title pb-2 pt-0 b1bold text-content" >Experience</h5>
-                                            <div className='card-text col '>
-                                                <p className='pb-0 mb-0 text-gry c1book'>Web Designer at Zen Corporation</p>
-                                                <p className='pb-0 mb-0 text-gry  '><small style={{ fontSize: "11px", lineHeight: "16px" }}>Jan 2013 - Present (5 years 2 months)</small></p>
-                                                <p className='pb-0 mb-0 text-gry c1book'>Web Designer at Ron-tech</p>
-                                                <p className='pb-0 mb-0 text-gry  '><small style={{ fontSize: "11px", lineHeight: "16px" }}>Jan 2013 - Present (5 years 2 months)</small></p>
-                                                <p className='pb-0 mb-0 text-gry c1book'>Jan 2013 - Present (5 years 2 months)</p>
-                                                <p className='pb-0 mb-0 text-gry  '><small style={{ fontSize: "11px", lineHeight: "16px" }}>Jan 2013 - Present (5 years 2 months)</small></p>
-                                            </div>
+                                    <div className="card-body ps-4 row">
+                                        <div className='row'>
+                                            <h5 className="card-title col pb-2 pt-0 b1bold text-content" > <b>Emergency Contact</b></h5>
+                                            <span className='col-1'><button className='penbtn  mx-5 ms-4'><FaPen className='pen'></FaPen></button></span>
+                                        </div> <div className='card-text col '>
+                                            <h6 className='c2medium text-content '>Contact 1</h6>
+                                            <ul className='row list-unstyled'>
+                                                <li className="col-12 col-sm-6 col-md-6 c1book text-content pb-0 mb-0">Name    </li><li className="col-6 col-md-4 c2book text-gry"> John Doe</li>
+                                                <li className="col-12 col-sm-6 col-md-6 c1book text-content pb-0 mb-0">Relationship           </li><li className="col-6 col-md-4 c2book text-gry">Father</li>
+                                                <li className="col-12 col-sm-6 col-md-6 c1book text-content pb-0 mb-0">Phone    </li><li className="col-6 col-md-4  c2book text-gry">9876543210, 9876543210</li>
+                                            </ul>
+                                        </div>
+                                        <hr />
+                                        <div className='card-text col '>
+                                            <h6 className='c2medium text-content'>Contact 2</h6>
+                                            <ul className='row list-unstyled'>
+                                                <li className="col-12 col-sm-6 col-md-6 c1book text-content pb-0 mb-0">Name    </li><li className="col-6 col-md-4 c2book text-gry"> John Doe</li>
+                                                <li className="col-12 col-sm-6 col-md-6 c1book text-content pb-0 mb-0">Relationship           </li><li className="col-6 col-md-4 c2book text-gry">Father</li>
+                                                <li className="col-12 col-sm-6 col-md-6 c1book text-content pb-0 mb-0">Phone    </li><li className="col-6 col-md-4 c2book text-gry">9876543210, 9876543210</li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className='col'>
-                            <div className="card mb-3 pb-5 py-1 card-box" >
-                                <div className="row ">
-                                    <span className='text-end ps-5 pe-4'><button className='penbtn  mx-2 px-2 ps-2'><FaPen className='pen'></FaPen></button></span>
-                                    <div className="col-md-8">
-                                        <div className="card-body row">
-                                            <h5 className="card-title pb-2 pt-0 b1bold text-content" >Languages Known</h5>
-                                            <div className='card-text col '>
-                                                <table className="table ">
-                                                    <tr>
-                                                        <th className='c1book text-content px-4'>Languages</th>
-                                                        <th className='c1book text-content px-4'>Read</th>
-                                                        <th className='c1book text-content px-4'>Speak</th>
-                                                        <th className='c1book text-content px-4'>Write</th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td className='c1book text-gry pb-0 mb-0 px-4' >English</td>
-                                                        <td className='c1book text-gry pb-0 mb-0 px-4'>Yes</td>
-                                                        <td className='c2book text-gry pb-0 mb-0 px-4'>Yes</td>
-                                                        <td className='c2book text-gry pb-0 mb-0 px-4'>Yes</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td className='c1book text-gry pb-0 mb-0 px-4' >Hindi</td>
-                                                        <td className='c1book text-gry pb-0 mb-0 px-4'>Yes</td>
-                                                        <td className='c2book text-gry pb-0 mb-0 px-4'>Yes</td>
-                                                        <td className='c2book text-gry pb-0 mb-0 px-4'>Yes</td>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='row'>
-                        <div className='col'>
-                            <div className="card mb-3 card-box" >
-                                <div className="row ">
-                                    <span className='text-end ps-5 pe-4'><button className='penbtn  mx-2 px-2 ps-2'><FaPen className='pen'></FaPen></button></span>
-                                    <div className="col-md-8">
-                                        <div className="card-body row">
-                                            <h5 className="card-title pb-2 pt-0 b1bold text-content" > Emergency Contact</h5>
-                                            <div className='card-text col '>
-                                                <h6 className='c2medium text-content'>Contact 1</h6>
-                                                <dl className='row'>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Name    </dt><dd className="col-sm-8 c2book text-gry"> John Doe</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Relationship           </dt><dd className="col-sm-8 c2book text-gry">Father</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Phone    </dt><dd className="col-sm-8 c2book text-gry">9876543210, 9876543210</dd>
-                                                </dl>
-                                            </div>
-                                            <hr />
-                                            <div className='card-text col '>
-                                                <h6 className='c2medium text-content'>Contact 2</h6>
-                                                <dl className='row'>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Name    </dt><dd className="col-sm-8 c2book text-gry"> John Doe</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Relationship           </dt><dd className="col-sm-8 c2book text-gry">Father</dd>
-                                                    <dt className="col-sm-4 c1book text-content pb-0 mb-0">Phone    </dt><dd className="col-sm-8 c2book text-gry">9876543210, 9876543210</dd>
-                                                </dl>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='col'>
-                            <div className="card mb-3 card-box" >
-                                <div className="row ">
-                                    <span className='text-end ps-5 pe-4'><button className='penbtn  mx-2 px-2 ps-2'><FaPen className='pen'></FaPen></button></span>
-                                    <div className="col-md-8">
-                                        <div className="card-body row">
-                                            <h5 className="card-title pb-2 pt-0 b1bold text-content" >Family Informations</h5>
-                                            <div className='card-text col '>
-                                                <table className="table ">
-                                                    <tr>
-                                                        <th className='c1book text-content pb-0 mb-0 '>Name</th>
-                                                        <th className='c1book text-content pb-0 mb-0 '>Relationship</th>
-                                                        <th className='c1book text-content pb-0 mb-0 '>Date of Birth</th>
-                                                        <th className='c1book text-content pb-0 mb-0 '>Occupation</th>
-                                                        <th className='c1book text-content pb-0 mb-0 '>Phone</th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td className='c1book text-gry pb-0 mb-0'>Leo</td>
-                                                        <td className='c1book text-gry pb-0 mb-0'>Brother</td>
-                                                        <td className='c2book text-gry pb-0 mb-0'>Feb 16th, 2019</td>
-                                                        <td className='c2book text-gry pb-0 mb-0'>Clerk</td>
-                                                        <td className='c2book text-gry pb-0 mb-0'>9876543210</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td className='c1book text-gry pb-0 mb-0'>Leo</td>
-                                                        <td className='c1book text-gry pb-0 mb-0'>Brother</td>
-                                                        <td className='c2book text-gry pb-0 mb-0'>Feb 16th, 2019</td>
-                                                        <td className='c2book text-gry pb-0 mb-0'>Clerk</td>
-                                                        <td className='c2book text-gry pb-0 mb-0'>9876543210</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td className='c1book text-gry pb-0 mb-0'>Leo</td>
-                                                        <td className='c1book text-gry pb-0 mb-0'>Brother</td>
-                                                        <td className='c2book text-gry pb-0 mb-0'>Feb 16th, 2019</td>
-                                                        <td className='c2book text-gry pb-0 mb-0'>Clerk</td>
-                                                        <td className='c2book text-gry pb-0 mb-0'>9876543210</td>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
+
     )
 }

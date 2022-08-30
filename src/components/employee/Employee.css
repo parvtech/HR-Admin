@@ -1,9 +1,11 @@
 
 .addemp{
-    border-radius: 50px;
-    background-color: #FF9B44;
-    border: 1px solid #FF9B44;
-    color: white;
+height: 35px;
+width: 150px;
+border-radius: 50px;
+background-color: #FF9B44;
+border: 1px solid #FF9B44;
+color: white;
 }
 .emprow{
     border-radius: 4px;
