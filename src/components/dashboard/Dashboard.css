@@ -93,17 +93,18 @@
     display:flex;
 }
 main{
-    width: 85vw;
-    height:100vh;
+    width: 94.7vw;
+    height: 90vh;
     padding: 20px;
-    background-color: #F7F7F7;
+    background-color: #da4a4a;
 }
 .sidebar{
     background: #fff;
     color: #000;
-    height: 100vh;
+    height: 100vh !important;
     width: 200px;
     transition: all 0.5s;
+    position: sticky;
   
 }
 .top_section{
@@ -113,12 +114,13 @@ main{
 }
 .logo{
     font-size: 30px;
+    transition: all 0.5s;
     
 }
 .bars{
     display: flex;
     font-size: 25px;
-    /* margin-left: 50px; */
+    /* / margin-left: 50px; / */
 }
 .link{
     display: flex;
@@ -141,3 +143,8 @@ main{
     margin: 4px;
 
 }
+.d-flex{
+    /* / display: cover !important; / */
+    
+}
+
