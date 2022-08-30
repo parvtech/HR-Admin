@@ -9,11 +9,14 @@ import {BsSliders} from "react-icons/bs"
 import {FaUsers,FaBars, FaRegUser} from "react-icons/fa"
 import { NavLink } from 'react-router-dom';
 import "./Dashboard.css"
+import "./switch.css"
 import Logo from "../../assests/Logo.png"
 import Dropdown from 'react-bootstrap/Dropdown';
+import UserLogo from "../../assests/img/Rectangle.png"
 
 const Sidebar = ({children}) => {
     const[isOpen ,setIsOpen] = useState(false);
+    const [darkMode, setDarkMode] = useState(false);
     const toggle = () => setIsOpen (!isOpen);
     const menuItem=[
         {
@@ -64,10 +67,10 @@ const Sidebar = ({children}) => {
     ]
     return (
         <div className="d-flex start">
-           <div style={{width: isOpen ? "250px" : "70px"}} className="sidebar">
+           <div style={{width: isOpen ? "300px" : "70px"}} className="sidebar">
                <div className="top_section">
                    <h1 style={{display: isOpen ? "block" : "block"}} className="logo">
-                    <img src={Logo} style={{width:"40px", height:"40px"}} alt="logo"/>
+                    <img src={Logo} style={{width:"40px", height:"40px",}} alt="logo"/>
                    </h1>
                  
                </div>
@@ -80,25 +83,47 @@ const Sidebar = ({children}) => {
                    ))
                }
            </div>
+
            <div>
-           <nav class="navbar navbar-white bg-white justify-content-between">
-            
-           <div style={{marginLeft: isOpen ? "50px" : "0px"}} className="bars">
+           <nav className="navbar navbar-white bg-white d-flex justify-content-between" style={{height:"60px"}}>        
+           <div style={{marginLeft: isOpen ? "0px" : "0px"}} className="bars">
                        <FaBars onClick={toggle}/>
                        <h6 style={{marginLeft:"10px", marginTop:"5px"}}>TechRadix Private Limited</h6>
                    </div>
-            <Dropdown>
-                <Dropdown.Toggle variant="" id="dropdown-basic">
-                    Admin
-                </Dropdown.Toggle>
+                   
+                  
+                  <div class="d-flex justify-content-end bd-highlight">
+                       {/* Dark Mode Switch Button Start */}
+                <div class="p-2 bd-highlight">
+                <div className="container">     
+                    <div className="switch-checkbox">
+                    <label className="switch">
+                        <input type="checkbox" onChange={() => setDarkMode(!darkMode)}/>
+                        <span className="slider round"> </span>
+                    </label>
+                    </div>
+                    <p style={{fontSize:"10px", marginTop:"10px"}}>{darkMode ? "Dark" : "Light"} Mode </p>
+                   </div> 
+                </div>
+               {/* Dark Mode Switch Button End */}
+                  <div class="p-2 bd-highlight">
+                    <Dropdown>
+                        <Dropdown.Toggle variant="" id="dropdown-basic">
+                            <img src={UserLogo} style={{height:"20px", width:"20px", marginRight:"8px"}} alt="userlogo"/>
+                            Admin
+                        </Dropdown.Toggle>
 
-                <Dropdown.Menu>
-                    <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                <Dropdown.Item href="#/action-4">HR Pay</Dropdown.Item>
-                </Dropdown.Menu>
-                </Dropdown>
+                        <Dropdown.Menu>
+                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                        <Dropdown.Item href="#/action-4">HR Pay</Dropdown.Item>
+                        </Dropdown.Menu>
+                        </Dropdown>
+              
+                </div>
+                </div>
+
             </nav>
             <main>{children}</main>
            </div>     
@@ -107,3 +132,21 @@ const Sidebar = ({children}) => {
 };
 
 export default Sidebar;
+
+
+// import React from 'react'
+
+// const Sidebar = () => {
+//   return (
+// <div class="d-flex justify-content-between">
+//   <div class="p-2 bd-highlight">Flex item 1</div>
+//   <div className='d-flex justify-content-end'> 
+//   <div class="p-2 bd-highlight">Flex item 2</div>
+//   <div class="p-2 bd-highlight">Flex item 3</div>
+
+//   </div>
+// </div>
+//   )
+// }
+
+// export default Sidebar

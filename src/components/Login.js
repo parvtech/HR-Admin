@@ -27,7 +27,7 @@ export default function Login() {
   const handleSubmit = () => {
     /* Form Validations */
     let errorCount = 0
-    if (email == "") {
+    if (email === "") {
       errorCount++
       setErrors((prevState) => {
         return { ...prevState, email: "Email is required" }
@@ -37,7 +37,7 @@ export default function Login() {
         return { ...prevState, email: "" }
       })
     }
-    if (password == "") {
+    if (password === "") {
       errorCount++
       setErrors((prevState) => {
         return { ...prevState, password: "Password is required" }
@@ -47,8 +47,7 @@ export default function Login() {
         return { ...prevState, password: "" }
       })
     }
-    if (errorCount == 0) {
-
+    if (errorCount === 0) {
       /* Login API call */
       setLoading(true)
       let user = {
@@ -84,11 +83,10 @@ export default function Login() {
           });
         })
     }
-
   }
 
   const onSetPassword = () => {
-    if (password == 'password') {
+    if (password === 'password') {
       setPassword('text')
     } else {
       setPassword('password')
@@ -103,7 +101,7 @@ export default function Login() {
         <div className="row ">
           <div className="col-md-4 col-lg-4"></div>
           <div className="col-md-4 mt-1 pt-5 pb-5 mb-5 ">
-            <img src={Logo} className="text-center rounded mx-auto mb-1 d-block img-fluid" />
+            <img src={Logo} className="text-center rounded mx-auto mb-1 d-block img-fluid" alt="logo"/>
             <h4 className='text-center b3black'>Welcome to Human Resources key</h4>
             <div className="card text-center d-flex form-body ">
               <div className="card-body text-center">
@@ -121,8 +119,8 @@ export default function Login() {
                   <div className="input-container"><label className="w-100 mb-2 mt-1 text-start c2medium">Password </label>
                     <div className="input-group">
                       <input style={{ borderRight: "none" }} className='form-input form-control mt-1' type={password} name="password" placeholder="Password" onChange={handlePassword} />
-                      <span className='input-group-text form-input' style={{ color: "black", borderLeft: "none", marginTop: "4px", borderTopRightRadius: "5px", borderBottomRightRadius: "5px", borderRightt: "none" }} onClick={() => { onSetPassword() }} id="basic-addon1">{password == 'password' &&
-                        <AiOutlineEye />}{password != 'password' &&
+                      <span className='input-group-text form-input' style={{ color: "black", borderLeft: "none", marginTop: "4px", borderTopRightRadius: "5px", borderBottomRightRadius: "5px", borderRightt: "none" }} onClick={() => { onSetPassword() }} id="basic-addon1">{password === 'password' &&
+                        <AiOutlineEye />}{password !== 'password' &&
                           <AiOutlineEyeInvisible />}</span>
                     </div>
                     {errors.password && <p className="w-100 mb-2 mt-1 text-start c2medium" style={{ color: "red" }}>{errors.password}</p>}
