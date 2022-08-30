@@ -88,7 +88,7 @@ const Sidebar = ({children}) => {
                        <h6 style={{marginLeft:"10px", marginTop:"5px"}}>TechRadix Private Limited</h6>
                    </div>
             <Dropdown>
-                <Dropdown.Toggle variant="" id="dropdown-basic">
+                <Dropdown.Toggle variant="" id="dropdown-basic right">
                     Admin
                 </Dropdown.Toggle>
 

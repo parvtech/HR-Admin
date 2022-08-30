@@ -39,7 +39,7 @@ const App = () => {
           <NavLink className="nav-item nav-link" to="/profileemployeee">Prolie / Employee</NavLink>
         </nav> */}
         <div className="App">
-          <Routes>
+          {/* <Routes>
             <Route exact path='/' element={<Dashboard />}></Route>
             <Route exact path='/login' element={<Login />}></Route>
             <Route exact path='/employees' element={<EmpManagement />}></Route>
@@ -53,7 +53,7 @@ const App = () => {
             <Route exact path='/profile' element={<Profile />}></Route>
             <Route exact path='/profile/:id' element={<Profile />}></Route>
             <Route exact path='/profileemployeee' element={<ProfileEmployee />}></Route>
-          </Routes>
+          </Routes> */}
 
          <Sidebar>
           <Routes>
