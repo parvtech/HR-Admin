@@ -1,10 +1,10 @@
 import React from 'react'
 import { VscAdd } from 'react-icons/vsc'
-import "../subadmin/SubAdmin.css"
+import "./SubAdmin.css"
 import Card from '../Card'
 
 
-export default function SubAdmin() {
+const SubAdmin =()=> {
     return (
         <div>
             <div className='container-fluid'>
@@ -29,3 +29,4 @@ export default function SubAdmin() {
 
     )
 }
+export default SubAdmin 
