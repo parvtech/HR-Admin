@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Hr_Configuartion = () => {
+const HrConfiguartion = () => {
   return (
     <div>Hr_Configuartionnnnnnnnnnnnnnnnnnnnnn</div>
   )
 }
 
-export default Hr_Configuartion
+export default HrConfiguartion

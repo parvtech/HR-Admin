@@ -15,8 +15,8 @@ import Inbox from './components/Inbox/Inbox';
 import CustomMail from './components/custom-mail/CustomMail';
 import EventsComponent from './components/events/EventsComponent';
 import WebContents from './components/web-contents/WebContents';
-import Hr_Configuartion from './components/hr-configuration/Hr_Configuartion';
-import Hr_Policy from './components/hr-policy/Hr_policy';
+import HrConfiguartion from './components/hr-configuration/HrConfiguartion';
+import HrPolicy from './components/hr-policy/HrPolicy';
 import Sidebar from './components/dashboard/Sidebar';
 
 
@@ -40,19 +40,7 @@ const App = () => {
         </nav> */}
         <div className="App">
           <Routes>
-            <Route exact path='/' element={<Dashboard />}></Route>
             <Route exact path='/login' element={<Login />}></Route>
-            <Route exact path='/employees' element={<EmpManagement />}></Route>
-            <Route exact path='/events' element={<EventsComponent/>}></Route>
-            <Route exact path='/forgot-password' element={< ForgotPassword />}></Route>
-            <Route exact path='/reset-password' element={<ResetPassword />}></Route>
-            <Route exact path='/employee' element={<Employee />}></Route>
-            <Route exact path='/card' element={<Card />}></Route>
-            <Route exact path='/profileinfo' element={<ProfileInfo />}></Route>
-            <Route exact path='/sub-admin' element={<SubAdmin />}></Route>
-            <Route exact path='/profile' element={<Profile />}></Route>
-            <Route exact path='/profile/:id' element={<Profile />}></Route>
-            <Route exact path='/profileemployeee' element={<ProfileEmployee />}></Route>
           </Routes>
 
          <Sidebar>
@@ -69,9 +57,10 @@ const App = () => {
             <Route exact path='/inbox' element={<Inbox/>}/>
             <Route exact path='/web-contents' element={<WebContents/>}/>
             <Route exact path='/custom-mail' element={<CustomMail/>}/>
-            <Route exact path='/hr-policy' element={<Hr_Policy/>}/>
-            <Route exact path='/hr-configuration' element={<Hr_Configuartion/>}/>
+            <Route exact path='/hr-policy' element={<HrPolicy/>}/>
+            <Route exact path='/hr-configuration' element={<HrConfiguartion/>}/>
             <Route exact path='/profile' element={<Profile />}/>
+            <Route exact path='/profile/:id' element={<Profile />}></Route>
             <Route exact path='/profileemployeee' element={<ProfileEmployee />}/>  
           </Routes>
           </Sidebar>

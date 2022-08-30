@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Hr_Policy = () => {
+const HrPolicy = () => {
   return (
     <div>Hr-policcycycycycycycycy</div>
   )
 }
 
-export default Hr_Policy
+export default HrPolicy
