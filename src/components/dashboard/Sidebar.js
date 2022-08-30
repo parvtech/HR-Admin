@@ -68,7 +68,7 @@ const Sidebar = ({ children }) => {
     ]
     return (
         <div className="d-flex start">
-            <div style={{ width: isOpen ? "300px" : "70px" }} className="sidebar">
+            <div style={{ width: isOpen ? "410px" : "70px" }} className="sidebar">
                 <div className="top_section">
                     {/* <h1 style={{display: isOpen ? "block" : "block"}} className="logo">
                    </h1> */}
@@ -87,8 +87,8 @@ const Sidebar = ({ children }) => {
                 }
             </div>
 
-            <div>
-                <nav className="navbar navbar-white bg-white d-flex justify-content-between" style={{ height: "62px" }}>
+            <div >
+                <nav className="navbar navbar-white bg-white d-flex justify-content-between sticky-top " style={{ height: "62px" }}>
                     <div style={{ marginLeft: isOpen ? "0px" : "0px" }} className="bars">
                         <img className="pt-0" onClick={toggle} src={hamburger} style={{ width: "30px", height: "30px", }} alt="hamburger" />
                         {/* <FaBars onClick={toggle}/> */}
@@ -135,10 +135,10 @@ const Sidebar = ({ children }) => {
                 </nav>
 
 
-                <div className="bars" style={{ width: isOpen ? "92%" : "100%" }}>
-                    {/* <img className="pt-0"  onClick={toggle} src={hamburger} style={{width:"30px", height:"30px",}} alt="hamburger"/> */}
-                    <main>{children}</main>
-                </div>
+                {/* <div className="bars" style={{ width: isOpen ? "92%" : "100%" }}> */}
+                {/* <img className="pt-0"  onClick={toggle} src={hamburger} style={{width:"30px", height:"30px",}} alt="hamburger"/> */}
+                <main>{children}</main>
+                {/* </div> */}
             </div>
         </div>
     );
