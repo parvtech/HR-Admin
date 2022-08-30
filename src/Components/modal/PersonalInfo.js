@@ -68,8 +68,8 @@ const PersonalInfo = ({ closeModal }) => {
                         <div className="row">
                             <div className="col-md-12 mt-0 d-flex justify-content-center">
                                 <form onSubmit={handleSubmit}>
-                                    <div className="row text-center mb-0">
-                                        <div className="col text-end me-2 mt-0">
+                                    <div className="text-center mb-0">
+                                        <div className="text-end me-2 mt-0">
                                             <span>
                                                 <button className='rounded-1' onClick={() => closeModal(false)}>
                                                     <MdCancel></MdCancel>
@@ -109,7 +109,7 @@ const PersonalInfo = ({ closeModal }) => {
                                                         onChange={handleChange}
                                                     />
                                                 </div>
-                                                <span className='text-danger fw-bold'>{formErrors.esci}</span>
+                                                <span className='text-danger'>{formErrors.esci}</span>
                                             </div>
                                         </div>
                                         <div className="row mt-2">
@@ -126,7 +126,7 @@ const PersonalInfo = ({ closeModal }) => {
                                                         onChange={handleChange}
                                                     />
                                                 </div>
-                                                <span className='text-danger fw-bold'>{formErrors.phone}</span>
+                                                <span className='text-danger'>{formErrors.phone}</span>
                                             </div>
                                             <div className="col-6">
                                                 <select
@@ -180,7 +180,7 @@ const PersonalInfo = ({ closeModal }) => {
                                                         onChange={handleChange}
                                                     />
                                                 </div>
-                                                <span className='text-danger fw-bold'>{formErrors.aadhar}</span>
+                                                <span className='text-danger '>{formErrors.aadhar}</span>
                                             </div>
                                             <div className="col-6">
                                                 <div className="input-group mb-1">
@@ -195,7 +195,7 @@ const PersonalInfo = ({ closeModal }) => {
                                                         onChange={handleChange}
                                                     />
                                                 </div>
-                                                <span className='text-danger fw-bold'>{formErrors.pancard}</span>
+                                                <span className='text-danger'>{formErrors.pancard}</span>
                                             </div>
                                         </div>
                                     </div>

@@ -1,136 +1,89 @@
-import React from 'react';
+import React from "react";
+import { AiOutlineDelete } from "react-icons/ai";
+import { AiOutlinePlus } from "react-icons/ai";
+import { MdCancel } from "react-icons/md";
+import './Modal.css'
 import { Modal } from 'react-bootstrap';
-import { AiOutlineDelete } from 'react-icons/ai';
-import { AiOutlinePlus } from 'react-icons/ai';
-import { MdCancel } from 'react-icons/md';
-import '../modal/Modal.css'
-
-const Education = ({closeModal}) => {
+export default function Education() {
     return (
-        <React.Fragment>
-            <Modal show={true}
-                size="md"
-                aria-labelledby="contained-modal-title-vcenter"
-                centered
-            >
-                <Modal.Body>
-                    <div className="container mt-0 my-modal">
-                        <div className="row">
-                            <div className=""></div>
-                            <div className="col-md-12 col-lg-6 col-sm-12 mt-0">
-                                <div className="" style={{width:'450px',height:'580px'}}>
-                                    <div className="row mb-2">
+        <>
+            <Modal className='mt-4 pt-5 d-flex justify-content-between self-align-start' show={true}>
+                <Modal.Body className='bg-white rounded' style={{ width: "650px", height: '350px' }}>
+                    <div className="container">
+                        <div className="row d-flex flex-colum align-item-center justify-content-center text-align-center">
+                            <div className="col-md-12 col-lg-12 col-sm-12 ">
+                                <div style={{Width:'2500px',height:'380px'}}>
+                                    <div className="row">
                                         <div className="col text-end me-2">
-                                            <button className='rounded-1' onClick={() => closeModal(false)}>
-                                            <span>
-                                                <MdCancel />
+                                            <span
+                                                style={{
+                                                    color: "gray",
+                                                    borderLeft: "none",
+                                                    marginTop: "4x",
+                                                    borderTopRightRadius: "5px",
+                                                    borderBottomRightRadius: "5px",
+                                                    borderRightt: "none",
+                                                    color: "#333333"
+                                                }}
+                                                id="basic-addon1"
+                                            >
+                                                <MdCancel size={18} />
                                             </span>
-                                            </button>
-                                            <h3 className="text-center h3medium mb-4 mt-0">Education Informations</h3>
+                                            <h3 className=" text-center h3medium"> Education Informations </h3>
                                         </div>
                                     </div>
-                                    <div className="card-body">
-                                        <div className="card p-3">
-                                            <div className="row">
+                                    <div className="card-body mt-4">
+                                        <div className="w-100">
+                                            <div className="row ">
                                                 <div className="d-flex justify-content-between align-items-center">
-                                                    <h5 className="h3medium">Education Information</h5>
-                                                    <h3 className='me-1 pt-0'>
-                                                        <AiOutlineDelete size={20} style={{ 'color': '#FF9B44' }} />
+                                                    <h5 className="b1medium ms-2 mt-2 ">Education Information</h5>
+                                                    <h3 className="me-1">
+                                                        <AiOutlineDelete
+                                                            size={20}
+                                                            style={{ color: "#FF9B44" }}
+                                                        />
                                                     </h3>
                                                 </div>
+
                                                 <div className="col-md-6">
                                                     <input
                                                         type="text"
-                                                        class="form-control"
-                                                        placeholder="Institution "
+                                                        class="form-control col-6 ps-1"
+                                                        placeholder="Institution"
                                                         required
                                                     />
-                                                </div>
-                                                <div className="col-md-6">
-                                                    <input
-                                                        type="text"
-                                                        class="form-control"
-                                                        placeholder='Subject'
-                                                        required
-                                                    />
-                                                </div>
-                                                <div className="col-md-6">
-                                                    <input
-                                                        type="date"
-                                                        class="form-control mt-2 "
-                                                        required
-                                                    />
-                                                </div>
-                                                <div className="col-md-6">
-                                                    <input
-                                                        type="date"
-                                                        class="form-control mt-2"
-                                                        required
-                                                    />
-                                                </div>
-                                                <div className="col-md-6">
-                                                    <select
-                                                        className="form-select mt-2"
-                                                        aria-label="Default select example"
-                                                        required
-                                                    >
-                                                        <option selected>Degree</option>
-                                                        <option value="1">Degree</option>
-                                                    </select>
                                                 </div>
                                                 <div className="col-md-6">
                                                     <input
                                                         type="text"
-                                                        class="form-control mt-2"
-                                                        placeholder="CGPA/%"
+                                                        class="form-control col-6 ps-1"
+                                                        placeholder="Subject"
                                                         required
                                                     />
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div className="card-body pt-0 mt-3">
-                                        <div className="card p-3">
-                                            <div className="row">
-                                                <div className="d-flex justify-content-between align-items-center">
-                                                    <h5 className="b1medium">Education Information</h5>
-                                                    <h3 className='me-1'>
-                                                        <AiOutlineDelete size={20} style={{ 'color': '#FF9B44' }} />
-                                                    </h3>
-                                                </div>
+
+                                            <div className="row pt-3 mb-2">
                                                 <div className="col-md-6">
                                                     <input
-                                                        type="text"
-                                                        class="form-control"
-                                                        placeholder="Institution "
+                                                        type="date"
+                                                        class="form-control col-12 pe-0"
                                                         required
                                                     />
                                                 </div>
-                                                <div className="col-md-6">
-                                                    <input
-                                                        type="text"
-                                                        class="form-control"
-                                                        placeholder='Subject'
-                                                        required
-                                                    />
-                                                </div>
-                                                <div className="col-md-6  ">
+
+                                                <div className="col-md-6 ">
                                                     <input
                                                         type="date"
-                                                        class="form-control mt-2"
+                                                        class="form-control col-6 pe-0"
                                                         required
                                                     />
                                                 </div>
-                                                <div className="col-md-6  ">
-                                                    <input
-                                                        type="date"
-                                                        class="form-control mt-2"
-                                                        required
-                                                    />
-                                                </div>
+                                            </div>
+                                            <div className="row pt-2">
                                                 <div className="col-md-6">
                                                     <select
-                                                        className="form-select mt-2"
+                                                        className="form-select"
                                                         aria-label="Default select example"
                                                         required
                                                     >
@@ -138,10 +91,11 @@ const Education = ({closeModal}) => {
                                                         <option value="1">Degree</option>
                                                     </select>
                                                 </div>
+
                                                 <div className="col-md-6">
                                                     <input
                                                         type="text"
-                                                        class="form-control mt-2"
+                                                        class="form-control col-6 ps-1"
                                                         placeholder="CGPA/%"
                                                         required
                                                     />
@@ -150,26 +104,33 @@ const Education = ({closeModal}) => {
                                         </div>
                                     </div>
                                     <div className="container">
-                                        <div className="row">
-                                            <div className="col-md-12 mt-1 mb-1 text-center">
-                                                <div className='text-center mt-2'>
-                                                    <button style={{ backgroundColor: '#DDDDDD', color: '#333333' }} className='btn btn rounded-pill px-3 text-center mx-4 mt-2 c2book '>
-                                                        <AiOutlinePlus style={{ marginBottom: '4px' }} /> Add More
-                                                    </button>
-                                                    <button style={{ backgroundColor: '#FF9B44', }} className='btn btn rounded-pill px-5 text-white me-2 c2book mt-2'> Save</button>
-                                                </div>
+                                        <div className="row mt-3">
+                                            <div className="text-center">
+                                                <button
+                                                    type="button"
+                                                    class=" text-center btn  btn rounded-pill m-2 me-4 px-3 w-25 "
+                                                    style={{ background: "#DDDDDD", border: "#8E8E8E", color: "#8E8E8E" }}
+                                                >
+                                                    <AiOutlinePlus style={{ marginBottom: '4px' }} />
+                                                    Add More
+                                                </button>
+
+                                                <button
+                                                    type="button"
+                                                    class="btn rounded-pill w-25 text-white "
+                                                    style={{ background: "#FF9B44", border: "#FF9B44" }}
+                                                >
+                                                    Save
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div className=""></div>
                         </div>
                     </div>
                 </Modal.Body>
             </Modal>
-        </React.Fragment>
-    )
+        </>
+    );
 }
-
-export default Education;

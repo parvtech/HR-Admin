@@ -10,6 +10,7 @@ import Education from '../modal/Educationpopup'
 import New2 from '../modal/Languagepopup'
 import Experience from '../modal/Experiencepopup'
 import Emergency from '../modal/Emergencypopup'
+import Bankdetails from '../modal/Bankpopup'
 
 export default function Profile() {
     const [click, setClick] = useState(false);
@@ -19,6 +20,7 @@ export default function Profile() {
     const [langpop, setLangpopup] = useState(false);
     const [exppop, setExppopup] = useState(false);
     const [emerpopup, setEmerpop] = useState(false);
+    const [bankpop, setBankpopup] = useState(false);
     return (
         <div>
             <div className='container-fluid'>
@@ -88,7 +90,10 @@ export default function Profile() {
                             </div>
                             <div className="card mb-3 py-2 card-box" >
                                 <div className="row ">
-                                    <span className='text-end ps-5 pe-4'><button className='penbtn  mx-2 px-2 ps-2'><FaPen className='pen'></FaPen></button></span>
+                                    <span className='text-end ps-5 pe-4'><button onClick={() => setBankpopup(true)} className='penbtn  mx-2 px-2 ps-2'><FaPen className='pen'></FaPen></button></span>
+                                    {
+                                        bankpop && <Bankdetails closeModal={setBankpopup} />
+                                    }
                                     <div className="col-md-8">
                                         <div className="card-body row">
                                             <h5 className="card-title pb-2 pt-0 b1bold text-content" >Bank information</h5>
