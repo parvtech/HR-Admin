@@ -1,8 +1,11 @@
 import React from 'react'
+import LabelComponent from '../dashboard/LabelComponent'
 
 const Inbox = () => {
   return (
-    <div>Inbox Components</div>
+    <div>
+      <LabelComponent/>
+    </div>
   )
 }
 
