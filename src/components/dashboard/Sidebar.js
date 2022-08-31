@@ -68,13 +68,14 @@ const Sidebar = ({ children }) => {
     ]
     return (
         <div className="d-flex start">
-            <div style={{ width: isOpen ? "410px" : "70px" }} className="sidebar">
+            <div style={{ width: isOpen ? "250px" : "70px" }} className="sidebar">
                 <div className="top_section">
-                    {/* <h1 style={{display: isOpen ? "block" : "block"}} className="logo">
-                   </h1> */}
-                    <div style={{ marginLeft: isOpen ? "60px" : "0px" }} className="bars pt-2 mt-1">
+                    <h1 style={{display: isOpen ? "block" : "block"}} className="logo">
+                        <img className="pt-1" src={Logo} style={{ width: "40px", height: "40px", }} alt="logo" />
+                   </h1>
+                    {/* <div style={{ marginLeft: isOpen ? "60px" : "0px" }} className="bars pt-2 mt-1">
                         <img className="pt-0" src={Logo} style={{ width: "40px", height: "40px", }} alt="logo" />
-                    </div>
+                    </div> */}
 
                 </div>
                 {
@@ -88,8 +89,8 @@ const Sidebar = ({ children }) => {
             </div>
 
             <div >
-                <nav className="navbar navbar-white bg-white d-flex justify-content-between sticky-top " style={{ height: "62px" }}>
-                    <div style={{ marginLeft: isOpen ? "0px" : "0px" }} className="bars">
+                <nav className="navbar navbar-white bg-white d-flex justify-content-between sticky-top " style={{ height: "62px", width: isOpen ? "85vw" : "95vw" }}>
+                    <div  className="bars">
                         <img className="pt-0" onClick={toggle} src={hamburger} style={{ width: "30px", height: "30px", }} alt="hamburger" />
                         {/* <FaBars onClick={toggle}/> */}
                         <h6 style={{ marginLeft: "10px", marginTop: "5px" }}>TechRadix Private Limited</h6>
@@ -97,7 +98,7 @@ const Sidebar = ({ children }) => {
 
 
 
-                    <div className="bars" style={{ width: isOpen ? "31%" : "22%" }}>
+                    <div className="bars" >
                         <div class="d-flex justify-content-end bd-highlight">
                             {/* Dark Mode Switch Button Start */}
                             <div class="p-2 bd-highlight">
