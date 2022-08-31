@@ -10,13 +10,12 @@ import { FaUsers, FaBars, FaRegUser } from "react-icons/fa"
 import { NavLink } from 'react-router-dom';
 import "./Dashboard.css"
 import "./switch.css"
-import Logo from "../../assests/Logo.png"
+import Logo from "../../assests/img/Logo.svg"
 import Dropdown from 'react-bootstrap/Dropdown';
 import UserLogo from "../../assests/img/Rectangle.png"
-import hamburger from "../../assests/img/hamburg.svg"
-
-const Sidebar = ({ children }) => {
-    const [isOpen, setIsOpen] = useState(false);
+import Hamburger from "../../assests/img/Hamburgerr.svg"
+const Sidebar = ({children}) => {
+    const[isOpen ,setIsOpen] = useState(false);
     const [darkMode, setDarkMode] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
     const menuItem = [

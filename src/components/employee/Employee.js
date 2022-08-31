@@ -80,10 +80,10 @@ export default function Employee() {
                     <div className="text-end me-2 pe-2 pt-2">
                       <img alt='' src={Svg} />
                     </div>
-                    {/* <img alt='' src={Rectangle} style={{ width: "70px" }} /> */}
-                    {(item.avatar == '' || item.avatar == null) ?
-                      <img src={require("../../assests/avatar.png")} alt="logo" width="70px" height="60px" className='mt-2 mr-2' style={{ borderRadius: "50%" }}></img> :
-                      <img src={item.avatar} alt="logo" width="70px" height="60px" className='mt-3 mr-1' style={{ borderRadius: "50%" }}></img>
+
+                    {(image == '' || image == null) ?
+                      <img src={require("../../assests/img/avatar.png")} alt="logo" width="60px" height="60px" className='mt-2 mr-2' style={{ borderRadius: "50%" }}></img> :
+                      <img src={image} alt="logo" width="60px" height="60px" className='mt-3 mr-1' style={{ borderRadius: "50%" }}></img>
                     }
 
                   </div>

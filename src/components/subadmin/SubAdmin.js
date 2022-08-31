@@ -17,11 +17,11 @@ const SubAdmin = () => {
                     <div className='col input-group subrow '>
                         <input type="email" className="form-control" placeholder='Sub Admin ID' aria-label="Sizing example " />
                     </div>
-                    <div className='col input-group subrow '>
+                    <div className='col input-group subrow'>
                         <input type="email" className="form-control" placeholder='Sub Admin Name' aria-label="Sizing example " />
                     </div>
                     <div className='col'></div>
-                    <div className='col-3 '><button className="form-control subbtn text-white ">SEARCH</button></div>
+                    <div className='col-3 '><button className="form-control subbtn text-white" style={{backgroundColor:"#36A643"}}>SEARCH</button></div>
                 </div>
             </div>
             <Card />

@@ -94,12 +94,7 @@
     display: flex;
 }
 
-main {
-    /* width: 94.7vw;
-    height: 90vh;
-    padding: 20px;
-    background-color: #f1f1f1; */
-}
+
 
 .sidebar {
     background: #fff;
@@ -156,12 +151,14 @@ main {
 
 }
 
-.d-flex {
-    /* / display: cover !important; / */
 
-}
 
 .nav-hader {
     position: static;
     top: 0;
 }
+.dropdown-menu{
+    --bs-dropdown-link-hover-bg: #FFEBDA !important;
+    --bs-dropdown-link-active-bg: #FFEBDA !important;
+}
+

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './Profile.css'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { FaPen } from 'react-icons/fa'
 import axios from 'axios'
 import Proimg from '../../assests/proimg.png'
@@ -53,7 +53,7 @@ export default function Profile() {
                         <div className="row ">
                             <div className=" col mt-5 profile_img">
                                 {(image == '' || image == null) ?
-                                    <img src={require("../../assests/avatar.png")} alt="logo" width="70px" height="70px" className='mt-2 mr-2' style={{ borderRadius: "50%" }}></img> :
+                                    <img src={require("../../assests/img/avatar.png")} alt="logo" width="70px" height="70px" className='mt-2 mr-2' style={{ borderRadius: "50%" }}></img> :
                                     <img src={image} alt="logo" width="70px" height="70px" className='mt-3 mr-1' style={{ borderRadius: "50%" }}></img>
                                 }
                             </div>

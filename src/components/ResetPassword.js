@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "./style.css"
-import Logo from "../../src/assests/Logo.png"
+import Logo from "../assests/img/Logo.svg"
 import { AiOutlineEye } from "react-icons/ai"
 import { AiOutlineEyeInvisible } from "react-icons/ai"
 

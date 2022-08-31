@@ -1,6 +1,8 @@
 import React from 'react'
 import './Profile.css'
-import Proimg from "../../assests/proimg.png"
+import Proimg from "../../assests/img/proimg.png"
+import Reportimg from "../../assests/img/reportimg.png"
+import { Link } from 'react-router-dom'
 import { FaPen } from 'react-icons/fa'
 
 export default function ProfileEmployee() {
