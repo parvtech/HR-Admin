@@ -4,9 +4,13 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { FaPen } from 'react-icons/fa'
 import axios from 'axios'
 import Proimg from '../../assests/proimg.png'
+import ProfileInfo from '../ProfileInfo'
+import PersonalInfo from '../modal/Personalinfopopup'
 
 export default function Profile() {
 
+    const [click, setClick] = useState(false);
+    const [pclick, psetClick] = useState(false);
     let { id } = useParams()
     const [employeedetail, setEmployeedetail] = useState([]);
     const [image, setImage] = useState(null)
@@ -61,7 +65,10 @@ export default function Profile() {
                                 <div className="card-body  row">
                                     <div className='row'>
                                         <h5 className="card-title col-11 d-flex pb-0 pt-0 h2bold"><b>John Doe</b></h5>
-                                        <span className='col-1 ' ><button className='penbtn media-icon '><FaPen className='pen'></FaPen></button></span>
+                                        <span className='col-1 ' ><button onClick={() => setClick(true)} className='penbtn media-icon '><FaPen className='pen'></FaPen></button></span>
+                                        {
+                                            click && <ProfileInfo closeModal={setClick} />
+                                        }
                                     </div>
                                     <div className='card-text  col wrapper_1'>
                                         <ul className='row list-unstyled pt-2 '>
@@ -91,7 +98,10 @@ export default function Profile() {
                                         <div className="card-body ps-4 row">
                                             <div className='row'>
                                                 <h5 className="card-title col pb-2 pt-0 b1bold text-content" ><b>Personal Informations</b></h5>
-                                                <span className=' col-1 '><button className='penbtn  mx-5 ms-4'><FaPen className='pen'></FaPen></button></span>
+                                                <span className=' col-1 '><button onClick={() => psetClick(true)} className='penbtn  mx-5 ms-4'><FaPen className='pen'></FaPen></button></span>
+                                                {
+                                                    pclick && <PersonalInfo closeModal={psetClick} />
+                                                }
                                             </div>
                                             <div className='card-text col '>
                                                 <ul className='row list-unstyled'>
