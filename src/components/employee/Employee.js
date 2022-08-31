@@ -74,8 +74,8 @@ export default function Employee() {
           {
             employeedetail.map((item) => (
 
-              <div key={item.public_id} onClick={() => profileDetail(item.public_id)} className='col-sm-6 col-md-3 mt-4 d-flex justify-content-center'>
-                <div className="card " style={{ width: "19.4rem" }}>
+              <div key={item.public_id} onClick={() => profileDetail(item.public_id)} className='col-lg-3 mt-4'>
+                <div className="card" style={{height:"180px"}}>
                   <div className="text-center  ">
                     <div className="text-end me-2 pe-2 pt-2">
                       <img alt='' src={Svg} />
