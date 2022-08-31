@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, } from 'react-router-dom';
 import Dashboard from './components/dashboard/Dashboard';
 import Employee from './components/employee/Employee';
 import ForgotPassword from './components/ForgotPassword ';
@@ -18,6 +18,7 @@ import HrConfiguartion from './components/hr-configuration/HrConfiguartion';
 import HrPolicy from './components/hr-policy/HrPolicy';
 import Sidebar from './components/dashboard/Sidebar';
 import PrivateRoutes from './utils/PrivateRoutes';
+import NotFound from './components/404NotFound/NotFound';
 
 
 const App = () => {
@@ -41,12 +42,14 @@ const App = () => {
 
         <Routes>
           <Route exact path='/login' element={<Login />} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
 
         <Sidebar>
           <Routes>
             <Route element={<PrivateRoutes />}>
               <Route exact path='/' element={<Dashboard />} />
+              {/* <Route exact path='/login' element={<Navigate to={'/'} />} /> */}
               <Route exact path='/employees' element={< EmpManagement />} />
               <Route exact path='/events' element={< EventsComponent />} />
               <Route exact path='/forgot-password' element={< ForgotPassword />} />

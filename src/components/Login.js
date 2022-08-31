@@ -8,7 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios'
 
-export default function Login() {
+export default function Login({ auth }) {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [loading, setLoading] = useState(false)
@@ -62,8 +62,14 @@ export default function Login() {
         }
       };
       axios.post(url, user, config).then(result => {
-        localStorage.setItem('token', result.data.access_token);
-        localStorage.setItem('username', result.data.username);
+        auth()
+        console.log(result.data);
+        /*
+          Destructuring the data
+        */
+        const { access_token, username } = result.data.data
+        localStorage.setItem('token', access_token);
+        localStorage.setItem('username', username);
         navigate("/")
         toast.success("Login successful!", {
           position: toast.POSITION.TOP_RIGHT,
