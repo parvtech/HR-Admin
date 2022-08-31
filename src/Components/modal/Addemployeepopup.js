@@ -4,8 +4,8 @@ import { MdCancel } from "react-icons/md"
 import { Modal } from 'react-bootstrap'
 import './modal/Modal.css'
 
-const ProfileInfo = ({ closeModal }) => {
-    const initialValues = { fullName: '', employeeID: '', birthday: '', email: '', joiningDate: '', number: ''}
+const AddEmployee = ({ closeModal }) => {
+    const initialValues = { fullName: '', employeeID: '', birthday: '', email: '', joiningDate: '', number: '', department: '', desgination : '', gender : '' }
     const [formValues, setFormValues] = useState(initialValues);
     const [formErrors, setFormErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
@@ -57,32 +57,34 @@ const ProfileInfo = ({ closeModal }) => {
         } else if (!mobilecheck.test(values.number)) {
             errors.number = "This is not valid phone number."
         }
+        if(!values.gender && (values.gender != 'Gender*')){
+            errors.gender = "Please fill the gender."
+        }
         return errors
     }
     return (
         <>
 
-            <Modal className=' d-flex justify-content-between self-align-start rounded-0' show={true}>
-            <div className="mt-0 w-100 sticky-top overflow-hidden  bg-white">
-                <div className="text-end mt-0 my-0">
-                    <span>
-                        <div className=" pt-1 pe-1" onClick={() => closeModal(false)}>
-                            <MdCancel></MdCancel>
-                        </div>
-                    </span>
-                <p className='h3medium mt-0 my-0 text-center'>Profile Information</p>
-                </div>
-                </div>
-                <Modal.Body className='bg-white rounded ' style={{ width: "700px", height: '450px' }}>
+            <Modal className='mt-0 pt-0 d-flex justify-content-between self-align-start' show={true}>
+                <Modal.Body className='bg-white rounded ' style={{ width: "700px", height: '580px' }}>
                     <div className='container mt-0'>
                         <div className='row'>
                             <div className='mt-0'></div>
                             <div className='col-12 mt-0 d-flex justify-content-center'>
                                 <div className="mt-0 pt-0" style={{ width: "1500px", height: "500px" }}>
                                     <form onSubmit={handleSubmit} className=''>
-                                        
+                                    <div className="mt-0 w-100 sticky-top overflow-hidden  bg-white">
+                                        <div className="text-end mt-0 my-0">
+                                            <span>
+                                                <button className="rounded-1 border" onClick={() => closeModal(false)}>
+                                                    <MdCancel></MdCancel>
+                                                </button>
+                                            </span>
+                                        <p className='h3medium mt-0 my-0 text-center'>Add Employee</p>
+                                        </div>
+                                        </div>
 
-                                            <div className='container position-relative  '>
+                                            <div className='container position-relative  overflow-hidden'>
                                             <img alt='' src={Profileimg} style={{ width: "100px", height: "100px" }} className="mt- mx-auto d-block" />
                                             <div className="row mt-4">
                                                 <div className='col-6'>
@@ -106,7 +108,7 @@ const ProfileInfo = ({ closeModal }) => {
                                                     <span className='text-danger'>{formErrors.birthday}</span>
                                                 </div>
                                                 <div className='col-6'>
-                                                    <select class="form-select ps-1" name="gender" aria-label="Default select example">
+                                                    <select class="form-select ps-1" name="gender" onChange={handleChange} value={formValues.gender} aria-label="Default select example">
                                                         <option selected>Gender*</option>
                                                         <option value="1">Male</option>
                                                         <option value="2">Female</option>
@@ -158,7 +160,7 @@ const ProfileInfo = ({ closeModal }) => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className='container '>
+                                        <div className='container position-relative '>
                                             <div className="row mt-4">
                                                 <div className='col-6'>
                                                     <div class="input-group mb-1">
@@ -233,24 +235,23 @@ const ProfileInfo = ({ closeModal }) => {
                                                 </div>
                                             </div>
                                         </div>
-                                        </form>
-                                        </div>
-                                        </div>
-                                        <div className='col-md-3 '></div>
-                                        </div>
-                                        </div>
-                                        </Modal.Body>
-                                        <div className='container sticky-bottom  pt-2 pb-2 bg-white'>
+                                        <div className='container sticky-bottom mt-3 pt-3  bg-white'>
                                             <div className='row'>
-                                                <div className='col text-center '>
+                                                <div className='col text-center mt-4'>
                                                     <button type="submit" class="btn rounded-pill px-5 text-white" style={{ background: "#FF9B44", border: '#FF9B44' }}>Submit</button>
                                                 </div>
                                             </div>
                                         </div>
-                                       
+                                    </form>
+                                </div>
+                            </div>
+                            <div className='col-md-3 '></div>
+                        </div>
+                    </div>
+                </Modal.Body>
             </Modal>
         </>
 
     )
 }
-export default ProfileInfo
+export default AddEmployee
