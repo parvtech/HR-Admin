@@ -89,7 +89,7 @@ const Sidebar = ({children}) => {
             <div >
                 <nav className="navbar navbar-white bg-white d-flex justify-content-between sticky-top " style={{ height: "62px" }}>
                     <div style={{ marginLeft: isOpen ? "0px" : "0px" }} className="bars">
-                        <img className="pt-0" onClick={toggle} src={hamburger} style={{ width: "30px", height: "30px", }} alt="hamburger" />
+                        <img className="pt-0" onClick={toggle} src={Hamburger} style={{ width: "30px", height: "30px", }} alt="hamburger" />
                         {/* <FaBars onClick={toggle}/> */}
                         <h6 style={{ marginLeft: "10px", marginTop: "5px" }}>TechRadix Private Limited</h6>
                     </div>

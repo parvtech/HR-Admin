@@ -3,7 +3,7 @@ import './Profile.css'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { FaPen } from 'react-icons/fa'
 import axios from 'axios'
-import Proimg from '../../assests/proimg.png'
+import Proimg from '../../assests/img/proimg.png'
 
 export default function Profile() {
 
