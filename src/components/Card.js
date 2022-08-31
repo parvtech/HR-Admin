@@ -5,7 +5,7 @@ import Svg from "../assests/img/Group.svg"
 
 export default function Card() {
   return (
-    <div className='container-fluid'>
+    <div className='container'>
       <div className='row'>
         <div className='col-sm-6 col-md-3 mt-4 d-flex justify-content-center'>
           <div className="card " style={{ width: "19.4rem" }}>

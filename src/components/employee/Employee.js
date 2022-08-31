@@ -69,7 +69,7 @@ export default function Employee() {
         </div>
       </div>
 
-      <div className='container-fluid'>
+      <div className='container'>
         <div className='row'>
           {
             employeedetail.map((item) => (
