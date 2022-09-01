@@ -6,11 +6,26 @@ import axios from 'axios'
 import Proimg from '../../assests/proimg.png'
 import ProfileInfo from '../ProfileInfo'
 import PersonalInfo from '../modal/Personalinfopopup'
+import Addresspop from '../modal/Addresspop'
+import Bankpopup from '../modal/Bankpopup'
+import Educationpopup from '../modal/Educationpopup'
+import Familypopup from '../modal/Familypopup'
+import Experiencepopup from '../modal/Experiencepopup'
+import Languagepopup from '../modal/Languagepopup'
+import Emergencypopup from '../modal/Emergencypopup'
 
 export default function Profile() {
 
     const [click, setClick] = useState(false);
     const [pclick, psetClick] = useState(false);
+    const [addClick, setAddClick] = useState(false);
+    const [bankpop, setBankpopup] = useState(false);
+    const [edupop, setEduPop] = useState(false);
+    const [langpop, setLangpopup] = useState(false);
+    const [exppop, setExppopup] = useState(false);
+    const [emerpopup, setEmerpop] = useState(false);
+    const [familypop, setFamilypopup] =useState(false);
+
     let { id } = useParams()
     const [employeedetail, setEmployeedetail] = useState([]);
     const [image, setImage] = useState(null)
@@ -124,7 +139,10 @@ export default function Profile() {
                                         <div className="card-body ps-4 row">
                                             <div className='row'>
                                                 <h5 className="card-title col pb-2 pt-0 b1bold text-content" ><b>Bank information</b></h5>
-                                                <span className='col-1'><button className='penbtn mx-5 ms-4'><FaPen className='pen'></FaPen></button></span>
+                                                <span className='col-1'><button onClick={() => setBankpopup(true)} className='penbtn mx-5 ms-4'><FaPen className='pen'></FaPen></button></span>
+                                                {
+                                                    bankpop && <Bankpopup closeModal={setBankpopup} />
+                                                }
                                             </div>
                                             <div className='card-text col '>
                                                 <ul className='row list-unstyled'>
@@ -146,7 +164,10 @@ export default function Profile() {
                                     <div className="card-body ps-4 row">
                                         <div className='row'>
                                             <h5 className="card-title col py-2 pb-2 pt-0 b1bold text-content" > <b>Address</b></h5>
-                                            <span className='col-1'><button className='penbtn mx-5 ms-4'><FaPen className='pen'></FaPen></button></span>
+                                            <span className='col-1'><button onClick={() => setAddClick(true)} className='penbtn mx-5 ms-4'><FaPen className='pen'></FaPen></button></span>
+                                            {
+                                                addClick && <Addresspop closeModal={setAddClick} />
+                                            }
                                         </div>
                                         <div className='card-text col '>
                                             <h6 className='b2book text-content'><b>Present Address</b></h6>
@@ -183,7 +204,10 @@ export default function Profile() {
                                     <div className="card-body ps-4 row">
                                         <div className='row'>
                                             <h5 className="card-title col pb-2 pt-0 b1bold text-content" >Education Informations</h5>
-                                            <span className='col-1'><button className='penbtn  mx-5 ms-4'><FaPen className='pen'></FaPen></button></span>
+                                            <span className='col-1'><button onClick={() => setEduPop(true)} className='penbtn  mx-5 ms-4'><FaPen className='pen'></FaPen></button></span>
+                                            {
+                                                edupop && <Educationpopup closeModal={setEduPop} />
+                                            }
                                         </div>
                                         <div className='card-text col '>
                                             <p className='c1book text-gry pb-0 mb-0 '>International College of Arts and Science (UG)</p>
@@ -203,7 +227,10 @@ export default function Profile() {
                                     <div className="card-body ps-4 row">
                                         <div className='row'>
                                             <h5 className="card-title col pb-2 pt-0 b1bold text-content" ><b>Family Informations</b></h5>
-                                            <span className='col-1'><button className='penbtn  mx-5 ms-4'><FaPen className='pen'></FaPen></button></span>
+                                            <span className='col-1'><button onClick={() => setFamilypopup(true)} className='penbtn  mx-5 ms-4'><FaPen className='pen'></FaPen></button></span>
+                                            {
+                                                familypop && <Familypopup closeModal={setFamilypopup} />
+                                            }
                                         </div>
                                         <div className='card-text col '>
                                             <div className='table-responsive '>                                                <table className="table  ">
@@ -254,7 +281,10 @@ export default function Profile() {
                                     <div className="card-body ps-4 row">
                                         <div className='row'>
                                             <h5 className="card-title col pb-2 pt-0 b1bold text-content" ><b>Experience</b></h5>
-                                            <span className='col-1'><button className='penbtn  mx-5 ms-4'><FaPen className='pen'></FaPen></button></span>
+                                            <span className='col-1'><button onClick={() => setExppopup(true)} className='penbtn  mx-5 ms-4'><FaPen className='pen'></FaPen></button></span>
+                                            {
+                                                exppop && <Experiencepopup closeModal={setExppopup} />
+                                            }
                                         </div>
                                         <div className='card-text col '>
                                             <p className='pb-0 mb-0 text-gry c1book'>Web Designer at Zen Corporation</p>
@@ -275,7 +305,10 @@ export default function Profile() {
                                     <div className="card-body ps-4 row">
                                         <div className='row'>
                                             <h5 className="card-title col pb-2 pt-0 b1bold text-content" ><b>Languages Known</b></h5>
-                                            <span className='col-1'><button className='penbtn  mx-5 ms-4'><FaPen className='pen'></FaPen></button></span>
+                                            <span className='col-1'><button onClick={() => setLangpopup(true)} className='penbtn  mx-5 ms-4'><FaPen className='pen'></FaPen></button></span>
+                                            {
+                                                langpop && <Languagepopup closeModal={setLangpopup} />
+                                            }
                                         </div>
                                         <div className='card-text col '>
                                             <div className='table-responsive'>
@@ -317,7 +350,10 @@ export default function Profile() {
                                     <div className="card-body ps-4 row">
                                         <div className='row'>
                                             <h5 className="card-title col pb-2 pt-0 b1bold text-content" > <b>Emergency Contact</b></h5>
-                                            <span className='col-1'><button className='penbtn  mx-5 ms-4'><FaPen className='pen'></FaPen></button></span>
+                                            <span className='col-1'><button onClick={() => setEmerpop(true)} className='penbtn  mx-5 ms-4'><FaPen className='pen'></FaPen></button></span>
+                                            {
+                                                emerpopup && <Emergencypopup closeModal={setEmerpop} />
+                                            }
                                         </div> <div className='card-text col '>
                                             <h6 className='c2medium text-content '>Contact 1</h6>
                                             <ul className='row list-unstyled'>
