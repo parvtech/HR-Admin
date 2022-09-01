@@ -78,9 +78,9 @@ export default function Profile() {
                             </div>
                             <div className="col-md-10">
                                 <div className="card-body  row">
-                                    <div className='row'>
-                                        <h5 className="card-title col-11 d-flex pb-0 pt-0 h2bold"><b>John Doe</b></h5>
-                                        <span className='col-1 ' ><button onClick={() => setClick(true)} className='penbtn media-icon '><FaPen className='pen'></FaPen></button></span>
+                                    <div className='d-flex justify-content-between'>
+                                        <h5 className="card-title  pb-0 pt-0 h2bold"><b>John Doe</b></h5>
+                                        <span  ><button onClick={() => setClick(true)} className='penbtn  md:mx-4 md:ms-5 sm:ms-5'><FaPen className='pen'></FaPen></button></span>
                                         {
                                             click && <ProfileInfo closeModal={setClick} />
                                         }
