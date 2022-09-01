@@ -6,7 +6,6 @@ const PrivateRoutes = () => {
 
     if (localStorage.getItem('token') !== null) {
         auth.token = true
-        console.log("innnnnnnnnnn");
         // return (
 
         //     < Outlet />
