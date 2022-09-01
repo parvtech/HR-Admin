@@ -22,7 +22,7 @@ const Sidebar = ({children}) => {
             icon:<AiOutlineDashboard/>
         },
         {
-            path:"/employees",
+            path:"/employee",
             name:"Employees",
             icon:<FaUsers/>
         },

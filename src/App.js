@@ -40,19 +40,7 @@ const App = () => {
         </nav> */}
         <div className="App">
           <Routes>
-            <Route exact path='/' element={<Dashboard />}></Route>
-            <Route exact path='/login' element={<Login />}></Route>
-            <Route exact path='/employees' element={<EmpManagement />}></Route>
-            <Route exact path='/events' element={<EventsComponent/>}></Route>
-            <Route exact path='/forgot-password' element={< ForgotPassword />}></Route>
-            <Route exact path='/reset-password' element={<ResetPassword />}></Route>
-            <Route exact path='/employee' element={<Employee />}></Route>
-            <Route exact path='/card' element={<Card />}></Route>
-            <Route exact path='/profileinfo' element={<ProfileInfo />}></Route>
-            <Route exact path='/sub-admin' element={<SubAdmin />}></Route>
-            <Route exact path='/profile' element={<Profile />}></Route>
-            <Route exact path='/profile/:id' element={<Profile />}></Route>
-            <Route exact path='/profileemployeee' element={<ProfileEmployee />}></Route>
+          <Route exact path='/login' element={<Login />}></Route>
           </Routes>
 
          <Sidebar>
@@ -72,6 +60,7 @@ const App = () => {
             <Route exact path='/hr-policy' element={<Hr_Policy/>}/>
             <Route exact path='/hr-configuration' element={<Hr_Configuartion/>}/>
             <Route exact path='/profile' element={<Profile />}/>
+            <Route exact path='/profile/:id' element={<Profile />}></Route>
             <Route exact path='/profileemployeee' element={<ProfileEmployee />}/>  
           </Routes>
           </Sidebar>
