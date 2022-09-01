@@ -24,7 +24,7 @@ export default function Profile() {
     const [langpop, setLangpopup] = useState(false);
     const [exppop, setExppopup] = useState(false);
     const [emerpopup, setEmerpop] = useState(false);
-    const [familypop, setFamilypopup] =useState(false);
+    const [familypop, setFamilypopup] = useState(false);
 
     let { id } = useParams()
     const [employeedetail, setEmployeedetail] = useState([]);
@@ -62,7 +62,7 @@ export default function Profile() {
     }
     return (
         <div >
-            <div className='container-fluid ' style={{ backgroundColor: "#F7F7F7" }}>
+            <div className='container-fluid ' >
                 <div className='row '>
                     <div className='col h3book  pt-2'><h2>Profile </h2></div>
                 </div>
