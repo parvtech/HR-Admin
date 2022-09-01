@@ -62,7 +62,7 @@ export default function Profile() {
     }
     return (
         <div >
-            <div className='container-fluid ' >
+            <div className='container' >
                 <div className='row '>
                     <div className='col h3book  pt-2'><h2>Profile </h2></div>
                 </div>
@@ -79,7 +79,7 @@ export default function Profile() {
                             <div className="col-md-10">
                                 <div className="card-body  row">
                                     <div className='d-flex justify-content-between'>
-                                        <h5 className="card-title  pb-0 pt-0 h2bold"><b>John Doe</b></h5>
+                                        <h5 className="card-title git add . pb-0 pt-0 h2bold"><b>John Doe</b></h5>
                                         <span  ><button onClick={() => setClick(true)} className='penbtn  md:mx-4 md:ms-5 sm:ms-5'><FaPen className='pen'></FaPen></button></span>
                                         {
                                             click && <ProfileInfo closeModal={setClick} />
