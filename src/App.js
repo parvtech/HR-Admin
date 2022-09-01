@@ -32,7 +32,7 @@ const App = () => {
 
   return (
     <div >
-      {JSON.stringify(role)}
+      {/* {JSON.stringify(role)} */}
       <Router basename={'/hradmin'}>
         {
           role === null &&
