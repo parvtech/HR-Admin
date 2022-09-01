@@ -246,10 +246,8 @@ const ProfileInfo = ({ closeModal }) => {
                         </div>
                     </div>
                 </div>
-
             </Modal>
-        </>
-
+            </>
     )
 }
 export default ProfileInfo
