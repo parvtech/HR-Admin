@@ -72,7 +72,7 @@ export default function Employee() {
       <div className='container'>
         <div className='row'>
           {
-            employeedetail.map((item) => (
+            employeedetail.length > 0 ? employeedetail.map((item) => (
 
               <div key={item.public_id} onClick={() => profileDetail(item.public_id)} className='col-sm-6 col-md-3 mt-4 d-flex justify-content-center'>
                 <div className="card " style={{ width: "19.4rem" }}>
@@ -93,12 +93,12 @@ export default function Employee() {
                   </div>
                 </div>
               </div>
-            ))
+            )) : <><div > <div className='d-flex justify-content-center align-items-center mt-5'><span className='fs-1'>No Record Found</span></div> </div> </>
           }
 
-        </div >
+        </div>
 
-      </div >
+      </div>
     </div>
   )
 }
