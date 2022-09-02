@@ -261,3 +261,16 @@ letter-spacing: 0em;
   color: #0D6EFD;
 ;
 }
+.modal-content {
+  border-radius: 22px !important;
+}
+
+.modal-content-header {
+  border-top-left-radius: 22px !important;
+  border-top-right-radius: 22px !important;
+}
+
+.modal-content-footer {
+  border-bottom-left-radius: 20px !important;
+  border-bottom-right-radius: 20px !important;
+}

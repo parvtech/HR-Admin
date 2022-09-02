@@ -61,6 +61,7 @@ const App = () => {
                 <Route exact path='/hr-policy' element={<HrPolicy />} />
                 <Route exact path='/hr-configuration' element={<HrConfiguartion />} />
                 <Route exact path='/profile' element={<Profile />} />
+                <Route exact path='/profile/:id' element={<Profile />} /> 
                 <Route exact path='/profileemployeee' element={<ProfileEmployee />} />
                 <Route path='*' element={<Navigate to={'/dashboard'} />} />
               </Route>
