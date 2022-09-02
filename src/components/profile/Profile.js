@@ -62,7 +62,7 @@ export default function Profile() {
     }
     return (
         <div >
-            <div className='container' >
+            <div className='container-fluid' style={{ backgroundColor: "#F7F7F7" }}>
                 <div className='row '>
                     <div className='col h3book  pt-2'><h2>Profile </h2></div>
                 </div>
