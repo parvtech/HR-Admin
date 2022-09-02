@@ -173,9 +173,9 @@ export default function Profile() {
                                             <h6 className='b2book text-content'><b>Present Address</b></h6>
                                             <ul className='row list-unstyled'>
                                                 <li className="col-sm-4 c1book text-content pb-0 mt-1">Flat/Door No    </li><li className="col-sm-8 c2book text-gry"> 105</li>
-                                                <li className="col-sm-4 c1book text-content pb-0 mt-1">Floor            </li><li className="col-sm-8 c2book text-gry">1ST</li>
                                                 <li className="col-sm-4 c1book text-content pb-0 mt-1">Premises Name    </li><li className="col-sm-8 c2book text-gry">Rituraaj Business center</li>
                                                 <li className="col-sm-4 c1book text-content pb-0 mt-1">Landmark (near)  </li><li className="col-sm-8 c2book text-gry">UNO Business park building</li>
+                                                <li className="col-sm-4 c1book text-content pb-0 mt-1">City            </li><li className="col-sm-8 c2book text-gry">Indore</li>
                                                 <li className="col-sm-4 c1book text-content pb-0 mt-1">Dist, Pin Code   </li><li className="col-sm-8 c2book text-gry">452003</li>
                                                 <li className="col-sm-4 c1book text-content pb-0 mt-1">State           </li><li className="col-sm-8 c2book text-gry"> Madhya Pradesh</li>
                                             </ul>
@@ -185,9 +185,9 @@ export default function Profile() {
                                             <h6 className='b2book text-content mt-1'><b>Permanent Address</b></h6>
                                             <ul className='row list-unstyled'>
                                                 <li className="col-sm-4 c1book text-content pb-0 mt-1">Flat/Door No    </li><li className="col-sm-8 c2book text-gry"> 105</li>
-                                                <li className="col-sm-4 c1book text-content pb-0 mt-1">Floor            </li><li className="col-sm-8 c2book text-gry">1ST</li>
                                                 <li className="col-sm-4 c1book text-content pb-0 mt-1">Premises Name    </li><li className="col-sm-8 c2book text-gry">Rituraaj Business center</li>
                                                 <li className="col-sm-4 c1book text-content pb-0 mt-1">Landmark (near)  </li><li className="col-sm-8 c2book text-gry">UNO Business park building</li>
+                                                <li className="col-sm-4 c1book text-content pb-0 mt-1">City            </li><li className="col-sm-8 c2book text-gry">Indore</li>
                                                 <li className="col-sm-4 c1book text-content pb-0 mt-1">Dist, Pin Code   </li><li className="col-sm-8 c2book text-gry">452003</li>
                                                 <li className="col-sm-4 c1book text-content pb-0 mt-1">State           </li><li className="col-sm-8 c2book text-gry"> Madhya Pradesh</li>
                                             </ul>
