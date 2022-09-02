@@ -3,12 +3,11 @@ import { Modal } from "react-bootstrap";
 import { MdCancel } from "react-icons/md";
 const Addresspop = ({ closeModal }) => {
   const initialValues = {
-    fullName: "",
-    employeeID: "",
-    birthday: "",
-    email: "",
-    joiningDate: "",
-    number: "",
+    flatno: '',
+    premisesName: '',
+    landMark: '',
+    city: '',
+    state: '',
   };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
@@ -36,29 +35,20 @@ const Addresspop = ({ closeModal }) => {
 
   const validate = (values) => {
     const errors = {};
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-    var mobilecheck = /^[0-9]{10}$/;
-    if (!values.fullName) {
-      errors.fullName = "Name is required";
+    if (!values.flatno) {
+      errors.flatno = "Please fill the flat-number!"
     }
-    if (!values.employeeID) {
-      errors.employeeID = "EmployeeID is required";
+    if (!values.premisesName) {
+      errors.premisesName = "Please fill the premises name!"
     }
-    if (!values.birthday) {
-      errors.birthday = "Birthday is required";
+    if (!values.landMark) {
+      errors.landMark = "Please fiil the landmark field!"
     }
-    if (!values.email) {
-      errors.email = "Email is required";
-    } else if (!regex.test(values.email)) {
-      errors.email = "This is not a valid email.";
+    if (!values.city) {
+      errors.city = "Please fill the city field!"
     }
-    if (!values.joiningDate) {
-      errors.joiningDate = "Joining Date is required";
-    }
-    if (!values.number) {
-      errors.number = "Number is required";
-    } else if (!mobilecheck.test(values.number)) {
-      errors.number = "This is not valid phone number.";
+    if (!values.state) {
+      errors.state = "Please fill the state field!"
     }
     return errors;
   };
@@ -80,14 +70,28 @@ const Addresspop = ({ closeModal }) => {
               </div>
             </span>
             <p className="h3medium mt-0 my-0 text-center ">Address</p>
-          </div>
-        </div>
-        <Modal.Body className="bg-white rounded " style={{ height: "450px" }}>
-          <div className="container mt-0 ">
-            <div className="row">
-              <div className="col-12 mt-0 d-flex justify-content-center">
-                <div className="container position-relative overflow-hidden mt-0 pt-0">
+            </div>
+            </div>
+    
+          <Modal.Body className="bg-white rounded " style={{ height: "450px" }}>
+            <div className="container mt-0 ">
+              <div className="row">
+                <div className="col-12 mt-0 d-flex justify-content-center">
+                  <div className="container position-relative overflow-hidden mt-0 pt-0">
                   <form onSubmit={handleSubmit} className="">
+                  <div className="mt-0 w-100 sticky-top overflow-hidden mt-1 bg-white">
+                    <div className="text-end mt-0 my-0">
+                      <span>
+                        <div
+                          className="rounded-circle mt-0 pe-1"
+                          onClick={() => closeModal(false)}
+                        >
+                          <MdCancel></MdCancel>
+                        </div>
+                      </span>
+                      <p className="h3medium mt-0 my-0 text-center ">Address</p>
+                    </div>
+                  </div>
                     <div className="container position-relative">
                       <div className="row mt-4">
                         <div className="card">
@@ -102,8 +106,8 @@ const Addresspop = ({ closeModal }) => {
                                 <input
                                   type="text"
                                   class="form-control ps-1"
-                                  name=" Flat/Door No"
-                                  value={formValues.fullName}
+                                  name="flatno"
+                                  value={formValues.flatno}
                                   onChange={handleChange}
                                   placeholder="Flat/Door No"
                                   aria-label="Username"
@@ -111,7 +115,7 @@ const Addresspop = ({ closeModal }) => {
                                 />
                               </div>
                               <span className="text-danger">
-                                {formErrors.fullName}
+                                {formErrors.flatno}
                               </span>
                             </div>
                             <div className="col m-1">
@@ -123,8 +127,8 @@ const Addresspop = ({ closeModal }) => {
                                 <input
                                   type="text"
                                   class="form-control ps-1"
-                                  name="Permises Name"
-                                  value={formValues.employeeID}
+                                  name="premisesName"
+                                  value={formValues.premisesName}
                                   onChange={handleChange}
                                   placeholder="Permises Name"
                                   aria-label="Username"
@@ -132,7 +136,7 @@ const Addresspop = ({ closeModal }) => {
                                 />
                               </div>
                               <span className="text-danger">
-                                {formErrors.employeeID}
+                                {formErrors.premisesName}
                               </span>
                             </div>
                             <div class="w-100"></div>
@@ -144,8 +148,8 @@ const Addresspop = ({ closeModal }) => {
                                 <input
                                   type="text"
                                   class="form-control ps-1"
-                                  name="Landmark"
-                                  value={formValues.birthday}
+                                  name="landmark"
+                                  value={formValues.landMark}
                                   onChange={handleChange}
                                   placeholder="Landmark"
                                   aria-label="Username"
@@ -153,7 +157,7 @@ const Addresspop = ({ closeModal }) => {
                                 />
                               </div>
                               <span className="text-danger">
-                                {formErrors.birthday}
+                                {formErrors.landMark}
                               </span>
                             </div>
                             <div className="col m-1">
@@ -164,8 +168,8 @@ const Addresspop = ({ closeModal }) => {
                                 <input
                                   type="text"
                                   class="form-control ps-1"
-                                  name="City"
-                                  value={formValues.birthday}
+                                  name="city"
+                                  value={formValues.city}
                                   onChange={handleChange}
                                   placeholder="City"
                                   aria-label="Username"
@@ -173,7 +177,7 @@ const Addresspop = ({ closeModal }) => {
                                 />
                               </div>
                               <span className="text-danger">
-                                {formErrors.birthday}
+                                {formErrors.city}
                               </span>
                             </div>
                             <div class="w-100"></div>
@@ -182,8 +186,7 @@ const Addresspop = ({ closeModal }) => {
                                 Pincoad<span className="text-danger">*</span>
                               </lable>
                               <select
-                                class="form-select ps-
-                                                    1"
+                                class="form-select ps-1"
                                 aria-label="Default select example"
                               >
                                 <option selected>Pincoad</option>
@@ -201,8 +204,8 @@ const Addresspop = ({ closeModal }) => {
                                 <input
                                   type="text"
                                   class="form-control ps-1"
-                                  name=" State"
-                                  value={formValues.email}
+                                  name=" state"
+                                  value={formValues.state}
                                   onChange={handleChange}
                                   placeholder=" State"
                                   aria-label="Username"
@@ -210,7 +213,7 @@ const Addresspop = ({ closeModal }) => {
                                 />
                               </div>
                               <span className="text-danger">
-                                {formErrors.email}
+                                {formErrors.state}
                               </span>
                             </div>
                           </div>
@@ -230,8 +233,8 @@ const Addresspop = ({ closeModal }) => {
                                 <input
                                   type="text"
                                   class="form-control ps-1"
-                                  name=" Flat/Door No"
-                                  value={formValues.fullName}
+                                  name="flatno"
+                                  value={formValues.flatno}
                                   onChange={handleChange}
                                   placeholder="Flat/Door No"
                                   aria-label="Username"
@@ -239,7 +242,7 @@ const Addresspop = ({ closeModal }) => {
                                 />
                               </div>
                               <span className="text-danger">
-                                {formErrors.fullName}
+                                {formErrors.flatno}
                               </span>
                             </div>
                             <div className="col m-1">
@@ -251,8 +254,8 @@ const Addresspop = ({ closeModal }) => {
                                 <input
                                   type="text"
                                   class="form-control ps-1"
-                                  name="Permises Name"
-                                  value={formValues.employeeID}
+                                  name="premisesName"
+                                  value={formValues.premisesName}
                                   onChange={handleChange}
                                   placeholder="Permises Name"
                                   aria-label="Username"
@@ -260,7 +263,7 @@ const Addresspop = ({ closeModal }) => {
                                 />
                               </div>
                               <span className="text-danger">
-                                {formErrors.employeeID}
+                                {formErrors.premisesName}
                               </span>
                             </div>
                             <div class="w-100"></div>
@@ -272,8 +275,8 @@ const Addresspop = ({ closeModal }) => {
                                 <input
                                   type="text"
                                   class="form-control ps-1"
-                                  name="Landmark"
-                                  value={formValues.birthday}
+                                  name="landmark"
+                                  value={formValues.landmark}
                                   onChange={handleChange}
                                   placeholder="Landmark"
                                   aria-label="Username"
@@ -281,7 +284,7 @@ const Addresspop = ({ closeModal }) => {
                                 />
                               </div>
                               <span className="text-danger">
-                                {formErrors.birthday}
+                                {formErrors.landMark}
                               </span>
                             </div>
                             <div className="col m-1">
@@ -292,8 +295,8 @@ const Addresspop = ({ closeModal }) => {
                                 <input
                                   type="text"
                                   class="form-control ps-1"
-                                  name="City"
-                                  value={formValues.birthday}
+                                  name="city"
+                                  value={formValues.city}
                                   onChange={handleChange}
                                   placeholder="City"
                                   aria-label="Username"
@@ -301,7 +304,7 @@ const Addresspop = ({ closeModal }) => {
                                 />
                               </div>
                               <span className="text-danger">
-                                {formErrors.birthday}
+                                {formErrors.city}
                               </span>
                             </div>
                             <div class="w-100"></div>
@@ -310,8 +313,7 @@ const Addresspop = ({ closeModal }) => {
                                 Pincoad<span className="text-danger">*</span>
                               </lable>
                               <select
-                                class="form-select ps-
-                                                    1"
+                                class="form-select ps-1"
                                 aria-label="Default select example"
                               >
                                 <option selected>Pincoad</option>
@@ -329,8 +331,8 @@ const Addresspop = ({ closeModal }) => {
                                 <input
                                   type="text"
                                   class="form-control ps-1"
-                                  name=" State"
-                                  value={formValues.email}
+                                  name="state"
+                                  value={formValues.state}
                                   onChange={handleChange}
                                   placeholder=" State"
                                   aria-label="Username"
@@ -338,18 +340,20 @@ const Addresspop = ({ closeModal }) => {
                                 />
                               </div>
                               <span className="text-danger">
-                                {formErrors.email}
+                                {formErrors.state}
                               </span>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </form>
+        </form>
+
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          
         </Modal.Body>
         <div className="container sticky-bottom mb-1 pb-2 bg-white modal-content-footer">
           <div className="row">
@@ -361,9 +365,9 @@ const Addresspop = ({ closeModal }) => {
               >
                 Save
               </button>
+              </div>
             </div>
           </div>
-        </div>
       </Modal>
     </>
   );
