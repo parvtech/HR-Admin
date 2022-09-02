@@ -11,6 +11,9 @@ export default function Employee() {
   const [addclick, setAddClick] = useState(false);
   const [employeeList, setEmployeeList] = useState([]);
   const [pagination, setPagination] = useState({ size: 12, page: 1, hasMore: true })
+  const [employeedetail, setEmployeedetail] = useState([]);
+  const [image, setImage] = useState(null)
+
   let navigate = useNavigate()
   useEffect(() => {
     getEmployeList()
@@ -39,6 +42,8 @@ export default function Employee() {
           setPagination({ hasMore: false })
         }
         setEmployeeList(margeData)
+        setEmployeedetail(res.data.data)
+
       }
       ).catch(err => {
 
@@ -66,10 +71,10 @@ export default function Employee() {
         <div className='b3medium'><p >Dashboard<span className='text-muted'><span> / </span>Employee </span></p></div>
         <div className='row b3book'>
           <div className='col input-group emprow'>
-            <input type="email" className="form-control" placeholder='Employee ID' aria-label="Sizing example " />
+            <input type="text" className="form-control" placeholder='Employee ID' aria-label="Sizing example " />
           </div>
           <div className='col input-group emprow'>
-            <input type="email" className="form-control" placeholder='Employee Name' aria-label="Sizing example " />
+            <input type="text" className="form-control" placeholder='Employee Name' aria-label="Sizing example " />
           </div>
           <div className="col input-group emprow">
             <select className="form-select" id="inputGroupSelect04" aria-label="Example select with button addon">
