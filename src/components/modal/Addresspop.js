@@ -65,10 +65,11 @@ const Addresspop = ({ closeModal }) => {
   return (
     <>
       <Modal
-        className=" d-flex justify-content-between self-align-start rounded-2"
+        className=" d-flex justify-content-between self-align-start rounded-2 mt-5"
         show={true}
+        size="lg"
       >
-        <div className="mt-0 w-100 sticky-top overflow-hidden mt-1 bg-white">
+        <div className="mt-0 w-100 sticky-top overflow-hidden mt-1 bg-white modal-content-header">
           <div className="text-end mt-0 my-0">
             <span>
               <div
@@ -350,7 +351,7 @@ const Addresspop = ({ closeModal }) => {
             </div>
           </div>
         </Modal.Body>
-        <div className="container sticky-bottom mb-1 pb-2 bg-white">
+        <div className="container sticky-bottom mb-1 pb-2 bg-white modal-content-footer">
           <div className="row">
             <div className="col text-center ">
               <button
@@ -369,3 +370,6 @@ const Addresspop = ({ closeModal }) => {
 };
 
 export default Addresspop;
+
+
+
