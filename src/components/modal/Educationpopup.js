@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { Modal } from 'react-bootstrap';
-import { MdCancel } from "react-icons/md"
-const Educationpopup = ({ closeModal }) => {
+const Educationpopup = () => {
     
     return (
         <>
         <Modal show={true}>
             <Modal.Body>
-                <h1>Educationpopup popup</h1>
-                <button className='btn btn-danger' onClick={() => closeModal(false)}>Cancel</button>
+                <h1>Aman</h1>
             </Modal.Body>
         </Modal>
     </>
