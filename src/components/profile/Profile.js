@@ -61,12 +61,13 @@ export default function Profile() {
             })
     }
     return (
-        <div >
-            <div className='container-fluid' style={{ backgroundColor: "#F7F7F7" }}>
+        <div style={{ backgroundColor: "#F7F7F7" }}>
+            <div className='container-fluid' >
                 <div className='row '>
                     <div className='col h3book  pt-2'><h2>Profile </h2></div>
                 </div>
-                <div className='b3medium'><h4 >Dashboard<span className='text-muted'><span> / </span>Profile </span></h4></div>
+                <div className='b3medium'><h4 >Dashboard<span className='text-muted'><span> / </span>Profile </span></h4>
+                </div>
                 <div className='col'>
                     <div className="card  card-box mb-3 " >
                         <div className="row ">

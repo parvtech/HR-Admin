@@ -30,10 +30,11 @@
   color: black;
 }
 .h1bold{
-  font-family: "Bold";
-  font-size: 26px;
+font-family: "Bold";
+ font-size: 26px;
+font-weight: 450;
+line-height: 31px;
   color: black;
-
 }
 .h1book{
   font-family: "Book";
