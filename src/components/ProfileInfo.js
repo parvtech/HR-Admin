@@ -67,14 +67,8 @@ const ProfileInfo = ({ closeModal }) => {
   };
   return (
     <>
-      <Modal
-        className=" pb-0 d-flex justify-content-between self-align-start rounded-pill"
-        show={true}
-      >
-        <Modal.Body
-          className="bg-white rounded "
-          style={{ width: "700px", height: "600px" }}
-        >
+      <Modal show={true} size="lg">
+        <Modal.Body className="bg-white">
           <div className="row sticky-top overflow-hidden mb-2 pb-2 bg-white">
             <div className="col-11 text-end">
               <p className="h3medium text-center ps-5">

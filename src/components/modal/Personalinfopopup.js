@@ -64,8 +64,8 @@ const PersonalInfo = ({ closeModal }) => {
     }
     return (
         <>
-        <Modal className='pe-2 pt-3 mt-3' style={{paddingRight: '222px'}} show={true}>
-            <Modal.Body  className='bg-white rounded-2' style={{width: "700px", height: '480px',}}>
+        <Modal show={true} size="lg">
+        <Modal.Body className="bg-white">
                 <div className='container'>
                         <div className="row">
                             <div className="col-md-12 mt-0 d-flex justify-content-center">
