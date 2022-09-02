@@ -62,11 +62,19 @@ export default function Profile() {
     }
     return (
         <div >
-            <div className='container' >
+        <div className="container">
+            <div className="row col-12">
+                    <div className='col-3  '><h2>Profile </h2></div>
+                    <div className=''><h4 >Dashboard<span className='text-muted'><span> / </span>Profile </span></h4></div>
+
+            </div>
+        </div>
+
+            <div className='container ' style={{ backgroundColor: "#F7F7F7" }}>
                 <div className='row '>
-                    <div className='col h3book  pt-2'><h2>Profile </h2></div>
+                    {/* <div className='col h3book  pt-2'><h2>Profile </h2></div> */}
                 </div>
-                <div className='b3medium'><h4 >Dashboard<span className='text-muted'><span> / </span>Profile </span></h4></div>
+                {/* <div className='b3medium'><h4 >Dashboard<span className='text-muted'><span> / </span>Profile </span></h4></div> */}
                 <div className='col'>
                     <div className="card  card-box mb-3 " >
                         <div className="row ">
