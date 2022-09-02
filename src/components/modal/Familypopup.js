@@ -1,8 +1,7 @@
-
 import React, { useState, useEffect } from "react";
 import { Modal } from "react-bootstrap";
 import { MdCancel } from "react-icons/md";
-import {AiOutlineDelete} from"react-icons/ai"
+import { AiOutlineDelete } from "react-icons/ai";
 // import './modal/Modal.css';
 const Familypopup = ({ closeModal }) => {
   const initialValues = {
@@ -69,20 +68,21 @@ const Familypopup = ({ closeModal }) => {
   return (
     <>
       <Modal show={true} size="lg">
-      <div className=" mt-1 bg-white sticky-top overflow-hidden me-1">
-            <div className="text-end mt-0 my-0">
-              <span>
-                <div className=" pt-1 pe-1" onClick={() => closeModal(false)}>
-                  <MdCancel></MdCancel>
-                </div>
-              </span>
-              <div>
-              <p className="h3medium mt-0 my-0 mx-auto text-center">Family  Information</p>
-            </div>
+        <div className=" mt-1 bg-white sticky-top overflow-hidden me-1 modal-content-header">
+          <div className="text-end mt-0 my-0">
+            <span>
+              <div className=" pt-1 pe-1" onClick={() => closeModal(false)}>
+                <MdCancel></MdCancel>
+              </div>
+            </span>
+            <div>
+              <p className="h3medium mt-0 my-0 mx-auto text-center">
+                Family Information
+              </p>
             </div>
           </div>
-        <Modal.Body className="bg-white rounded" style={{height: "405px"}}>
-          
+        </div>
+        <Modal.Body className="bg-white rounded" style={{ height: "405px" }}>
           <div className="container card mt-0">
             <div className="row">
               <div className="mt-0"></div>
@@ -90,18 +90,21 @@ const Familypopup = ({ closeModal }) => {
                 <div className="mt-0 pt-0">
                   <form onSubmit={handleSubmit} className="">
                     <div className="container position-relative  ">
-                      <div className="row mt-2">
+                      <div className="row mt-1">
                         <div className="d-flex justify-content-between align-item-center">
-                        <p className="b3medium  mt-3">Family Member 1</p>
-                        <div className="me-1">
-                        <AiOutlineDelete size={20} style={{ 'color': '#FF9B44' }} />
+                          <p className="b3medium mb-0 mt-3">Family Member 1</p>
+                          <div className="me-1">
+                            <AiOutlineDelete
+                              size={20}
+                              style={{ color: "#FF9B44" }}
+                            />
+                          </div>
                         </div>
-                        </div>
-                         <div className="col m-1">
+                        <div className="col m-1 mt-0">
                           <lable className="form-lable small mb-1">
                             Name
                             <span className="text-danger">*</span>
-                          </lable> 
+                          </lable>
                           <div class="input-group mb-1">
                             <input
                               type="text"
@@ -118,7 +121,7 @@ const Familypopup = ({ closeModal }) => {
                             {formErrors.fullName}
                           </span>
                         </div>
-                        <div className="col m-1">
+                        <div className="col m-1 mt-0">
                           <lable className="form-lable small mb-1">
                             Relationship<span className="text-danger">*</span>
                           </lable>
@@ -140,9 +143,9 @@ const Familypopup = ({ closeModal }) => {
                         </div>
                         <div class="w-100"></div>
 
-                        <div className="col m-1">
+                        <div className="col m-1 mt-0">
                           <lable className="form-lable small mb-1">
-                            Phone 
+                            Phone
                             <span className="text-danger">*</span>
                           </lable>
                           <div class="input-group mb-1">
@@ -160,7 +163,7 @@ const Familypopup = ({ closeModal }) => {
                             {formErrors.birthday}
                           </span>
                         </div>
-                        <div className="col m-1">
+                        <div className="col m-1 mt-0">
                           <lable className="form-lable small mb-1">
                             Date of birth<span className="text-danger">*</span>
                           </lable>
@@ -191,18 +194,21 @@ const Familypopup = ({ closeModal }) => {
                 <div className="mt-0 pt-0">
                   <form onSubmit={handleSubmit} className="">
                     <div className="container position-relative  ">
-                      <div className="row mt-2">
-                      <div className="d-flex justify-content-between align-item-center">
-                        <p className="b3medium  mt-3">Family Member 1</p>
-                        <div className="me-1">
-                        <AiOutlineDelete size={20} style={{ 'color': '#FF9B44' }} />
+                      <div className="row ">
+                        <div className="d-flex justify-content-between align-item-center">
+                          <p className="b3medium mb-0 mt-3">Family Member 2</p>
+                          <div className="me-1">
+                            <AiOutlineDelete
+                              size={20}
+                              style={{ color: "#FF9B44" }}
+                            />
+                          </div>
                         </div>
-                        </div>
-                         <div className="col m-1">
+                        <div className="col m-1 mt-0">
                           <lable className="form-lable small mb-1">
                             Name
                             <span className="text-danger">*</span>
-                          </lable> 
+                          </lable>
                           <div class="input-group mb-1">
                             <input
                               type="text"
@@ -219,7 +225,7 @@ const Familypopup = ({ closeModal }) => {
                             {formErrors.fullName}
                           </span>
                         </div>
-                        <div className="col m-1">
+                        <div className="col m-1 mt-0">
                           <lable className="form-lable small mb-1">
                             Relationship<span className="text-danger">*</span>
                           </lable>
@@ -241,7 +247,7 @@ const Familypopup = ({ closeModal }) => {
                         </div>
                         <div class="w-100"></div>
 
-                        <div className="col m-1">
+                        <div className="col m-1 mt-0">
                           <lable className="form-lable small mb-1">
                             Phone
                             <span className="text-danger">*</span>
@@ -261,9 +267,9 @@ const Familypopup = ({ closeModal }) => {
                             {formErrors.birthday}
                           </span>
                         </div>
-                        <div className="col m-1">
+                        <div className="col m-1 mt-0">
                           <lable className="form-lable small mb-1">
-                          Date of birth<span className="text-danger">*</span>
+                            Date of birth<span className="text-danger">*</span>
                           </lable>
                           <div class="input-group mb-1">
                             <input
@@ -285,39 +291,42 @@ const Familypopup = ({ closeModal }) => {
               <div className="col-md-3 "></div>
             </div>
           </div>
-         
         </Modal.Body>
-        <div className="container mt-1 mb-3 pt-3 pb-2 bg-white sticky-bottom">
-            <div className="row">
-              <div className="col text-center ">
-                <button
-                  type="submit"
-                  class="btn rounded-pill px-5 text-white"
-                  style={{ background: " #DDDDDD", border: "#FF9B44" ,width:"200px"}}
-                >
-                  <span className="" style={{color:"#8E8E8E"}}>+ Add More</span>
-                </button>
-              </div>
-              <div className="col text-center ">
-                <button
-                  type="submit"
-                  class="btn rounded-pill px-5 text-white"
-                  style={{ background: "#FF9B44", border: "#FF9B44" ,width:"200px"}}
-                >
-                  Save
-                </button>
-              </div>
+        <div className="container mt-1 mb-3 pt-3 pb-2 bg-white sticky-bottom modal-content-footer">
+          <div className="row">
+            <div className="col text-center ">
+              <button
+                type="submit"
+                class="btn rounded-pill px-5 text-white"
+                style={{
+                  background: " #DDDDDD",
+                  border: "#FF9B44",
+                  width: "200px",
+                }}
+              >
+                <span className="" style={{ color: "#8E8E8E" }}>
+                  + Add More
+                </span>
+              </button>
+            </div>
+            <div className="col text-center ">
+              <button
+                type="submit"
+                class="btn rounded-pill px-5 text-white"
+                style={{
+                  background: "#FF9B44",
+                  border: "#FF9B44",
+                  width: "200px",
+                }}
+              >
+                Save
+              </button>
             </div>
           </div>
-
-
-          
+        </div>
       </Modal>
     </>
   );
 };
 
 export default Familypopup;
-
-
-

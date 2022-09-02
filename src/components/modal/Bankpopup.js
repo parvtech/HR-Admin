@@ -6,11 +6,25 @@ const Bankpopup = ({ closeModal }) => {
   return (
     <>
       <Modal centered show={true} size="lg">
+      <div className=" mt-1 bg-white sticky-top overflow-hidden me-1 modal-content-header">
+          <div className="text-end mt-0 my-0">
+            <span>
+              <div className=" pt-1 pe-1" onClick={() => closeModal(false)}>
+                <MdCancel></MdCancel>
+              </div>
+            </span>
+            <div>
+              <p className="h3medium mt-0 my-0 mx-auto text-center">
+                Bank Details
+              </p>
+            </div>
+          </div>
+        </div>
         <Modal.Body
           className="bg-white rounded  "
-          style={{ width: "", height: "410px", border: " 2px solid #EDEDED;" }}
+          style={{ width: "", height: "300px", border: " 2px solid #EDEDED;" }}
         >
-          <div className=" bg-white sticky-top overflow-hidden">
+          {/* <div className=" bg-white sticky-top overflow-hidden">
             <div className="text-end mt-0 my-0">
               <span>
                 <div className=" pt-1 pe-1" onClick={() => closeModal(false)}>
@@ -23,7 +37,7 @@ const Bankpopup = ({ closeModal }) => {
                 </p>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="container mt-0">
             <div className="row">
               <div className="mt-0"></div>
@@ -113,7 +127,8 @@ const Bankpopup = ({ closeModal }) => {
               </div>
             </div>
           </div>
-          <div className="container  mt-1 pt-3 pb-2 bg-white sticky-bottom">
+        </Modal.Body>
+        <div className="container  mb-3 bg-white sticky-bottom modal-content-footer">
             <div className="row">
               <div className="col text-center">
                 <button
@@ -130,7 +145,6 @@ const Bankpopup = ({ closeModal }) => {
               </div>
             </div>
           </div>
-        </Modal.Body>
       </Modal>
     </>
   );
