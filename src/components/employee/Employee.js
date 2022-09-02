@@ -5,7 +5,7 @@ import axios from 'axios'
 import { useNavigate, } from 'react-router-dom'
 import { GoAlert, GoPlus } from 'react-icons/go'
 import Rectangle from '../../assests/img/Rectangle.png'
-import Addemployeepopup from '../modal/Addemployeepopup'
+import Addemployeepopup from "../modal/Addemployeepopup"
 export default function Employee() {
 
   const [addclick, setAddClick] = useState(false);
