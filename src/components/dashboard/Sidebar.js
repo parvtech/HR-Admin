@@ -70,12 +70,12 @@ const Sidebar = ({ children }) => {
         <div className="d-flex start">
             <div style={{ width: isOpen ? "250px" : "70px" }} className="sidebar">
                 <div className="top_section">
-                    <h1 style={{display: isOpen ? "block" : "block"}} className="logo">
+                    {/* <h1 style={{display: isOpen ? "block" : "block"}} className="logo">
                         <img className="pt-1" src={Logo} style={{ width: "40px", height: "40px", }} alt="logo" />
-                   </h1>
-                    {/* <div style={{ marginLeft: isOpen ? "60px" : "0px" }} className="bars pt-2 mt-1">
+                   </h1> */}
+                    <div style={{ marginLeft: isOpen ? "60px" : "0px" }} className="bars pt-2 mt-1">
                         <img className="pt-0" src={Logo} style={{ width: "40px", height: "40px", }} alt="logo" />
-                    </div> */}
+                    </div>
 
                 </div>
                 {

@@ -49,7 +49,7 @@ export default function Employee() {
           <div className='col h1book'><h2>Employee </h2></div>
           <div className='col-auto float-end ms-auto mb-2'><button className='addemp c2book mt-2  pt-1 pb-1 font-weight-bold'><GoPlus ></GoPlus> Add Employee</button></div>
         </div>
-        <div className='b3medium'><h4 >Dashboard<span className='text-muted'><span> / </span>Employee </span></h4></div>
+        <div className='b3medium'><p >Dashboard<span className='text-muted'><span> / </span>Employee </span></p></div>
         <div className='row b3book'>
           <div className='col input-group emprow'>
             <input type="email" className="form-control" placeholder='Employee ID' aria-label="Sizing example " />
@@ -60,9 +60,9 @@ export default function Employee() {
           <div className="col input-group emprow">
             <select className="form-select" id="inputGroupSelect04" aria-label="Example select with button addon">
               <option>Select Designation</option>
-              <option value="1">...</option>
-              <option value="2">...</option>
-              <option value="3">...</option>
+              <option value="1">Software Developer</option>
+              <option value="2">Python Developer</option>
+              <option value="3">Intern</option>
             </select>
           </div>
           <div className='col-3 '><button className="form-control empbtn text-white ">SEARCH</button></div>
