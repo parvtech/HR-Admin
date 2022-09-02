@@ -8,11 +8,12 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios'
 
-export default function Login() {
+export default function Login({ auth }) {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [loading, setLoading] = useState(false)
   const [errors, setErrors] = useState({ email: "", password: "" })
+  const [showPass, setShowPass] = useState("password")
 
   const navigate = useNavigate()
 
@@ -61,22 +62,28 @@ export default function Login() {
           "Content-type": "application/json"
         }
       };
-      axios.post(url, user, config).then(result => {
-        localStorage.setItem('token', result.data.access_token);
-        localStorage.setItem('username', result.data.username);
-        navigate("/")
-        toast.success("Login successful!", {
-          position: toast.POSITION.TOP_RIGHT,
-          autoClose: 3000,
-          theme: "colored",
-        });
-        if (result !== 200) {
+      axios.post(url, user, config)
+        .then(res => {
+          console.log(res.data);
+          /*
+            Destructuring the data
+          */
           setLoading(false)
-        }
-      })
+          const { access_token, fullname, roles } = res.data.data
+          auth(roles)
+          localStorage.setItem('token', access_token);
+          localStorage.setItem('fullname', fullname);
+          localStorage.setItem('role', roles);
+          toast.success("Login successful!", {
+            position: toast.POSITION.TOP_RIGHT,
+            autoClose: 3000,
+            theme: "colored",
+          });
+          navigate("/dashboard")
+        })
         .catch(error => {
           setLoading(false)
-          toast.error("Incorrect Id Password!", {
+          toast.error(error.response.data.errors[0].error, {
             position: toast.POSITION.TOP_RIGHT,
             autoClose: 3000,
             theme: "colored",
@@ -86,10 +93,10 @@ export default function Login() {
   }
 
   const onSetPassword = () => {
-    if (password === 'password') {
-      setPassword('text')
+    if (showPass === 'password') {
+      setShowPass('text')
     } else {
-      setPassword('password')
+      setShowPass('password')
     }
   }
 
@@ -101,7 +108,7 @@ export default function Login() {
         <div className="row ">
           <div className="col-md-4 col-lg-4"></div>
           <div className="col-md-4 mt-1 pt-5 pb-5 mb-5 ">
-            <img src={Logo} className="text-center rounded mx-auto mb-1 d-block img-fluid" alt="logo"/>
+            <img src={Logo} className="text-center rounded mx-auto mb-1 d-block img-fluid" alt="logo" />
             <h4 className='text-center b3black'>Welcome to Human Resources key</h4>
             <div className="card text-center d-flex form-body ">
               <div className="card-body text-center">
@@ -118,9 +125,9 @@ export default function Login() {
                   </div>
                   <div className="input-container"><label className="w-100 mb-2 mt-1 text-start c2medium">Password </label>
                     <div className="input-group">
-                      <input style={{ borderRight: "none" }} className='form-input form-control mt-1' type={password} name="password" placeholder="Password" onChange={handlePassword} />
-                      <span className='input-group-text form-input' style={{ color: "black", borderLeft: "none", marginTop: "4px", borderTopRightRadius: "5px", borderBottomRightRadius: "5px", borderRightt: "none" }} onClick={() => { onSetPassword() }} id="basic-addon1">{password === 'password' &&
-                        <AiOutlineEye />}{password !== 'password' &&
+                      <input style={{ borderRight: "none" }} className='form-input form-control mt-1' type={showPass} name="password" placeholder="Password" onChange={handlePassword} value={password} />
+                      <span className='input-group-text form-input' style={{ color: "black", borderLeft: "none", marginTop: "4px", borderTopRightRadius: "5px", borderBottomRightRadius: "5px", borderRightt: "none" }} onClick={() => { onSetPassword() }} id="basic-addon1">{showPass === 'password' &&
+                        <AiOutlineEye />}{showPass !== 'password' &&
                           <AiOutlineEyeInvisible />}</span>
                     </div>
                     {errors.password && <p className="w-100 mb-2 mt-1 text-start c2medium" style={{ color: "red" }}>{errors.password}</p>}
