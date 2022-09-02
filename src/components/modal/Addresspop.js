@@ -59,39 +59,26 @@ const Addresspop = ({ closeModal }) => {
         show={true}
         size="lg"
       >
-        <div className="mt-0 w-100 sticky-top overflow-hidden mt-1 bg-white modal-content-header">
-          <div className="text-end mt-0 my-0">
-            <span>
-              <div
-                className="rounded-circle mt-0 pe-1"
-                onClick={() => closeModal(false)}
-              >
-                <MdCancel></MdCancel>
-              </div>
-            </span>
-            <p className="h3medium mt-0 my-0 text-center ">Address</p>
+        <form onSubmit={handleSubmit} className="">
+          <div className="mt-0 w-100 sticky-top overflow-hidden mt-1 bg-white modal-content-header">
+            <div className="text-end mt-0 my-0">
+              <span>
+                <div
+                  className="rounded-circle mt-0 pe-1"
+                  onClick={() => closeModal(false)}
+                >
+                  <MdCancel></MdCancel>
+                </div>
+              </span>
+              <p className="h3medium mt-0 my-0 text-center ">Address</p>
             </div>
-            </div>
-    
+          </div>
+
           <Modal.Body className="bg-white rounded " style={{ height: "450px" }}>
             <div className="container mt-0 ">
               <div className="row">
                 <div className="col-12 mt-0 d-flex justify-content-center">
                   <div className="container position-relative overflow-hidden mt-0 pt-0">
-                  <form onSubmit={handleSubmit} className="">
-                  <div className="mt-0 w-100 sticky-top overflow-hidden mt-1 bg-white">
-                    <div className="text-end mt-0 my-0">
-                      <span>
-                        <div
-                          className="rounded-circle mt-0 pe-1"
-                          onClick={() => closeModal(false)}
-                        >
-                          <MdCancel></MdCancel>
-                        </div>
-                      </span>
-                      <p className="h3medium mt-0 my-0 text-center ">Address</p>
-                    </div>
-                  </div>
                     <div className="container position-relative">
                       <div className="row mt-4">
                         <div className="card">
@@ -347,27 +334,27 @@ const Addresspop = ({ closeModal }) => {
                         </div>
                       </div>
                     </div>
-        </form>
 
                   </div>
                 </div>
               </div>
             </div>
-          
-        </Modal.Body>
-        <div className="container sticky-bottom mb-1 pb-2 bg-white modal-content-footer">
-          <div className="row">
-            <div className="col text-center ">
-              <button
-                type="submit"
-                class="btn rounded-pill px-5 text-white"
-                style={{ background: "#FF9B44", border: "#FF9B44" }}
-              >
-                Save
-              </button>
+
+          </Modal.Body>
+          <div className="container sticky-bottom mb-1 pb-2 bg-white modal-content-footer">
+            <div className="row">
+              <div className="col text-center ">
+                <button
+                  type="submit"
+                  class="btn rounded-pill px-5 text-white"
+                  style={{ background: "#FF9B44", border: "#FF9B44" }}
+                >
+                  Save
+                </button>
               </div>
             </div>
           </div>
+        </form>
       </Modal>
     </>
   );

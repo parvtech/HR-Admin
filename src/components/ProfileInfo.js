@@ -227,7 +227,7 @@ const ProfileInfo = ({ closeModal }) => {
                           </lable>
                           <div class="input-group mb-1">
                             <input
-                              type="text"
+                              type="date"
                               class="form-control ps-1"
                               name="joiningDate"
                               value={formValues.joiningDate}
