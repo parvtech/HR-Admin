@@ -5,7 +5,10 @@ import axios from 'axios'
 import { useNavigate, } from 'react-router-dom'
 import { GoAlert, GoPlus } from 'react-icons/go'
 import Rectangle from '../../assests/img/Rectangle.png'
+import Addemployeepopup from '../modal/Addemployeepopup'
 export default function Employee() {
+
+  const [addclick, setAddClick] = useState(false);
 
 
   const [employeedetail, setEmployeedetail] = useState([]);
@@ -47,7 +50,10 @@ export default function Employee() {
       <div className='container-fluid'>
         <div className='row b3book align-item-center'>
           <div className='col h1book'><h2>Employee </h2></div>
-          <div className='col-auto float-end ms-auto mb-2'><button className='addemp c2book mt-2  pt-1 pb-1 font-weight-bold'><GoPlus ></GoPlus> Add Employee</button></div>
+          <div className='col-auto float-end ms-auto mb-2'><button onClick={() => setAddClick(true)} className='addemp c2book mt-2  pt-1 pb-1 font-weight-bold'><GoPlus ></GoPlus> Add Employee</button></div>
+          {
+            addclick && <Addemployeepopup closeModal={setAddClick} />
+          }
         </div>
         <div className='b3medium'><p >Dashboard<span className='text-muted'><span> / </span>Employee </span></p></div>
         <div className='row b3book'>
