@@ -1,11 +1,14 @@
+
 import React, { useState, useEffect } from 'react'
-import "../employee/Employee.css"
-import { VscAdd } from 'react-icons/vsc'
+import "./Employee.css"
 import Svg from '../../assests/img/Group.svg'
 import axios from 'axios'
 import { useNavigate, } from 'react-router-dom'
-
+import { GoAlert, GoPlus } from 'react-icons/go'
+import Rectangle from '../../assests/img/Rectangle.png'
 export default function Employee() {
+
+
   const [employeedetail, setEmployeedetail] = useState([]);
   const [image, setImage] = useState(null)
   let navigate = useNavigate()
@@ -13,12 +16,7 @@ export default function Employee() {
     getEmployeList()
   }, []);
 
-  // onclick function
-  const profileDetail = (public_id) => {
-    console.log(public_id)
-    navigate(`/profile/${public_id}`)
 
-  }
   // fetch api
   const getEmployeList = () => {
     let url = process.env.REACT_APP_BASEURL + "employee/"
@@ -32,20 +30,25 @@ export default function Employee() {
     axios.get(url, config)
       .then(res => {
         setEmployeedetail(res.data.data)
-        setImage(res.data.data.avatar)
-        console.log(res.data.data)
       }
       ).catch(err => {
 
       })
   }
+  // onclick function
+  const profileDetail = (public_id) => {
+    console.log(public_id)
+    navigate(`/profile/${public_id}`)
+
+  }
+
+
   return (
     <div>
-      {/* Search header */}
       <div className='container-fluid'>
-        <div className='row b3book'>
+        <div className='row b3book align-item-center'>
           <div className='col h1book'><h2>Employee </h2></div>
-          <div className='col-2'><button className='addemp c2book'><VscAdd></VscAdd> Add Employee</button></div>
+          <div className='col-auto float-end ms-auto mb-2'><button className='addemp c2book mt-2  pt-1 pb-1 font-weight-bold'><GoPlus ></GoPlus> Add Employee</button></div>
         </div>
         <div className='b3medium'><h4 >Dashboard<span className='text-muted'><span> / </span>Employee </span></h4></div>
         <div className='row b3book'>
@@ -55,46 +58,47 @@ export default function Employee() {
           <div className='col input-group emprow'>
             <input type="email" className="form-control" placeholder='Employee Name' aria-label="Sizing example " />
           </div>
-          <div class="col input-group emprow">
-            <select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon">
-              <option selected>Select Designation</option>
+          <div className="col input-group emprow">
+            <select className="form-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+              <option>Select Designation</option>
               <option value="1">...</option>
               <option value="2">...</option>
               <option value="3">...</option>
             </select>
           </div>
-          <div className='col-3 '><button className="form-control empbtn text-white c1medium">SEARCH</button></div>
+          <div className='col-3 '><button className="form-control empbtn text-white ">SEARCH</button></div>
         </div>
       </div>
 
-      {/* Cards */}
-      <div className='container-fluid'>
+      <div className='container'>
         <div className='row'>
-          <div className='col-12 mt-4 d-flex flex-wrap'>
-            {/* Map function */}
-            {employeedetail.map((item) => {
-              return (
-                <div className="card col-md-3 col-sm-12 mx-auto" key={item.public_id} onClick={() => profileDetail(item.public_id)}>
+          {
+            employeedetail.map((item) => (
+
+              <div key={item.public_id} onClick={() => profileDetail(item.public_id)} className='col-sm-6 col-md-3 mt-4 d-flex justify-content-center'>
+                <div className="card " style={{ width: "19.4rem" }}>
                   <div className="text-center  ">
                     <div className="text-end me-2 pe-2 pt-2">
                       <img alt='' src={Svg} />
                     </div>
-
-                    {(image == '' || image == null) ?
-                      <img src={require("../../assests/avatar.png")} alt="logo" width="60px" height="60px" className='mt-2 mr-2' style={{ borderRadius: "50%" }}></img> :
-                      <img src={image} alt="logo" width="60px" height="60px" className='mt-3 mr-1' style={{ borderRadius: "50%" }}></img>
+                   
+                    {(item.avatar == '' || item.avatar == null) ?
+                      <img src={require("../../assests/avatar.png")} alt="logo" width="70px" height="60px" className='mt-2 mr-2' style={{ borderRadius: "50%" }}></img> :
+                      <img src={item.avatar} alt="logo" width="70px" height="60px" className='mt-3 mr-1' style={{ borderRadius: "50%" }}></img>
                     }
+
                   </div>
                   <div className="card-body">
-                    <p className="card-text text-center mb-0 card-img-head-width text-content b2medium">{item.username}</p>
-                    <p className="card-text text-center card-img-subhead text-gry ">{item.designation}</p>
+                    <p className="card-text text-center mb-0 card-img-head-width text-content b2medium">{item.fullname ? item.fullname : 'N/A'}</p>
+                    <p className="card-text text-center card-img-subhead text-gry ">{item.designation ? item.designation : 'N/A'}</p>
                   </div>
-                </div>)
-            })}
-          </div>
-
+                </div>
+              </div>
+            ))
+          }
 
         </div>
+
       </div>
     </div>
   )
