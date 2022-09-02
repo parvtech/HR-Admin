@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { MdCancel } from "react-icons/md";
 import { Modal } from "react-bootstrap";
-import "./modal/Modal.css";
-import profileImg from "../../src/assests/img/Rectangle (2).png";
+import "../modal/Modal.css";
+import profileImg from "../../assests/img/Rectangle (2).png";
 
-const ProfileInfo = ({ closeModal }) => {
+const Addemployeepopup = ({ closeModal }) => {
   const initialValues = {
     fullName: "",
     employeeID: "",
@@ -78,7 +78,7 @@ const ProfileInfo = ({ closeModal }) => {
           <div className="row sticky-top overflow-hidden mb-2 pb-2 bg-white">
             <div className="col-11 text-end">
               <p className="h3medium text-center ps-5">
-                Profile Information
+                Add Employee
               </p>
             </div>
             <div className="col-1 text-end sticky overflow-hidden mb-2 pb-2 bg-white">
@@ -303,5 +303,5 @@ const ProfileInfo = ({ closeModal }) => {
     </>
   );
 };
-export default ProfileInfo;
+export default Addemployeepopup;
 

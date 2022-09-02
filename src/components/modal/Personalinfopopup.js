@@ -3,7 +3,7 @@ import { Modal } from 'react-bootstrap';
 import "./Personalpopupinfo.css"
 import { MdCancel } from "react-icons/md"
 const PersonalInfo = ({ closeModal }) => {
-    const initialValues = {uan : '', esci : '', phone : '', religion: '', aadhar: '', pancard : ''};
+    const initialValues = {uan : '', esci : '', phone : '', religion: '', aadhar: '', pancard : '', religion: ''};
     const [formValues, setFormValues] = useState(initialValues);
     const [formErrors, setFormErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
@@ -57,6 +57,8 @@ const PersonalInfo = ({ closeModal }) => {
             errors.pancard = "Pancard number is requried!"
         } else if(!pan.test(values.pancard)){
             errors.pancard = "Pancard number is incorrect!";
+        }if(!values.religion){
+            errors.religion = "Religion is required!"
         }
         return errors;
     }
@@ -180,8 +182,11 @@ const PersonalInfo = ({ closeModal }) => {
                                                         aria-label="Username"
                                                         aria-describedby="basic-addon1"
                                                         name="religion"
+                                                        value={formValues.religion}
+                                                        onChange={handleChange}
                                                     />
                                                 </div>
+                                                <span className='text-danger'>{formErrors.religion}</span>
                                             </div>
                                             <div class="w-100"></div>
                                             <div className="col m-2">
