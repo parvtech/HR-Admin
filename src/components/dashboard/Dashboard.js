@@ -5,7 +5,6 @@ import { GoPlus } from 'react-icons/go'
 const Dashboard = () => {
 
   return (
-<<<<<<< HEAD
     <>
       <div className='container-fluid'>
         <div className='row b3book align-item-center pt-4'>
