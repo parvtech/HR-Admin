@@ -3,25 +3,27 @@ import "./Employee.css"
 import Svg from '../../assests/img/Group.svg'
 import axios from 'axios'
 import { useNavigate, } from 'react-router-dom'
-import { GoAlert, GoPlus } from 'react-icons/go'
-import Rectangle from '../../assests/img/Rectangle.png'
+import { GoPlus } from 'react-icons/go'
 import Addemployeepopup from '../modal/Addemployeepopup'
+import InfiniteScroll from "react-infinite-scroll-component"
 export default function Employee() {
 
   const [addclick, setAddClick] = useState(false);
-
-
-  const [employeedetail, setEmployeedetail] = useState([]);
-  const [image, setImage] = useState(null)
+  const [employeeList, setEmployeeList] = useState([]);
+  const [pagination, setPagination] = useState({ size: 12, page: 1, hasMore: true })
   let navigate = useNavigate()
   useEffect(() => {
     getEmployeList()
   }, []);
 
 
-  // fetch api
+  /*
+  Get Employee List
+*/
   const getEmployeList = () => {
-    let url = process.env.REACT_APP_BASEURL + "employee/"
+    let pageNo = Math.ceil(employeeList.length / pagination.size) + 1
+    const queryParam = `?page=${pageNo}&size=${pagination.size}`
+    let url = process.env.REACT_APP_BASEURL + 'employee/' + queryParam
     const config = {
       headers: {
         "Access-Control-Allow-Origin": "*",
@@ -31,15 +33,21 @@ export default function Employee() {
     };
     axios.get(url, config)
       .then(res => {
-        setEmployeedetail(res.data.data)
+        const apiRes = res?.data?.data
+        const margeData = [...employeeList, ...apiRes]
+        if (apiRes.length === 0) {
+          setPagination({ hasMore: false })
+        }
+        setEmployeeList(margeData)
       }
       ).catch(err => {
 
       })
   }
-  // onclick function
+  /*
+    onclick Employee and go employe details
+  */
   const profileDetail = (public_id) => {
-    console.log(public_id)
     navigate(`/profile/${public_id}`)
 
   }
@@ -76,34 +84,46 @@ export default function Employee() {
       </div>
 
       <div className='container'>
-        <div className='row'>
-          {
-            employeedetail.length > 0 ? employeedetail.map((item) => (
+        <InfiniteScroll
+          dataLength={employeeList.length}
+          next={getEmployeList}
+          hasMore={pagination.hasMore}
+          loader={<p style={{ textAlign: 'center' }}>
+            <b>Loading...</b>
+          </p>}
+          endMessage={
+            <p style={{ textAlign: 'center' }}>
+              <b>Yay! You have seen it all Employees</b>
+            </p>
+          }
+        >
+          <div className='row'>
+            {
+              employeeList?.length > 0 ? employeeList.map((item) => (
 
-              <div key={item.public_id} onClick={() => profileDetail(item.public_id)} className='col-sm-6 col-md-3 mt-4 d-flex justify-content-center'>
-                <div className="card " style={{ width: "19.4rem" }}>
-                  <div className="text-center  ">
-                    <div className="text-end me-2 pe-2 pt-2">
-                      <img alt='' src={Svg} />
+                <div key={item.public_id} onClick={() => profileDetail(item.public_id)} className='col-sm-6 col-md-3 mt-4 d-flex justify-content-center'>
+                  <div className="card " style={{ width: "19.4rem" }}>
+                    <div className="text-center  ">
+                      <div className="text-end me-2 pe-2 pt-2">
+                        <img alt='' src={Svg} />
+                      </div>
+                      {/* <img alt='' src={Rectangle} style={{ width: "70px" }} /> */}
+                      {(item.avatar === '' || item.avatar == null) ?
+                        <img src={require("../../assests/avatar.png")} alt="logo" width="70px" height="60px" className='mt-2 mr-2' style={{ borderRadius: "50%" }}></img> :
+                        <img src={item.avatar} alt="logo" width="70px" height="60px" className='mt-3 mr-1' style={{ borderRadius: "50%" }}></img>
+                      }
+
                     </div>
-                    {/* <img alt='' src={Rectangle} style={{ width: "70px" }} /> */}
-                    {(item.avatar == '' || item.avatar == null) ?
-                      <img src={require("../../assests/avatar.png")} alt="logo" width="70px" height="60px" className='mt-2 mr-2' style={{ borderRadius: "50%" }}></img> :
-                      <img src={item.avatar} alt="logo" width="70px" height="60px" className='mt-3 mr-1' style={{ borderRadius: "50%" }}></img>
-                    }
-
-                  </div>
-                  <div className="card-body">
-                    <p className="card-text text-center mb-0 card-img-head-width text-content b2medium">{item.fullname ? item.fullname : 'N/A'}</p>
-                    <p className="card-text text-center card-img-subhead text-gry ">{item.designation ? item.designation : 'N/A'}</p>
+                    <div className="card-body">
+                      <p className="card-text text-center mb-0 card-img-head-width text-content b2medium">{item.fullname ? item.fullname : 'N/A'}</p>
+                      <p className="card-text text-center card-img-subhead text-gry ">{item.designation ? item.designation : 'N/A'}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            )) : <><div > <div className='d-flex justify-content-center align-items-center mt-5'><span className='fs-1'>No Record Found</span></div> </div> </>
-          }
-
-        </div>
-
+              )) : <><div > <div className='d-flex justify-content-center align-items-center mt-5'><span className='fs-1'>No Record Found</span></div> </div> </>
+            }
+          </div>
+        </InfiniteScroll>
       </div>
     </div>
   )
