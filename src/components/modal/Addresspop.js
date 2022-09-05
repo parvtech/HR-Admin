@@ -8,6 +8,11 @@ const Addresspop = ({ closeModal }) => {
     landMark: '',
     city: '',
     state: '',
+    pflatno: '',
+    ppremisesName: '',
+    plandMark: '',
+    pcity: '',
+    pstate: '',
   };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
@@ -49,6 +54,21 @@ const Addresspop = ({ closeModal }) => {
     }
     if (!values.state) {
       errors.state = "Please fill the state field!"
+    }
+    if (!values.pflatno) {
+      errors.pflatno = "Please fill the flat-number!"
+    }
+    if (!values.ppremisesName) {
+      errors.ppremisesName = "Please fill the premises name!"
+    }
+    if (!values.plandMark) {
+      errors.plandMark = "Please fiil the landmark field!"
+    }
+    if (!values.pcity) {
+      errors.pcity = "Please fill the city field!"
+    }
+    if (!values.pstate) {
+      errors.pstate = "Please fill the state field!"
     }
     return errors;
   };
@@ -135,135 +155,8 @@ const Addresspop = ({ closeModal }) => {
                                 <input
                                   type="text"
                                   class="form-control ps-1"
-                                  name="landmark"
+                                  name="landMark"
                                   value={formValues.landMark}
-                                  onChange={handleChange}
-                                  placeholder="Landmark"
-                                  aria-label="Username"
-                                  aria-describedby="basic-addon1"
-                                />
-                              </div>
-                              <span className="text-danger">
-                                {formErrors.landMark}
-                              </span>
-                            </div>
-                            <div className="col m-1">
-                              <lable className="form-lable small mb-1">
-                                City<span className="text-danger">*</span>
-                              </lable>
-                              <div class="input-group mb-1">
-                                <input
-                                  type="text"
-                                  class="form-control ps-1"
-                                  name="city"
-                                  value={formValues.city}
-                                  onChange={handleChange}
-                                  placeholder="City"
-                                  aria-label="Username"
-                                  aria-describedby="basic-addon1"
-                                />
-                              </div>
-                              <span className="text-danger">
-                                {formErrors.city}
-                              </span>
-                            </div>
-                            <div class="w-100"></div>
-                            <div className="col m-1">
-                              <lable className="form-lable small mb-1">
-                                Pincoad<span className="text-danger">*</span>
-                              </lable>
-                              <select
-                                class="form-select ps-1"
-                                aria-label="Default select example"
-                              >
-                                <option selected>Pincoad</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                              </select>
-                            </div>
-                            <div className="col m-1">
-                              <lable className="form-lable small mb-1">
-                                State
-                                <span className="text-danger">*</span>
-                              </lable>
-                              <div class="input-group mb-1">
-                                <input
-                                  type="text"
-                                  class="form-control ps-1"
-                                  name=" state"
-                                  value={formValues.state}
-                                  onChange={handleChange}
-                                  placeholder=" State"
-                                  aria-label="Username"
-                                  aria-describedby="basic-addon1"
-                                />
-                              </div>
-                              <span className="text-danger">
-                                {formErrors.state}
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="card mt-4">
-                          <p className="b1medium mb-0 mt-2">
-                            Permanent Address
-                          </p>
-                          <div className="row mb-2">
-                            <div className="col m-1">
-                              <lable className="form-lable small mb-1">
-                                Flat/Door No
-                                <span className="text-danger">*</span>
-                              </lable>
-                              <div class="input-group mb-1">
-                                <input
-                                  type="text"
-                                  class="form-control ps-1"
-                                  name="flatno"
-                                  value={formValues.flatno}
-                                  onChange={handleChange}
-                                  placeholder="Flat/Door No"
-                                  aria-label="Username"
-                                  aria-describedby="basic-addon1"
-                                />
-                              </div>
-                              <span className="text-danger">
-                                {formErrors.flatno}
-                              </span>
-                            </div>
-                            <div className="col m-1">
-                              <lable className="form-lable small mb-1">
-                                Permises Name
-                                <span className="text-danger">*</span>
-                              </lable>
-                              <div class="input-group mb-1">
-                                <input
-                                  type="text"
-                                  class="form-control ps-1"
-                                  name="premisesName"
-                                  value={formValues.premisesName}
-                                  onChange={handleChange}
-                                  placeholder="Permises Name"
-                                  aria-label="Username"
-                                  aria-describedby="basic-addon1"
-                                />
-                              </div>
-                              <span className="text-danger">
-                                {formErrors.premisesName}
-                              </span>
-                            </div>
-                            <div class="w-100"></div>
-                            <div className="col m-1">
-                              <lable className="form-lable small mb-1">
-                                Landmark<span className="text-danger">*</span>
-                              </lable>
-                              <div class="input-group mb-1">
-                                <input
-                                  type="text"
-                                  class="form-control ps-1"
-                                  name="landmark"
-                                  value={formValues.landmark}
                                   onChange={handleChange}
                                   placeholder="Landmark"
                                   aria-label="Username"
@@ -321,13 +214,140 @@ const Addresspop = ({ closeModal }) => {
                                   name="state"
                                   value={formValues.state}
                                   onChange={handleChange}
-                                  placeholder=" State"
+                                  placeholder="State"
                                   aria-label="Username"
                                   aria-describedby="basic-addon1"
                                 />
                               </div>
                               <span className="text-danger">
                                 {formErrors.state}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="card mt-4">
+                          <p className="b1medium mb-0 mt-2">
+                            Permanent Address
+                          </p>
+                          <div className="row mb-2">
+                            <div className="col m-1">
+                              <lable className="form-lable small mb-1">
+                                Flat/Door No
+                                <span className="text-danger">*</span>
+                              </lable>
+                              <div class="input-group mb-1">
+                                <input
+                                  type="text"
+                                  class="form-control ps-1"
+                                  name="pflatno"
+                                  value={formValues.pflatno}
+                                  onChange={handleChange}
+                                  placeholder="Flat/Door No"
+                                  aria-label="Username"
+                                  aria-describedby="basic-addon1"
+                                />
+                              </div>
+                              <span className="text-danger">
+                                {formErrors.pflatno}
+                              </span>
+                            </div>
+                            <div className="col m-1">
+                              <lable className="form-lable small mb-1">
+                                Permises Name
+                                <span className="text-danger">*</span>
+                              </lable>
+                              <div class="input-group mb-1">
+                                <input
+                                  type="text"
+                                  class="form-control ps-1"
+                                  name="ppremisesName"
+                                  value={formValues.ppremisesName}
+                                  onChange={handleChange}
+                                  placeholder="Permises Name"
+                                  aria-label="Username"
+                                  aria-describedby="basic-addon1"
+                                />
+                              </div>
+                              <span className="text-danger">
+                                {formErrors.ppremisesName}
+                              </span>
+                            </div>
+                            <div class="w-100"></div>
+                            <div className="col m-1">
+                              <lable className="form-lable small mb-1">
+                                Landmark<span className="text-danger">*</span>
+                              </lable>
+                              <div class="input-group mb-1">
+                                <input
+                                  type="text"
+                                  class="form-control ps-1"
+                                  name="plandMark"
+                                  value={formValues.plandMark}
+                                  onChange={handleChange}
+                                  placeholder="Landmark"
+                                  aria-label="Username"
+                                  aria-describedby="basic-addon1"
+                                />
+                              </div>
+                              <span className="text-danger">
+                                {formErrors.plandMark}
+                              </span>
+                            </div>
+                            <div className="col m-1">
+                              <lable className="form-lable small mb-1">
+                                City<span className="text-danger">*</span>
+                              </lable>
+                              <div class="input-group mb-1">
+                                <input
+                                  type="text"
+                                  class="form-control ps-1"
+                                  name="pcity"
+                                  value={formValues.pcity}
+                                  onChange={handleChange}
+                                  placeholder="City"
+                                  aria-label="Username"
+                                  aria-describedby="basic-addon1"
+                                />
+                              </div>
+                              <span className="text-danger">
+                                {formErrors.pcity}
+                              </span>
+                            </div>
+                            <div class="w-100"></div>
+                            <div className="col m-1">
+                              <lable className="form-lable small mb-1">
+                                Pincoad<span className="text-danger">*</span>
+                              </lable>
+                              <select
+                                class="form-select ps-1"
+                                aria-label="Default select example"
+                              >
+                                <option selected>Pincoad</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                              </select>
+                            </div>
+                            <div className="col m-1">
+                              <lable className="form-lable small mb-1">
+                                State
+                                <span className="text-danger">*</span>
+                              </lable>
+                              <div class="input-group mb-1">
+                                <input
+                                  type="text"
+                                  class="form-control ps-1"
+                                  name="pstate"
+                                  value={formValues.pstate}
+                                  onChange={handleChange}
+                                  placeholder="State"
+                                  aria-label="Username"
+                                  aria-describedby="basic-addon1"
+                                />
+                              </div>
+                              <span className="text-danger">
+                                {formErrors.pstate}
                               </span>
                             </div>
                           </div>
