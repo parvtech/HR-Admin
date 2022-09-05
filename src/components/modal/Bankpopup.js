@@ -3,10 +3,67 @@ import { Modal } from "react-bootstrap";
 import { MdCancel } from "react-icons/md";
 // import './modal/Modal.css';
 const Bankpopup = ({ closeModal }) => {
+  const initialValues = {
+    employeeName: '',
+    bankName: '',
+    accountNum: '',
+    ifsc: '',
+    address: ''
+  }
+  const [formValues, setFormValues] = useState(initialValues);
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
+
+  const handleChange = (event) =>{
+    const {name, value}  = event.target;
+    setFormValues({
+      ...formValues,
+      [name] : value,
+    });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault(); 
+    setFormErrors(validate(formValues));
+    setIsSubmit(true);
+  };
+
+  useEffect(() => {
+    if(Object.keys(formErrors).length === 0 && isSubmit){
+      console.log(formValues);
+    }
+  }, [formErrors]);
+
+  const validate = (values) => {
+    const errors = {};
+    const accNumCheck  = /^\d{9,18}$/;
+    const ifcsCheck = /^[A-Z]{4}0[A-Z0-9]{6}$/;
+    if(!values.employeeName){
+      errors.employeeName = "Please fill the employee name!"
+    }
+    if(!values.bankName){
+      errors.bankName = "Please fill the bank name!";
+    }
+    if(!values.accountNum){
+      errors.accountNum = "Please fill the account number!";
+    } else if(!accNumCheck.test(values.accountNum)) {
+      errors.accountNum = "Incorrect account number!";
+    }
+    if(!values.ifsc){
+      errors.ifsc = "Please fill the IFSC code!";
+    } else if(!ifcsCheck.test(values.ifsc)){
+      errors.ifsc = "Incorrect IFSC code.";
+    }
+    if(!values.address){
+      errors.address = "Please fill the address field."
+    }
+    return errors;
+  }
+
   return (
     <>
       <Modal centered show={true} size="lg">
-        <form className="">
+        <form onSubmit={handleSubmit}>
           <div className=" mt-1 bg-white sticky-top overflow-hidden me-1 modal-content-header">
             <div className="text-end mt-0 my-0">
               <span>
@@ -58,8 +115,14 @@ const Bankpopup = ({ closeModal }) => {
                               placeholder="Name as in Bank"
                               aria-label="Username"
                               aria-describedby="basic-addon1"
+                              name="employeeName"
+                              onChange={handleChange}
+                              value={formValues.employeeName}
                             />
                           </div>
+                          <span className="text-danger">
+                                {formErrors.employeeName}
+                          </span>
                         </div>
                         <div className="col m-1">
                           <lable className="form-lable small mb-1">
@@ -72,8 +135,14 @@ const Bankpopup = ({ closeModal }) => {
                               placeholder="Bank Name"
                               aria-label="Username"
                               aria-describedby="basic-addon1"
+                              name="bankName"
+                              onChange={handleChange}
+                              value={formValues.bankName}
                             />
                           </div>
+                          <span className="text-danger">
+                                {formErrors.bankName}
+                          </span>
                         </div>
                         <div class="w-100"></div>
 
@@ -89,8 +158,14 @@ const Bankpopup = ({ closeModal }) => {
                               placeholder="Bank Account No"
                               aria-label="Username"
                               aria-describedby="basic-addon1"
+                              name="accountNum"
+                              onChange={handleChange}
+                              value={formValues.accountNum}
                             />
                           </div>
+                          <span className="text-danger">
+                                {formErrors.accountNum}
+                          </span>
                         </div>
                         <div className="col m-1">
                           <lable className="form-lable small mb-1">
@@ -103,8 +178,14 @@ const Bankpopup = ({ closeModal }) => {
                               placeholder="IFSC Code"
                               aria-label="Username"
                               aria-describedby="basic-addon1"
+                              name="ifsc"
+                              onChange={handleChange}
+                              value={formValues.ifsc}
                             />
                           </div>
+                          <span className="text-danger">
+                                {formErrors.ifsc}
+                          </span>
                         </div>
                         <div class="w-100"></div>
 
@@ -118,8 +199,14 @@ const Bankpopup = ({ closeModal }) => {
                             placeholder="Branch Address"
                             aria-label="Username"
                             aria-describedby="basic-addon1"
+                            name="address"
+                            onChange={handleChange}
+                            value={formValues.address}
                           />
                         </div>
+                        <span className="text-danger">
+                                {formErrors.address}
+                          </span>
                       </div>
                     </div>
                   </div>
