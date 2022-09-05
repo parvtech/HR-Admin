@@ -68,40 +68,41 @@ const ProfileInfo = ({ closeModal }) => {
   return (
     <>
       <Modal
-        className=" pb-0 d-flex justify-content-between self-align-start rounded-pill"
+        className="d-flex justify-content-between self-align-start rounded-2"
         show={true}
+        size="lg"
       >
-        <Modal.Body
-          className="bg-white rounded "
-          style={{ width: "700px", height: "600px" }}
-        >
-          <div className="row sticky-top overflow-hidden mb-2 pb-2 bg-white">
-            <div className="col-11 text-end">
-              <p className="h3medium text-center ps-5">
-                Profile Information
-              </p>
-            </div>
-            <div className="col-1 text-end sticky overflow-hidden mb-2 pb-2 bg-white">
-              <span>
-                <div className="bg-white" onClick={() => closeModal(false)}>
-                  <MdCancel></MdCancel>
-                </div>
-              </span>
-            </div>
-            <div>
-            <img
-                alt=""
-                src={profileImg}
-                style={{ width: "100px", height: "100px" }}
-                className="mt mx-auto d-flex justify-content-center"
-              /> 
-            </div>            
+        <div className="mt-0 w-100 sticky-top overflow-hidden mt-1 bg-white modal-content-header">
+          <div className="text-end mt-0 my-0">
+            <span>
+              <div
+                className="rounded-circle mt-0 pe-3 pt-1"
+                style={{ cursor: "pointer" }}
+                onClick={() => closeModal(false)}
+              >
+                <MdCancel></MdCancel>
+              </div>
+            </span>
+            <p className="h3medium mt-0 my-0 text-center ">
+              {" "}
+              Profile Information
+            </p>
           </div>
+        </div>
+        <Modal.Body className="bg-white " style={{ height: "480px" }}>
           <div className="container mt-0">
             <div className="row">
               <div className="mt-0"></div>
               <div className="col-12 mt-0 d-flex justify-content-center">
                 <div className="mt-0 pt-0">
+                  <div className="mt-1">
+                    <img
+                      alt=""
+                      src={profileImg}
+                      style={{ width: "100px", height: "100px" }}
+                      className="mx-auto d-flex justify-content-center"
+                    />
+                  </div>
                   <form onSubmit={handleSubmit} className="">
                     <div className="container position-relative  ">
                       <div className="row mt-4">
@@ -281,24 +282,25 @@ const ProfileInfo = ({ closeModal }) => {
                         </div>
                       </div>
                     </div>
-                        <div className="sticky-bottom bg-white p-3 ">
-                            <div className="row">
-                                <div className="col text-center mt-2 pt-2">
-                                    <button
-                                        type="submit"
-                                        className="btn rounded-pill px-5 text-white"
-                                        style={{ background: "#FF9B44", border: "#FF9B44" }}>
-                                            Submit
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
                   </form>
                 </div>
               </div>
             </div>
           </div>
         </Modal.Body>
+        <div className="container sticky-bottom mb-1 pb-2 bg-white modal-content-footer">
+          <div className="row">
+            <div className="col text-center ">
+              <button
+                type="submit"
+                class="btn rounded-pill px-5 text-white"
+                style={{ background: "#FF9B44", border: "#FF9B44" }}
+              >
+                Add
+              </button>
+            </div>
+          </div>
+        </div>
       </Modal>
     </>
   );
