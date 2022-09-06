@@ -84,7 +84,8 @@ const Addresspop = ({ closeModal }) => {
             <div className="text-end mt-0 my-0">
               <span>
                 <div
-                  className="rounded-circle mt-0 pe-1"
+                  className="rounded-circle mt-0 pe-2"
+                  style={{ cursor: "pointer" }}
                   onClick={() => closeModal(false)}
                 >
                   <MdCancel></MdCancel>
@@ -353,12 +354,10 @@ const Addresspop = ({ closeModal }) => {
                         </div>
                       </div>
                     </div>
-
                   </div>
                 </div>
               </div>
             </div>
-
           </Modal.Body>
           <div className="container sticky-bottom mb-1 pb-2 bg-white modal-content-footer">
             <div className="row">

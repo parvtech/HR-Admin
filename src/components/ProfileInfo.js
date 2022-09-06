@@ -72,6 +72,7 @@ const ProfileInfo = ({ closeModal }) => {
         show={true}
         size="lg"
       >
+        <form onSubmit={handleSubmit} className="">
         <div className="mt-0 w-100 sticky-top overflow-hidden mt-1 bg-white modal-content-header">
           <div className="text-end mt-0 my-0">
             <span>
@@ -103,7 +104,6 @@ const ProfileInfo = ({ closeModal }) => {
                       className="mx-auto d-flex justify-content-center"
                     />
                   </div>
-                  <form onSubmit={handleSubmit} className="">
                     <div className="container position-relative  ">
                       <div className="row mt-4">
                         <div className="col m-1">
@@ -282,7 +282,6 @@ const ProfileInfo = ({ closeModal }) => {
                         </div>
                       </div>
                     </div>
-                  </form>
                 </div>
               </div>
             </div>
@@ -295,12 +294,13 @@ const ProfileInfo = ({ closeModal }) => {
                 type="submit"
                 class="btn rounded-pill px-5 text-white"
                 style={{ background: "#FF9B44", border: "#FF9B44" }}
-              >
+                >
                 Add
               </button>
             </div>
           </div>
         </div>
+      </form>
       </Modal>
     </>
   );
