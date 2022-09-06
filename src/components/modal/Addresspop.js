@@ -84,7 +84,8 @@ const Addresspop = ({ closeModal }) => {
             <div className="text-end mt-0 my-0">
               <span>
                 <div
-                  className="rounded-circle mt-0 pe-1"
+                  className="rounded-circle mt-0 pe-2"
+                  style={{ cursor: "pointer" }}
                   onClick={() => closeModal(false)}
                 >
                   <MdCancel></MdCancel>
@@ -93,7 +94,6 @@ const Addresspop = ({ closeModal }) => {
               <p className="h3medium mt-0 my-0 text-center ">Address</p>
             </div>
           </div>
-
           <Modal.Body className="bg-white rounded " style={{ height: "450px" }}>
             <div className="container mt-0 ">
               <div className="row">
@@ -190,13 +190,13 @@ const Addresspop = ({ closeModal }) => {
                             <div class="w-100"></div>
                             <div className="col m-1">
                               <lable className="form-lable small mb-1">
-                                Pincoad<span className="text-danger">*</span>
+                                Pincode<span className="text-danger">*</span>
                               </lable>
                               <select
                                 class="form-select ps-1"
                                 aria-label="Default select example"
                               >
-                                <option selected>Pincoad</option>
+                                <option selected>Pincode</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
@@ -317,13 +317,13 @@ const Addresspop = ({ closeModal }) => {
                             <div class="w-100"></div>
                             <div className="col m-1">
                               <lable className="form-lable small mb-1">
-                                Pincoad<span className="text-danger">*</span>
+                                Pincode<span className="text-danger">*</span>
                               </lable>
                               <select
                                 class="form-select ps-1"
                                 aria-label="Default select example"
                               >
-                                <option selected>Pincoad</option>
+                                <option selected>Pincode</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
@@ -354,12 +354,10 @@ const Addresspop = ({ closeModal }) => {
                         </div>
                       </div>
                     </div>
-
                   </div>
                 </div>
               </div>
             </div>
-
           </Modal.Body>
           <div className="container sticky-bottom mb-1 pb-2 bg-white modal-content-footer">
             <div className="row">
