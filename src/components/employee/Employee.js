@@ -84,46 +84,51 @@ export default function Employee() {
       </div>
 
       <div className='container'>
-        <InfiniteScroll
-          dataLength={employeeList.length}
-          next={getEmployeList}
-          hasMore={pagination.hasMore}
-          loader={<p style={{ textAlign: 'center' }}>
-            <b>Loading...</b>
-          </p>}
-          endMessage={
-            <p style={{ textAlign: 'center' }}>
-              <b>Yay! You have seen it all Employees</b>
-            </p>
-          }
-        >
-          <div className='row'>
-            {
-              employeeList?.length > 0 ? employeeList.map((item) => (
+        {employeeList?.length > 0 &&
+          <InfiniteScroll
+            dataLength={employeeList.length}
+            next={getEmployeList}
+            hasMore={pagination.hasMore}
+            loader={<p style={{ textAlign: 'center' }}>
+              <b>Loading...</b>
+            </p>}
+            endMessage={
+              <p style={{ textAlign: 'center' }}>
+                <b>Yay! You have seen it all Employees</b>
+              </p>
+            }
+          >
+            <div className='row'>
+              {
+                employeeList.map((item) => (
 
-                <div key={item.public_id} onClick={() => profileDetail(item.public_id)} className='col-sm-6 col-md-3 mt-4 d-flex justify-content-center'>
-                  <div className="card " style={{ width: "19.4rem" }}>
-                    <div className="text-center  ">
-                      <div className="text-end me-2 pe-2 pt-2">
-                        <img alt='' src={Svg} />
+                  <div key={item.public_id} onClick={() => profileDetail(item.public_id)} className='col-sm-6 col-md-3 mt-4 d-flex justify-content-center'>
+                    <div className="card " style={{ width: "19.4rem" }}>
+                      <div className="text-center  ">
+                        <div className="text-end me-2 pe-2 pt-2">
+                          <img alt='' src={Svg} />
+                        </div>
+                        {/* <img alt='' src={Rectangle} style={{ width: "70px" }} /> */}
+                        {(item.avatar === '' || item.avatar == null) ?
+                          <img src={require("../../assests/avatar.png")} alt="logo" width="70px" height="60px" className='mt-2 mr-2' style={{ borderRadius: "50%" }}></img> :
+                          <img src={item.avatar} alt="logo" width="70px" height="60px" className='mt-3 mr-1' style={{ borderRadius: "50%" }}></img>
+                        }
+
                       </div>
-                      {/* <img alt='' src={Rectangle} style={{ width: "70px" }} /> */}
-                      {(item.avatar === '' || item.avatar == null) ?
-                        <img src={require("../../assests/avatar.png")} alt="logo" width="70px" height="60px" className='mt-2 mr-2' style={{ borderRadius: "50%" }}></img> :
-                        <img src={item.avatar} alt="logo" width="70px" height="60px" className='mt-3 mr-1' style={{ borderRadius: "50%" }}></img>
-                      }
-
-                    </div>
-                    <div className="card-body">
-                      <p className="card-text text-center mb-0 card-img-head-width text-content b2medium">{item.fullname ? item.fullname : 'N/A'}</p>
-                      <p className="card-text text-center card-img-subhead text-gry ">{item.designation ? item.designation : 'N/A'}</p>
+                      <div className="card-body">
+                        <p className="card-text text-center mb-0 card-img-head-width text-content b2medium">{item.fullname ? item.fullname : 'N/A'}</p>
+                        <p className="card-text text-center card-img-subhead text-gry ">{item.designation ? item.designation : 'N/A'}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              )) : <><div > <div className='d-flex justify-content-center align-items-center mt-5'><span className='fs-1'>No Record Found</span></div> </div> </>
-            }
-          </div>
-        </InfiniteScroll>
+                ))
+              }
+            </div>
+          </InfiniteScroll>
+        }
+        {employeeList?.length === 0 &&
+          <><div className='row' > <div className='d-flex justify-content-center align-items-center mt-5'><span className='fs-1'>No Record Found</span></div> </div> </>
+        }
       </div>
     </div>
   )
